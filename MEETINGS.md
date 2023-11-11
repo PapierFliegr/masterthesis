@@ -27,15 +27,34 @@ Look up Catenoid but these only apply in $ \mathbb{R}^3 $.
 See paper Dipierro-Onoue-Valtinoci.
 
 One possible direction of my thesis:
-First think about problemsetting and then Minimizer shapes
+First think about problemsetting and then Minimizer shapes.
 
 Maybe not consider whole halfplanes, but two cylinders with radius $ R $ and let $ R $ go
 to $ \infty $ (current research of Onoue).
-Behavior of the minimizer as  $ R $ go to $ \infty $.
+Behavior of the minimizer as $ R $ go to $ \infty $.
 
 Template of Thesis from TUM.
 
 ## 21.11.23 (Second Meeting)
 
 ### Questions
-1. 
+
+1. Q.02: Why choose for $ \Omega_{k+1} = \{ u(x,\varepsilon) > \alpha \} $, $ \alpha = 0 $
+   (which increases $ \Omega_{k+1} $) and not $ \alpha = 1/2 $ which correspondences to
+   motion by mean curvature, cf. Merriman etal 1992.
+
+   Answer: 
+
+2. Q.03: How does BM differ from Levy process, s.t. long-range correlation is considered
+   in the later but not in the former?
+
+   Answer:
+
+3. Q.07: Why are we looking at local minimizer again? We want nonlocal minimzers?
+
+   Answer: 
+
+4. Q.08: Minimzier in what sense? If $ E_n \setminus B_1 = E_0 $, then $ (E_n \triangle
+   E) \setminus B_1 = \emptyset $ (Don't understand rest of proof Thm 3.3)
+
+   Answer: 
