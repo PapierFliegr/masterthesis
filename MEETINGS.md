@@ -43,18 +43,43 @@ Template of Thesis from TUM.
    (which increases $ \Omega_{k+1} $) and not $ \alpha = 1/2 $ which correspondences to
    motion by mean curvature, cf. Merriman etal 1992.
 
-   Answer: 
+   Answer: Probably because the initial data is $ u_k = ind_\Omega - ind_{C\Omega} $
 
 2. Q.03: How does BM differ from Levy process, s.t. long-range correlation is considered
-   in the later but not in the former?
+   in the later but not in the former? BM is as-cts, which LEvy-Proceses are not in
+   general
 
    Answer:
 
-3. Q.07: Why are we looking at local minimizer again? We want nonlocal minimzers?
+3. Q.07: Why are we looking at local minimizer again? We want nonlocal minimizers?
 
-   Answer: 
+   Answer: Local in this case doesn't mean "local minimizer", but we restrict our setting
+   to a bounded set $ \Omega $ s.t. everything is still in $ \Omega $. 
+   "Nonlocal Minimizer" means behavior of Boundary considering the whole boundary. 
+   I confused $ E_0 $ with $ \Omega $.
 
-4. Q.08: Minimzier in what sense? If $ E_n \setminus B_1 = E_0 $, then $ (E_n \triangle
+4. Q.08: Minimizer in what sense? If $ E_n \setminus B_1 = E_0 $, then $ (E_n \triangle
    E) \setminus B_1 = \emptyset $ (Don't understand rest of proof Thm 3.3)
 
    Answer: 
+
+5. Q.09: But only for $ r>0 $ big enough? Else $ CE \cap B_r(x) $ may be empty?
+
+   Answer: 
+
+6. Q.10: Complete proof of theorem 5.1... and Section 5
+
+   Answer:
+
+7. Q.11: Why are we able to use lemma 3.1?
+   
+   Answer:
+
+
+
+### Material
+- Claudia Bucur, Luca Lombardini, and Enrico Valdinoci, Complete stickiness of nonlocal
+  minimal surfaces for small values of the fractional parameter (MR3926519) 
+- Matteo Cozzi, On the variation of the fractional mean curvature under the effect of C
+  1,α perturbations (MR3393254)
+- Standardliterature for theory of minimal surfaces (local)
