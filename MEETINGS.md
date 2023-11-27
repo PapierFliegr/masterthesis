@@ -35,7 +35,10 @@ Behavior of the minimizer as $ R $ go to $ \infty $.
 
 Template of Thesis from TUM.
 
+
+
 ## 21.11.23 (Second Meeting)
+
 
 ### Questions
 
@@ -49,7 +52,10 @@ Template of Thesis from TUM.
    in the later but not in the former? BM is as-cts, which LEvy-Proceses are not in
    general
 
-   Answer:
+   Answer: The usual Laplacian $ \Delta u $ is locally, but the fractional Laplacian $
+   (-\Delta) ^{\frac{s}{2}} u(x) := p.v. \int_{\mathbb{R}^n}
+   \frac{u(x)-u(y)}{\abs{x-y}^{d+s}} 
+   Ask Marco some more on MBO-Scheme 
 
 3. Q.07: Why are we looking at local minimizer again? We want nonlocal minimizers?
 
@@ -61,20 +67,20 @@ Template of Thesis from TUM.
 4. Q.08: Minimizer in what sense? If $ E_n \setminus B_1 = E_0 $, then $ (E_n \triangle
    E) \setminus B_1 = \emptyset $ (Don't understand rest of proof Thm 3.3)
 
-   Answer: 
+   Answer: The set $ E_0 $ depends on $ n $. The minimality doesn't specify the set
+   outside of $ \Omega $ or $ B_1 $ in our case.
 
 5. Q.09: But only for $ r>0 $ big enough? Else $ CE \cap B_r(x) $ may be empty?
 
-   Answer: 
+   Answer: Comes from the second inequality for minimizers (2.2)
 
 6. Q.10: Complete proof of theorem 5.1... and Section 5
 
-   Answer:
+   Answer: See notes
 
 7. Q.11: Why are we able to use lemma 3.1?
    
-   Answer:
-
+   Answer: Take M very small
 
 
 ### Material
@@ -82,4 +88,14 @@ Template of Thesis from TUM.
   minimal surfaces for small values of the fractional parameter (MR3926519) 
 - Matteo Cozzi, On the variation of the fractional mean curvature under the effect of C
   1,α perturbations (MR3393254)
-- Standardliterature for theory of minimal surfaces (local)
+- Standard literature for theory of minimal surfaces (local)
+
+
+
+## 05.12.23 (Third Meeting)
+
+
+### ToDo's
+- [ ] How to adress Prof. Cicalese/ Marco
+- [ ] Registration of thesis (fill out PDF)
+- [ ] Asking for PhD position
