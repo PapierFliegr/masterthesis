@@ -98,4 +98,8 @@ Template of Thesis from TUM.
 ### ToDo's
 - [ ] How to adress Prof. Cicalese/ Marco
 - [ ] Registration of thesis (fill out PDF)
-- [ ] Asking for PhD position
+- [ ] Asking for PhD position or Recommendation Letter
+- [ ] How to draw graphics/ figures (Recommendations?) (e.g. Inkscape, Tikz, Geogebra,...)
+
+### Idea
+See Notes from 30.11.23

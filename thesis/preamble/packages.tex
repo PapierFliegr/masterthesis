@@ -1,0 +1,36 @@
+\usepackage{showframe} % package to show writeable area
+
+% ----------------------------- general ---------------------------- %
+\usepackage{booktabs}% for more beautiful tables
+\usepackage{cleveref}% intelligent references
+\usepackage[autostyle=true]{csquotes} % automatische Anführungszeichen
+\usepackage{standalone}
+
+
+
+% ------------------------------ math ------------------------------ %
+\usepackage{diffcoeff}
+\usepackage{amsmath}
+
+
+
+% ------------------------ color & graphics ------------------------ %
+
+
+
+
+% --------------------------- literature --------------------------- %
+\usepackage[%
+    backend=bibtex, %, or `biber` on more up-to-date systems
+    sortcites, % sort automatically
+    sorting=nyt, % sort order
+    safeinputenc, % solves problems with unicode-formatted author names etc.
+    style=numeric,
+    hyperref=true, % provide clickable links
+    % maxnames=3, % shorten author list for more than 3 names
+    % url=false, % do not print URLs
+    % doi=false, % do not print DOIs
+    giveninits=true, % prints initials of first names
+    ]%
+{biblatex}
+\addbibresource{resources/literature.bib}

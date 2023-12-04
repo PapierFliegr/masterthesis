@@ -1,0 +1,34 @@
+% !TEX program = latexmk
+
+\documentclass{standalone}
+\input{settings.tex}
+
+
+\begin{document}
+\fbox{\begin{tikzpicture}[line cap = round,line join = round, > = triangle 45,x = 1cm,y =
+	1cm,scale=0.5
+	]
+	\begin{axis}[
+			x = 1cm,y = 1cm,
+			axis lines = middle,
+			xmin = -7.3094688221709,
+			xmax = 7.3094688221709,
+			ymin = -2.0000000000000004,
+			ymax = 8,
+			xtick = {-7,-6,...,7},
+			ytick = {-2,-1,...,8},
+			%xticklabels = \empty,
+			%yticklabels = \empty,
+			% axis line style = {draw = none},
+			% tick style = {draw = none}
+		]
+		\clip(-7.3094688221709,-2) rectangle (7.3094688221709,8);
+		\draw[line width = 2pt,color = qqwuqq,smooth,samples = 100,domain =
+		-7.3094688221709:7.3094688221709] plot(\x,{(\x)^(2)});
+		% \draw [brown] (current bounding box.south west) rectangle (current bounding
+		% box.north east);
+	\end{axis}
+
+\end{tikzpicture}}
+
+\end{document}
