@@ -7,7 +7,7 @@ english,% or `german`
 font=libertine, % use `libertine` font; alternatives: `helvet` / `palatino` / `times`
 math=newpxtx, % math font `newpxtx`; alternatives: `ams`, `pxtx`
 BCOR=5mm,% binding correction - adapt accordingly
-coverBCOR=11mm% binding correction for the cover - adapt accordingly
+coverBCOR=11mm % binding correction for the cover - adapt accordingly
 ]{tumbook}
 
 
@@ -16,7 +16,6 @@ coverBCOR=11mm% binding correction for the cover - adapt accordingly
 \input{preamble/setup.tex}
 \input{preamble/commands.tex}
 
-\input{graphs/settings.tex} % graph settings
 
 \begin{document}
 
@@ -29,7 +28,6 @@ coverBCOR=11mm% binding correction for the cover - adapt accordingly
 % --------------------------- mainmatter --------------------------- %
 \mainmatter{}
 \input{chapters/chapter01.tex}
-\input{chapters/chapter02.tex}
 
 % ---------------------------- appendix ---------------------------- %
 \appendix
@@ -37,8 +35,8 @@ coverBCOR=11mm% binding correction for the cover - adapt accordingly
 
 % --------------------------- backmatter --------------------------- %
 \backmatter{}
-\listoffigures% may be removed
-\listoftables% may be removed
+\listoffigures % may be removed
+\listoftables % may be removed
 \input{chapters/notcited.tex} % insert literature not cited
 \printbibliography{} % print bibliography
 

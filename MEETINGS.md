@@ -49,7 +49,7 @@ Template of Thesis from TUM.
    Answer: Probably because the initial data is $ u_k = ind_\Omega - ind_{C\Omega} $
 
 2. Q.03: How does BM differ from Levy process, s.t. long-range correlation is considered
-   in the later but not in the former? BM is as-cts, which LEvy-Proceses are not in
+   in the later but not in the former? BM is as-cts, which Levy-Proceses are not in
    general
 
    Answer: The usual Laplacian $ \Delta u $ is locally, but the fractional Laplacian $
@@ -96,10 +96,64 @@ Template of Thesis from TUM.
 
 
 ### ToDo's
-- [ ] How to adress Prof. Cicalese/ Marco
-- [ ] Registration of thesis (fill out PDF)
-- [ ] Asking for PhD position or Recommendation Letter
-- [ ] How to draw graphics/ figures (Recommendations?) (e.g. Inkscape, Tikz, Geogebra,...)
+- [x] Registration of thesis (fill out PDF)
+- [x] Asking for PhD position or Recommendation Letter
+- [x] How to draw graphics/ figures (Recommendations?) (e.g. Inkscape, Tikz, Geogebra,...)
 
 ### Idea
 See Notes from 30.11.23
+
+### Questions
+- Bracke Flows for generation of Mean Curvature Flow
+- To understand MBO scheme just read the original Paper on MBO by Merriman
+
+### Topic
+Idea: Consider Omega as the cube, but E0 with radius 1 (see wether we get the Cylindrical
+structure) (Box plus cylinder and send r to infty) (for small and large M)
+2nd Idea: Consider problem as fumihiko but let E0 be restricted vertically by r
+(Fix r and see wether there exist an M st connected or even EM=E0)
+
+
+
+## 05.12.23 (Third Meeting)
+
+### What have I done so far?
+#### Model 01: 
+I showed that there exists an upper bound on $ M $, s.t. the minimizer $ E_M =
+\Omega \cup E_0 $.\
+Almost exactly as Fumihiko did, one can show that the minimizer is disconnected above some
+threshold.\ 
+Interesting to see is the dependence on $ r_0 $.\ 
+Going forward, one could look at a specific $ M $ for which Model 01 is not cylindrical
+but for Model 00 it is.\
+Could lead to some understanding of "stickiness property"
+#### Model 02:
+I am showing upper bound, but I still need a bound on the negative term. \
+Issue more technical, than mathematical. I guess there could be some threshold where the
+minimizer is cylindrical, but I am not sure here. Bound still depends on $ R > M $, need
+something smaller and (probably) prove disconnectedness. \
+Next step would be to show disconnectedness above some threshold, but more interesting is
+the behavior of $ E_M $ for fixed $ M $ and increasing $ R $.\
+Could lead to some understanding of "stickiness property". Can we get some
+quantification on $ E_M $? When is $ E_M $ connected for increasing $ R $? 
+
+#### Possible Idea going forward
+Combine both Models to get an understanding of "Stickiness".\
+Could maybe lead to understand behavior of $ E_M $ for arbitrary $ E_0 $ whose boundary is
+defined by some function (Model the set with boxes of varying size).\
+Is that even interesting?
+
+### Questions
+- [ ] Doubt about Eq (2.8) in Fumihiko Paper
+  - Usage of Lemma 3.1 requires $R = r_0$ and a ring (depending whether $ \Lambda M \geq 1
+    $ or not), else we don't have a superset
+  - Upper Bound only works if $ \Lambda M \geq 1 $ (I think), then $ \Lambda $ depends on
+    $ M $. Thus next step, where $ \Lambda $ is chosen doesn't work anymore.
+- [ ] Issue with dependence on $ r_0 $ and on $ \Lambda $
+
+### Going forward
+1. Complete CV and send out first applications/ Ask prof for recommendation
+2. Reading paper, get ideas for proofs and try to analyze behavior of $ E_M $ for fixed $
+   M $ and increasing $ R $ for both models with emphasize on "stickiness"
+3. Think about combining both models to try modeling behavior of $ E_M $ for arbitrary $
+   E_0 $ (box approximation idea)
