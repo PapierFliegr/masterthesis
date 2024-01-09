@@ -1,11 +1,11 @@
 \documentclass[%
 thesis=student,% bachlor's or master's thesis
-coverpage=false,% do not print an extra cover page
-titlepage=false,% do not print an extra title page
-headmarks=true, % headmarks can be switched on or off
+coverpage=true,% do not print an extra cover page
+titlepage=true,% do not print an extra title page
+headmarks=false, % headmarks can be switched on or off
 english,% or `german`
 font=libertine, % use `libertine` font; alternatives: `helvet` / `palatino` / `times`
-math=newpxtx, % math font `newpxtx`; alternatives: `ams`, `pxtx`
+math=ams, % math font `newpxtx`; alternatives: `ams`, `pxtx`
 BCOR=5mm,% binding correction - adapt accordingly
 coverBCOR=11mm % binding correction for the cover - adapt accordingly
 ]{tumbook}
@@ -27,7 +27,7 @@ coverBCOR=11mm % binding correction for the cover - adapt accordingly
 
 % --------------------------- mainmatter --------------------------- %
 \mainmatter{}
-\input{chapters/chapter01.tex}
+% \input{chapters/chapter01.tex}
 
 % ---------------------------- appendix ---------------------------- %
 \appendix
@@ -40,4 +40,4 @@ coverBCOR=11mm % binding correction for the cover - adapt accordingly
 \input{chapters/notcited.tex} % insert literature not cited
 \printbibliography{} % print bibliography
 
-\end{document}
+\end{document}  
