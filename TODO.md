@@ -44,9 +44,10 @@
 - [x] If we have a minimizing set $ E $ then the boundary of $ E\setminus E_0 \subset
   \Omega $ is touching the boundary of $ E_0 $? (Yes, if 2. is correct)
   - [x] 1. Minimizer $ E $ is in the convex hull of $ E_0 $? (Yes, if inequality is
-    correct)
-  - [x] 2. If $ d(E_0, \Omega) > 0 $ or $ | \partial E_0 \cap \partial \Omega | = 0 $,
-    then $ E = E_0 $ else surface unnecessarily increased? (Yes, if inequality is correct) 
+    correct and $ \Omega $ is compact)
+  - [x] 2. If $ d(E_0, \Omega) > 0 $ or $ \lvert \partial E_0 \cap \partial \Omega \rvert
+    = 0 $, then $ E = E_0 $ else surface unnecessarily increased? (Yes, if inequality is
+    correct) 
 - [x] For symmetric model is the minimizer symmetric as well? (YES, see 2017
   Dipierro-Savin-Valdinoci Appendix Lemma A.1)
-- [ ] Can we give an restriction of the volume of the minimizing component in $ \Omega $?
+- [ ] Can we give a restriction of the volume of the minimizing component in $ \Omega $?
