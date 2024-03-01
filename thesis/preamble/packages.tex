@@ -4,30 +4,31 @@
 \usepackage{booktabs} % for more beautiful tables
 \usepackage{cleveref} % intelligent references
 \usepackage[autostyle=true]{csquotes} % automatische Anführungszeichen
-\usepackage{standalone} 
+\usepackage{ifthen} % for conditional statements
 
 
 % ------------------------------ math ------------------------------ %
-\usepackage{amsmath, mathtools} % math symbols
+\usepackage{amsmath, mathtools, amsfonts, amsthm} % math symbols
 
 
 % ------------------------ color & graphics ------------------------ %
 \usepackage{import}
 \usepackage{graphicx}
+% \usepackage{standalone}
 
 
 % --------------------------- literature --------------------------- %
 \usepackage[%
-    backend=bibtex, %, or `biber` on more up-to-date systems
-    sortcites, % sort automatically
-    sorting=nyt, % sort order
-    safeinputenc, % solves problems with unicode-formatted author names etc.
-    style=numeric,
-    hyperref=true, % provide clickable links
-    % maxnames=3, % shorten author list for more than 3 names
-    % url=false, % do not print URLs
-    % doi=false, % do not print DOIs
-    giveninits=true, % prints initials of first names
-    ]%
+	backend=bibtex, %, or `biber` on more up-to-date systems
+	sortcites, % sort automatically
+	sorting=nyt, % sort order
+	safeinputenc, % solves problems with unicode-formatted author names etc.
+	style=numeric,
+	hyperref=true, % provide clickable links
+	% maxnames=3, % shorten author list for more than 3 names
+	% url=false, % do not print URLs
+	% doi=false, % do not print DOIs
+	giveninits=true, % prints initials of first names
+]%
 {biblatex}
-\addbibresource{resources/literature.bib}
+\addbibresource{preamble/literature.bib}

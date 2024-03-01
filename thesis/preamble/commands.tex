@@ -1,2 +1,11 @@
 \newcommand*{\dd}[1]{\mathop{}\!\mathrm{d}#1}         	% dx Integral
 \newcommand*{\ddd}[2]{\mathop{}\!\mathrm{d^{#1}}#2}     % dx higher dim
+
+\DeclareMathOperator{\Div}{div}
+
+\newcommand*{\Per}[3]{
+    \mathop{Per}\nolimits_{#1}\left(#2
+    \ifthenelse{ \equal{#3}{} }
+      {}
+      {,#3}
+\right)}
