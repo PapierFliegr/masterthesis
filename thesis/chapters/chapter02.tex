@@ -4,15 +4,15 @@
 
 For \( n \geq 2 \) consider the model as follows:
 \begin{align}
-	E_0    & \coloneqq \{(x^\prime,x_n) \in \mathbb{R}^{n-1} \times \mathbb{R} \text{ s.t. } \lvert x^\prime \rvert \leq R, \, \lvert x_n \rvert \geq M \} \\
-	\Omega & \coloneqq \{(x^\prime,x_n) \in \mathbb{R}^{n-1} \times \mathbb{R} \text{ s.t. } \lvert x^\prime \rvert \leq 1, \, \lvert x_n \rvert \leq M \}
+	E_0    & \coloneqq \{(x^\prime,x_n) \in \mathbb{R}^{n-1} \times \mathbb{R} \text{ s.t.} \lvert x^\prime \rvert \leq R, \, \lvert x_n \rvert \geq M \} \\
+	\Omega & \coloneqq \{(x^\prime,x_n) \in \mathbb{R}^{n-1} \times \mathbb{R} \text{ s.t.} \lvert x^\prime \rvert \leq 1, \, \lvert x_n \rvert \leq M \}
 \end{align}
 for \( R \geq 1 \) and \( M > 0 \). The figure \cref{fig:201} illustrates the setting.
 
 \begin{figure}[h]
 	\centering
 	\def\svgwidth{0.5\textwidth}
-	\import{figures/model01}{model01.pdf_tex}
+	\import{figures/model01}{model01_base.pdf_tex}
 	\caption{}
 	\label{fig:201}
 \end{figure}
@@ -22,33 +22,150 @@ We state the following two results, which we will prove afterwards.
 \begin{theorem}
 	\label{thm:201}
 	For \( \Omega \) and \( E_0 \) as given above and for all \( R \geq 1 \), then there
-	exists \( M_0 \in (0,1) \) depending only on the dimension and \( s \), such that
-	for any \( M \in (0, M_0) \), the minimizer is \( E_M = E_0 \cup \Omega \).
+	exists \( M_0 \in (0,1) \) depending only on the dimension and \( s \), such that for
+	any \( M \in (0, M_0) \), the minimizer is \( E_M = E_0 \cup \Omega \).
 \end{theorem}
 
 \begin{theorem}
 	\label{thm:202}
 	For \( \Omega \) and \( E_0 \) as given above and for all \( R \geq 1 \), then there
-	exists \( M_0 > 1 \) depending only on the dimension and \( s \), such that
-	for any \( M \geq  M_0 \), the minimizer \( E_M \) is disconnected.
+	exists \( M_0 > 1 \) depending only on the dimension and \( s \), such that for any \(
+	M \geq M_0 \), the minimizer \( E_M \) is disconnected.
 \end{theorem}
 
-For both proofs, we follow a similar construction as in
-\cite{dipierro2020disconnectedness}. \newline
-Prove per Contradiciton, explain idea of the proof and explain viscosity solution\ldots 
+Connect to classical minimal surfaces by observing disconnectedness of the minimizer, but
+when connected, the minimizer may \enquote{stick} to the boundary. Whereas classical
+minimal surfaces cannot stick to the boundary. (source?)\newline
 
-\begin{proof}[Proof of \cref{thm:201}] 
-    Let 
+For the first proof, we will follow a similar construction as in
+\cite{dipierro2020disconnectedness}.\newline
+In \cite{caffarelli2009nonlocal} the authors have shown that nonlocal minimizer satisfy
+the Euler-Lagrange equation in the viscosity sense, i.e. if \( E \) is a minimizer, there
+exists some such that \( q \in \partial E \) and \( B_r (q+r \nu) \subset E \) for some \(
+r > 0 \) and unit vector \( \nu \in \mathbb{R}^n \), then
+\begin{gather}
+	\int_{\mathbb{R}^n} \frac{\chi_{E^c}(y)-\chi_E (y)}{\lvert y-q\rvert^{n+s}} \dd{y} \geq 0. \label{eq:201}
+\end{gather}
+In the proof we will assume that there exist a minimizer which is not \( E_0 \cup \Omega
+\). To bring this assumption to a contradiction, we want to show that the left hand side
+of \cref{eq:201} is negative for \( M \) small enough. Thus, we have to construct some
+suitable ball such that we can apply the Euler-Lagrange equation. Constructing the ball by
+sliding it down from \( t e_n \). If the minimizer is not \( E_0 \cup \Omega \), then at
+some point the ball will touch the minimizer for any \( 0 < r < 1 \) and a point \( q \),
+then exists. Then we will split the domain into four parts and estimate each part to get
+the contradiction.
+
+\begin{proof}[Proof of \cref{thm:201}]
+	Proof by contradiction. Assume \( E_M \) is not \( E_0 \cup \Omega \), then we can
+	slide a ball of radius \( r \) down and at some point it will touch \( E_M \). We
+	consider the ball \( B_r (t e_n) \). Since \( E_M \) not cylindrical, there exists \(
+	r_0 \in (0,1) \) and \( t_0 > 0 \) s.t.\ \( \partial B_{r_0}(t_0 e_n) \cap \partial
+	E_M \neq \emptyset \) and \( B_{r_0}(t e_n) \subset E_M \) for all \( t > t_0 \). See
+	figure \cref{fig:202}.
+	\begin{figure}[h]
+		\centering
+		\def\svgwidth{0.5\textwidth}
+		\import{figures/model01}{model01_balls.pdf_tex}
+		\caption{}
+		\label{fig:202}
+	\end{figure}
+
+	Since \( E_M \) is a minimizer it is also a variational solution and the inequality
+	holds
+	\[
+		\int_{\mathbb{R}^n} \frac{\chi_{E_M^c}(y)-\chi_{E_M} (y)}{\lvert y-q\rvert^{n+s}} \dd{y} \geq 0
+	\]
+	whereas \( q \in \partial B_{r_0}(t_0 e_n) \cap \partial E_M \). \\
+	We show that the left hand side is negative. Split the domain into four parts, as seen
+	in the Figure \cref{fig:203}.
+	\begin{figure}[h]
+		\centering
+		\def\svgwidth{0.5\textwidth}
+		\import{figures/model01}{model01_split.pdf_tex}
+		\caption{}
+		\label{fig:203}
+	\end{figure}
+	We define
+	\begin{align*}
+		A                                & \coloneqq \{ (x^\prime,x_n) \text{ s.t.} \lvert x^\prime -q^\prime \rvert \geq R+1\} \text{ Green Area} \\
+		B                                & \coloneqq \{ (x^\prime,x_n) \text{ s.t.} \lvert x^\prime \rvert < R, \lvert x_n -q_n \rvert > 2M \} \\
+		C                                & \coloneqq \{ (x^\prime,x_n) \text{ s.t.} \lvert x^\prime \rvert \geq R, \lvert x^\prime - q^\prime \rvert \leq R+1, \lvert x_n -q_n \rvert > \Lambda M \} \\
+		\text{Everything else} \subset S & \coloneqq \{(x^\prime,x_n) \text{ s.t.} \lvert x^\prime -q^\prime \rvert \leq R+1, \lvert x_n -q_n \rvert \leq \Lambda M \}
+	\end{align*}
+
+
+	Integration over the first part:
+	\begin{gather*}
+		\int_A \frac{\chi_{E^c} -\chi_E}{\lvert y-q\rvert^{n+s}} \dd{y} \overset{A \subset E^c}{ =} \int_{ \lvert y^\prime \rvert > R+1} \frac{1}{\lvert y \rvert^{n+s}} \dd{y} \leq c(n) \int_{R+1}^\infty r^{-s-2} \dd{y} \leq c(n,s) R^{-(1+s)}
+	\end{gather*}
+
+	Integration over the second part:
+	\begin{gather*}
+		\int_B \frac{\chi_{E^c} -\chi_E}{\lvert y-q \rvert^{n+s}} \dd{y} \overset{B \subset E}{ =} - \int_B \frac{1}{\lvert y-q\rvert^{n+s}} \dd{y} \leq -c(n,s) M^{-s} \qquad \text{Idea: Consider ball with factor \( 2^{-n} \)}
+	\end{gather*}
+
+	Integration over the third part:
+	\begin{align*}
+		 & \int_C \frac{\chi_{E^c} -\chi_E}{\lvert y-q\rvert^{n+s}} \dd{y} \overset{C \subset E^C}{ =} \int_C \frac{1}{\lvert y-q\rvert^{n+s}} \dd{y} \leq c(n) \int_{R-1}^{R+1} \int_{\Lambda M}^\infty \frac{r^{n-2}}{(r^2 +y_n^2)^{\frac{n+s}{2}}} \dd{y_n} \dd{r} \\
+		 & \overset{r^2 \leq r^{2 + y_n^2}}{ \leq} c(n) \int_{R-1}^{R+1} \int_{2
+		\Lambda M}^\infty \frac{1}{(r^2 +y_n^2)^{\frac{s+2}{2}}} \dd{y_n} \dd{r} \overset{\text{convexity}}{\leq} \int_{R-1}^{R+1} \int_{\Lambda M}^\infty \frac{1}{(r+y_n)^{s+2}} \dd{y_n} \dd{r} \\
+		 & \leq c(n,s) \int_{R-1}^{R+1} \frac{1}{(r+\Lambda M)^{s+1}} \leq c(n,s)(R-1+\Lambda M)^{-s} \leq c(n,s)(\Lambda M)^{-s}
+	\end{align*}
+
+	Integration over the fourth part: \\
+	Justification that we can estimate with \( S \): Only negative part of the integration
+	is fully in the set we want to estimate and the rest in \( S \) is positive. \\
+	We split \( S \) into four parts:
+	\begin{enumerate}[label = \roman*)]
+		\item \( S \cap B_{\Lambda M} (q) \cap B_{r_0}(z) \)
+		\item \( S \cap B_{\Lambda M} (q) \cap B_{r_0}( \overline{z}) \)
+		\item \( S \cap (B_{\Lambda M} (q)\setminus ( B_{r_0}(z) \cup
+		      B_{r_0}(\overline{z}))) \)
+		\item \( S \setminus B_{\Lambda M} (q) \)
+	\end{enumerate}
+	where \( \overline{z}\coloneqq z + 2(q-z) \) and \( \Lambda > 4 \) chosen big enough
+	and \( M \) chosen small enough s.t.\ \( \Lambda M \leq 1 \). \\
+	We estimate the first and second part:
+	\begin{align*}
+		     & \int_{S \cap B_{\Lambda M} (q) \cap B_{r_0}(z) \cup S \cap B_{\Lambda M} (q) \cap B_{r_0}(\overline{z})} \frac{\chi_{E^c}- \chi_E}{\lvert y-q\rvert^{n+s}} \dd{y} \\
+		\leq & \int_{S \cap B_{\Lambda M} (q) \cap B_{r_0}(z)} \frac{1}{\lvert y-q\rvert^{n+s}} \dd{y} - \int_{S \cap B_{\Lambda M} (q) \cap B_{r_0}(\overline{z})} \frac{1}{\lvert y-q\rvert^{n+s}} \dd{y} \leq 0
+	\end{align*}
+	These two integrals cancel because of symmetry. \\
+	We estimate the third part:
+	\begin{gather*}
+		\int_{S \cap (B_{\Lambda M} (q)\setminus ( B_{r_0}(z) \cup B_{r_0}(z)))}\frac{\chi_{E^c}- \chi_E}{\lvert y-q\rvert^{n+s}} \dd{y} \leq \int_{P_{1,\Lambda M}} \frac{1}{\lvert y-q\rvert^{n+s}} \dd{y} \leq C \Lambda^{1-s} M^{1-s}
+	\end{gather*}
+	where we used lemma 3.1 in \cite{Dipierro2016} with \( R = r_0 = 1 and \lambda =
+	\Lambda M \) (we can choose \( r_0 = 1 \), since if we can show the bound for \( r_0 =
+	1 \) then it holds for all smaller balls as well). \\
+	We estimate the fourth part:
+	\begin{gather*}
+		\int_{S\setminus B_{\Lambda M} (q)} \frac{\chi_{E^c}- \chi_E}{\lvert y-q\rvert^{n+s}} \dd{y} \leq \int_{B_{R+2}\setminus B_{\Lambda M}} \frac{1}{\lvert y\rvert^{n+s}} \dd{y} = c(n,s)((\Lambda M)^{-s} - (R+2)^{-s})
+	\end{gather*}
+	since \( S \subset B_{R+2} \) for \( R \geq 1 \) since \( ((\Lambda M)^2 +
+	(R+1)^2)^{\frac{1}{2}} \leq (R^2 + 4R+4)^{\frac{1}{2}} = R+2 \). \\
+	\par
+	Thus in total we get:
+	\begin{align*}
+		\int_{\mathbb{R}^n} \frac{\chi_{E^c}- \chi_E}{\lvert y-q\rvert^{n+s}} \dd{y}
+		 & \leq -c_1 M^{-s} + c_0 (R^{-(1+s)} + (\Lambda M)^{-s} + (\Lambda M)^{-s} - (R+2)^{-s} + \Lambda^{1-s} M^{1-s}) \\
+		 & \leq -c_1 M^{-s}(1- + \frac{c_0}{c_1} (R^{-(1+s)}M^s + 2 \Lambda^{-s} -(R+2)^{-s} M^s + \Lambda^{1-s} M
+		\intertext{Choose \( \Lambda \) large and \( M \) small enoguh}
+		 & \leq -c_2 M^{-s} < 0
+	\end{align*}
 \end{proof}
 
-Intersting to see, that the contribution of the cylinder of radius \( 1 \) is enough to
+Interesting to see, that the contribution of the cylinder of radius \( 1 \) is enough to
 get connectedness of the minimizer and even stickiness to the boundary. Also see, that the
 model seems (maybe prove that) to converge to the problem, considered in
 \cite{dipierro2020disconnectedness}.\newline
 
 
-Proof is almost identical to the one in \cite{dipierro2020disconnectedness}, but is
-included for completeness.
-\begin{proof}[Proof of \cref{thm:202}] 
-    Let
+
+\begin{proof}[Proof of \cref{thm:202}]
+	In theorems 1.2 in \cite{dipierro2020disconnectedness} the authors have shown that
+	that \( \exists M_0 > 1 \), such that..
+	\begin{gather}
+		E_M \subset F_M \quad E_M^c \subset F_M^c
+	\end{gather}
 \end{proof}
