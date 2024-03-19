@@ -9,13 +9,73 @@
 \author{Mohamed Noah Abdel Wahab}
 \degree{Master of Science}% or `Bachlor of Science`
 \dateSubmitted{Date of submission}% preferably use some universally recognized date format
-\examiner{Prof.\@ Dr.\@ Marco Cicalese}% `Themensteller`
-\supervisor{Dr.\@ Fumihiko Onoue}% `Betreuer`
+\examiner{Prof.\ Dr.\ Marco Cicalese}% `Themensteller`
+\supervisor{Dr.\ Fumihiko Onoue}% `Betreuer`
 
 
 % -------------------------- environments -------------------------- %
-%TODO: Theorem Env name is wrong
-\newtheorem{definition}{Definition}[chapter]
-\newtheorem{theorem}[definition]{Theorem}
-\newtheorem*{note}{Note}
-\newtheorem*{problem}{Problem}
+\mdfsetup{skipabove=1em, skipbelow=0em, innertopmargin=8pt, innerbottommargin=8pt}
+
+\theoremstyle{definition}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } 
+    ]{thmgreenbox}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } 
+    ]{thmredbox}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily, bodyfont=\normalfont
+    ]{thmbluebox}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily, bodyfont=\normalfont
+    ]{thmblueline}
+% \declaretheoremstyle[
+%     headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, 
+%     mdframed={ rightline=false, topline=false, bottomline=false, }, qed=\qedsymbol 
+%     ]{thmproofbox}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ nobreak,
+    rightline=false, topline=false, bottomline=false } 
+    ]{thmexplanationbox}
+
+\declaretheorem[numberwithin=chapter, style=thmgreenbox, name=Definition]{definition}
+% \declaretheorem[sibling=definition, style=thmredbox, name=Corollary]{corollary}
+% \declaretheorem[sibling=definition, style=thmredbox, name=Proposition]{prop}
+\declaretheorem[sibling=definition, style=thmredbox, name=Theorem]{theorem}
+% \declaretheorem[sibling=definition, style=thmredbox, name=Lemma]{lemma}
+\declaretheorem[sibling=definition, style=thmbluebox,  name=Example]{example}
+% \declaretheorem[sibling=definition, style=thmbluebox,  name=Nonexample]{noneg}
+% \declaretheorem[sibling=definition, style=thmblueline, name=Remark]{remark}
+
+% \declaretheorem[numbered=no, style=thmexplanationbox, name=Proof]{explanation}
+% \declaretheorem[style=thmbluebox,  numbered=no, name=Exercise]{ex}
+\declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
+
+% \newtheorem*{uovt}{UOVT}
+% \newtheorem*{notation}{Notation}
+% \newtheorem*{previouslyseen}{As previously seen}
+% \newtheorem*{problem}{Problem}
+% \newtheorem*{observe}{Observe}
+% \newtheorem*{property}{Property}
+% \newtheorem*{intuition}{Intuition}
+
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{red!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=red, backgroundcolor=red!5,
+    }
+    ]{todo}
+\declaretheorem[numbered=no, style=todo, name=TODO]{TODO}
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{green!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=green, backgroundcolor=green!5,
+    }
+    ]{check}
+\declaretheorem[numbered=no, style=check, name=CHECK]{CHECK}

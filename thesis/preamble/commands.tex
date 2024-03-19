@@ -1,11 +1,38 @@
+% ----------------------------- Symbols ---------------------------- %
+\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+
+% ---------------------------- Operators --------------------------- %
+\let\div\relax
+\DeclareMathOperator{\div}{div}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\area}{Area}
+\let\L\relax
+\DeclareMathOperator{\L}{\mathscr{L}}
+
+% -------------------------- Mathcommands -------------------------- %
 \newcommand*{\dd}[1]{\mathop{}\!\mathrm{d}#1}         	% dx Integral
 \newcommand*{\ddd}[2]{\mathop{}\!\mathrm{d^{#1}}#2}     % dx higher dim
 
-\DeclareMathOperator{\Div}{div}
-
-\newcommand*{\Per}[3]{
-    \mathop{Per}\nolimits_{#1}\left(#2
+\newcommand*{\Per}[3]{                                  % Perimeter
+    \operatorname{Per}\nolimits_{#1}\left(#2
     \ifthenelse{ \equal{#3}{} }
       {}
       {,#3}
 \right)}
+
+\newcommand*\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \littletaller % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\newcommand*{\littletaller}{\mathchoice{\vphantom{\big|}}{}{}{}}
+
+% \let\oldfrac\frac% Store \frac                          % Better display of frac in text
+% \renewcommand{\frac}[2]{%
+% 	\mathchoice%
+% 	{\oldfrac{#1}{#2}}% display style
+% 	{#1/#2}% text style
+% 	{#1/#2}% script style
+% 	{#1/#2}% script-script style
+% }

@@ -1,0 +1,18 @@
+\newlist{abbrv}{itemize}{1}
+\setlist[abbrv,1]{
+	label =,
+	labelwidth = 1in,
+	align = parleft,
+	itemsep = 0.1\baselineskip,
+	leftmargin =!}
+
+\def\symbolentry#1#2#3{\item[#2] #3}
+
+\newcommand{\listofsymbols}{
+	\chapter*{List of symbols}
+	\begin{abbrv}
+
+		\symbolentry{Rn}{\( \mathbb{R}^n \)}{Euclidean space of dimension \( n \)}
+		\symbolentry{dist}{\( \dist(A,B) \)}{Distance between sets \( A \) and \( B \)}
+
+	\end{abbrv}}

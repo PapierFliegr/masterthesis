@@ -4,7 +4,7 @@ coverpage=false,% do not print an extra cover page
 titlepage=false,% do not print an extra title page
 headmarks=false, % headmarks can be switched on or off
 english,% or `german`
-font=libertine, % use `libertine` font; alternatives: `helvet` / `palatino` / `times`
+%font=libertine, % use `libertine` font; alternatives: `helvet` / `palatino` / `times`
 math=ams, % math font `newpxtx`; alternatives: `ams`, `pxtx`
 BCOR=0mm,% binding correction - adapt accordingly
 coverBCOR=11mm, % binding correction for the cover - adapt accordingly
@@ -16,33 +16,29 @@ openany
 \input{preamble/packages.tex}
 \input{preamble/setup.tex}
 \input{preamble/commands.tex}
-% \input{chapters/symbols.tex}
+\input{preamble/symbols.tex}
 
 
+% ---------------------------- document ---------------------------- %
 \begin{document}
 
 % --------------------------- frontmatter -------------------------- %
 \frontmatter{}
-% \input{chapters/chapter00.tex}
 \maketitle
 \input{chapters/abstract.tex}
-% \listofsymbols
+\listofsymbols
 \tableofcontents
 
 % --------------------------- mainmatter --------------------------- %
 \mainmatter{}
-\input{chapters/chapter01.tex}
-\input{chapters/chapter02.tex}
-\input{chapters/chapter03.tex}
-\input{chapters/chapter04.tex}
-
-% ---------------------------- appendix ---------------------------- %
-% \appendix
-% \input{chapters/appendix.tex}
+\input{chapters/introduction.tex}
+\input{chapters/models.tex}
+\input{chapters/disconnected_minimize.tex}
 
 % --------------------------- backmatter --------------------------- %
 \backmatter{}
 \input{chapters/conclusion.tex}
+% \input{chapters/appendix.tex}
 % \listoffigures % may be removed
 % \listoftables % may be removed
 \nocite{*} % include all references 
