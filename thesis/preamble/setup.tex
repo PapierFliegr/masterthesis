@@ -13,54 +13,49 @@
 \supervisor{Dr.\ Fumihiko Onoue}% `Betreuer`
 
 
+% ---------------------------- ref setup --------------------------- %
+\counterwithin*{equation}{chapter}
+\newcommand\tagged{\stepcounter{equation}\tag{\theequation}}
+
+\crefname{equation}{}{}
+
+
 % -------------------------- environments -------------------------- %
-\mdfsetup{skipabove=1em, skipbelow=0em, innertopmargin=8pt, innerbottommargin=8pt}
-
-\theoremstyle{definition}
+\mdfsetup{skipabove=1em, skipbelow=0em, innertopmargin=4pt, innerbottommargin=4pt}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } 
-    ]{thmgreenbox}
+    headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak }
+    ]{defbox}
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } 
-    ]{thmredbox}
+    headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak }
+    ]{thmbox}
 \declaretheoremstyle[
     headfont=\bfseries\sffamily, bodyfont=\normalfont
-    ]{thmbluebox}
+    ]{remarkbox}
 \declaretheoremstyle[
     headfont=\bfseries\sffamily, bodyfont=\normalfont
-    ]{thmblueline}
-% \declaretheoremstyle[
-%     headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, 
-%     mdframed={ rightline=false, topline=false, bottomline=false, }, qed=\qedsymbol 
-%     ]{thmproofbox}
+    ]{notebox}
+
+\declaretheorem[numberwithin=chapter, style=defbox, name=Definition]{definition}
+\declaretheorem[sibling=definition, style=thmbox, name=Theorem]{theorem}
+\declaretheorem[sibling=definition, style=thmbox, name=Corollary]{corollary}
+\declaretheorem[sibling=definition, style=thmbox, name=Proposition]{prop}
+\declaretheorem[sibling=definition, style=thmbox, name=Lemma]{lemma}
+\declaretheorem[sibling=definition, style=remarkbox,  name=Example]{example}
+\declaretheorem[sibling=definition, style=remarkbox, name=Remark]{remark}
+\declaretheorem[style=notebox, numbered=no, name=Note]{note}
+
+
+% --------------------- structure environments --------------------- %
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ nobreak,
-    rightline=false, topline=false, bottomline=false } 
-    ]{thmexplanationbox}
-
-\declaretheorem[numberwithin=chapter, style=thmgreenbox, name=Definition]{definition}
-% \declaretheorem[sibling=definition, style=thmredbox, name=Corollary]{corollary}
-% \declaretheorem[sibling=definition, style=thmredbox, name=Proposition]{prop}
-\declaretheorem[sibling=definition, style=thmredbox, name=Theorem]{theorem}
-% \declaretheorem[sibling=definition, style=thmredbox, name=Lemma]{lemma}
-\declaretheorem[sibling=definition, style=thmbluebox,  name=Example]{example}
-% \declaretheorem[sibling=definition, style=thmbluebox,  name=Nonexample]{noneg}
-% \declaretheorem[sibling=definition, style=thmblueline, name=Remark]{remark}
-
-% \declaretheorem[numbered=no, style=thmexplanationbox, name=Proof]{explanation}
-% \declaretheorem[style=thmbluebox,  numbered=no, name=Exercise]{ex}
-\declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
-
-% \newtheorem*{uovt}{UOVT}
-% \newtheorem*{notation}{Notation}
-% \newtheorem*{previouslyseen}{As previously seen}
-% \newtheorem*{problem}{Problem}
-% \newtheorem*{observe}{Observe}
-% \newtheorem*{property}{Property}
-% \newtheorem*{intuition}{Intuition}
-
-
+    headfont=\bfseries\sffamily\color{yellow!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=yellow, backgroundcolor=yellow!5,
+    }
+    ]{idea}
+\declaretheorem[numbered=no, style=idea, name=IDEA]{IDEA}
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{red!70!black}, bodyfont=\normalfont,
     mdframed={
@@ -79,3 +74,8 @@
     }
     ]{check}
 \declaretheorem[numbered=no, style=check, name=CHECK]{CHECK}
+
+% \usepackage{environ}
+% \RenewEnviron{IDEA}{}{}
+% \RenewEnviron{TODO}{}{}
+% \RenewEnviron{CHECK}{}{}

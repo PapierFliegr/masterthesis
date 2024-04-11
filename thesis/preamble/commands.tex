@@ -3,30 +3,36 @@
 
 % ---------------------------- Operators --------------------------- %
 \let\div\relax
-\DeclareMathOperator{\div}{div}
+\DeclareMathOperator{\div}{div\!}
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\area}{Area}
 \let\L\relax
 \DeclareMathOperator{\L}{\mathscr{L}}
 
+
 % -------------------------- Mathcommands -------------------------- %
 \newcommand*{\dd}[1]{\mathop{}\!\mathrm{d}#1}         	% dx Integral
 \newcommand*{\ddd}[2]{\mathop{}\!\mathrm{d^{#1}}#2}     % dx higher dim
+\let\oldpartial\partial% Store \partial
+\renewcommand{\partial}{\oldpartial\!}                  % Remove space
+
 
 \newcommand*{\Per}[3]{                                  % Perimeter
-    \operatorname{Per}\nolimits_{#1}\left(#2
-    \ifthenelse{ \equal{#3}{} }
-      {}
-      {,#3}
-\right)}
+	\operatorname{Per}\nolimits_{#1}\mathopen{}\left(#2
+	\ifthenelse{ \equal{#3}{} }
+	{}
+	{,#3}
+	\right)\mathclose{}} % mathopen/close for correct spacing
 
 \newcommand*\restr[2]{{% we make the whole thing an ordinary symbol
-  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
-  #1 % the function
-  \littletaller % pretend it's a little taller at normal size
-  \right|_{#2} % this is the delimiter
-  }}
+\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+#1 % the function
+\littletaller % pretend it's a little taller at normal size
+\right|_{#2} % this is the delimiter
+}}
 \newcommand*{\littletaller}{\mathchoice{\vphantom{\big|}}{}{}{}}
+
+\newcommand*\HG{{}_{2}F_{1}}     % Hypergeometric function
 
 % \let\oldfrac\frac% Store \frac                          % Better display of frac in text
 % \renewcommand{\frac}[2]{%
