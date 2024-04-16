@@ -1,237 +1,90 @@
-%latexindenttrailingcomment1 - END
 \chapter{Disconnected Minimizer}
 \label{ch:disconnected_minimizer}
 
 
 \begin{IDEA}
-  Open this chapter with the train of thought motivated by model02\\ 
-  For the unbounded case, consider all dimensions and general \( r,R \) and just the upper
-  bound.\\ 
-  For the bounded case consider \( n = 2 \) to show, that even though we are positive at
-  \( s=0,1 \) we could still have negative values somewhere in between\\ 
-  Then give some interpretation if or how that helps or the consequences of that.
+	Open this chapter with the train of thought motivated by model02\\
+	For the unbounded case, consider all dimensions and general \( r, R \) and just the upper
+	bound.\\
+	For the bounded case consider \( n = 2 \) to show, that even though we are positive at
+	\( s = 0, 1 \) we could still have negative values somewhere in between\\
+	Then give some interpretation if or how that helps or the consequences of that.
 \end{IDEA}
 
-\begin{CHECK}
-	Found easier and more elegant way to show that the minimizer is not the external data
-	for \( s \) small enough an all \( n \)..\\
-	Maybe instead use this chapter to discuss if there exists some extra part to the
-	minimizer in \Cref{sec:model02} then it has to be connected to the cylinder\\
-	But first discuss, that we can't just assume, that it is connected with the example in
-	all dimensions and that it depends on \( s \) and whether the external data is bounded
-	or not (need source for hypergeometric function for that)
-\end{CHECK}
 
-\begin{IDEA}
-	Close Chapter 02 with the existence of Cylinder and use this chapter to show the
-	exitstence of disconnected minimizer for some \( s \) and continue the discussion on
-	Model 02.
-\end{IDEA}
+When discussing the connectedness of the second model in \Cref{ch:models}, we first just
+stated, that if \( R \geq 2 \) the minimizer is connected and that if \( R < 2 \) then at
+least the cylinder \( Z_R \coloneqq B^{\prime\prime}_{R/2} \times (- M, M) \) is in the
+minimizer. This fact is not enough to for connectedness of the minimizer. To show
+connectedness, we would still need to show, that if there cannot exist a part of the
+minimizer that is fully detached from the cylinder and the external data. \\
+Motivated by the fact, that in the classical case, if we have some external data \( E_0 \)
+and some prescribed set \( \Omega \) that are fully disconnedted, i.e.\ \( \dist(E_0,
+\Omega) \eqqcolon d > 0 \), then the minimizer is the external data itself, we wanted to
+prove the same thing for the nonlocal case as well.\\
 
-\begin{TODO}
-	Maybe focus more on the model in \( \mathbb{R}^2 \) and balls\\
-	0. Show that for \( E_0 = B_2^c \) and \( E_1 = B_1 \) the minimizer is not \( E_0 \)
-	itself for small \( s \) \\
-	1. Extend to \( r \) and \( R \) (Should work as well)\\
-	2. Take \( E_0 \) bounded (strange behavior, as \( s \to 0^ + \))\\
-	3. Extend to arbitrary \( E_0 \subset B_R^c \) and \( E_1 \subset B_r \) \\
-	4. What about disconnected \( \Omega \)
-\end{TODO}
+Indeed, if we could show that, then the minimizer in the second model would be connected.
+Assume there exists a part of the minimizer that is not connected to the cylinder and the
+external data, i.e.\ there exists a set \( E_1 \) such that \( \dist(E_1, E_0 \cup
+Z_R) > 0 \). Then we can rewrite the fractional perimeter of \( E_M \coloneqq E_0
+\cup E_1 \) relative to \( \Omega \) as follows:
 
-Example of a minimizer that has a non - empty set in \( \Omega \), while \( d(E_0, \Omega)
-\eqqcolon d > 0 \).\newline
-Compare to classical case, where this cannot happen. Refer to.. and.. where discussion
-about the behavior of the perimeter for \( s \to 1^ - \) and \( s \to 0^ + \) was done.
-\newline
-Connect to the discussion in \cref{sec:model02}..\newline
-Add discussion why \( n = 1 \) doesn't make sense or has a special standing.\newline
-
-Idea: If \( d(E_0, \Omega) = 0 \), does there exist a connected component \( F \subset E
-\) s.t.\ \( d(E_0, F) > 0 \)?\newline
-
-In \Cref{sec:model02} we discussed the behavior of the perimeter for external data with
-varying height \( R \). We found that the minimizer of \( E_M \) contains the cylinder \(
-B^\prime_{\frac{R}{2}} \times [- M, M] \) for \( R < 2 \). A natural question to follow is
-whether the minimizer, which connects the external data, is in fact connected. A priori we
-don't know if there exists a part of the minimizer that is disconnected from the
-cylinder.\newline
-
-Intuitively, we would expect that the minimizer is connected, since
-\begin{TODO}
-	Add an intuitive argument about volume increase and surface increase.
-\end{TODO}
-
-In an effort to prove that, we first looked at a model with \( \dist(E_0, \Omega) > 0 \)
-for some \( E_0, \Omega \in \mathbb{R}^n \). From the classical case we know that in this
-case the minimizer is the external data \( E_0 \) itself already. If this holds in the
-nonlocal setting as well, then we could conclude that the minimizer in \Cref{thm:103} has
-to be connected.
-
-Let \( Z_R \coloneqq \{(x^\prime, x_n) \in \mathbb{R}^{n - 1} \times \mathbb{R} \mid \lvert
-x^\prime \rvert < \frac{R}{2}, \lvert x_n \rvert < M \} \) be the cylinder, then \( Z_2 \)
-is the cylinder from \Cref{sec:model02}. We define the set \( \Omega_1 \coloneqq Z_2
-\setminus Z_R \) and \( E_1 \coloneqq \Omega_1 \cap E_M \) to be the set of the minimizer
-\( E_M \) in \Cref{thm:103} that is outside of the cylinder \( Z_R \) for \( R < 2 \). We
-then rewrite the nonlocal Perimeter of \( E_M \) reltaive to \( \Omega \) as
 \begin{align*}
 	\Per{s}{E_M}{\Omega}
 	 & = \L(E_M \cap \Omega, E_M^c) + \L(E_M \setminus \Omega, \Omega \setminus E_M) \\
-	 & = \L(Z_R \cup E_1, E_M^c) + \L(E_0, \Omega \setminus E_1) \\
-	 & = \L(E_1, E_M^c) + \L(E_0, \Omega \setminus E_1) + \L(Z_R, E_M^c) \\
-	 & = \Per{s}{E_M}{\Omega_1} + \L(Z_R, (E_0 \cup \Omega)^c). \tagged\label{eq:201}
+	 & = \L(E_1 \cup Z_R, E_M^c) + \L(E_0, \Omega \setminus (E_1 \cup Z_R)) \\
+	 & = \L(E_1, E_M^c) + \L(Z_R, E_M^c) + \L(E_0 \cup Z_R, \Omega \setminus (E_1 \cup Z_R)) - \L(Z_R, \Omega \setminus (E_1 \cup Z_R)) \\
+	 & = \Per{s}{E_M}{\Omega \setminus Z_R} + \L(Z_R, (E_0 \cup Z_R)^c).
+	\tagged\label{eq:201}
 \end{align*}
-\begin{TODO}
-	Check the computations
-\end{TODO}
-Notice that the second term in \Cref{eq:201} is independent of \( E_1 \), thus to minimize
-\( \Per{s}{E_M}{\Omega} \), we can minimize \( \Per{s}{E_M}{\Omega_1} \) instead. Now
-assume that \( E_1 \) is disconnected from \( E_0 \cup Z_R \), then for any \( \delta > 0
-\), define \( \Omega_{1, \delta}\coloneqq \{x \in \Omega \mid d(x, \Omega^c) > \delta \}
-\). Then we notice that
+
+Notice that the second term in \Cref{eq:201} is now independent of \( E_1 \), thus to
+minimize \( \Per{s}{E_M}{\Omega} \) we can minimize \( \Per{s}{E_M}{\Omega \setminus
+	Z_R} \) instead.\\ We define a sequence of prescribed sets \( \Omega_n \) such that
+\( \dist(E_0 \cup Z_R, \Omega_n) = d/n \), where \( d = \dist(E_0 \cup Z_R
+, E_1) \). Then for each \( n \) we are in the situation of fully disconnected external
+data, here \( E_0 \cup Z_R \) and prescribed set, here \( \Omega_n \), and we could
+conclude
 \begin{gather*}
-	\Omega_{1, \delta} \nearrow \Omega_1 \text{in..} \\
-	\Per{s}{E_M}{\Omega_{1, \delta}} \nearrow \Per{s}{E_M}{\Omega_1} \\
-	\dist(E_0, \Omega_{1, \delta}) > 0 \text{for all~} \delta > 0 \\
-\end{gather*}
-\begin{TODO}
-	Justify those limits
-\end{TODO}
-Thus we are in the setting of the classical case, we could conclude that the minimizer
-should be connected. \\
-However in the nonlocal setting, we can observe a new behavior. As mentioned before, in
-the classical case, if the external data and the prescribed set are disconnected,
-\begin{TODO}
-	Disconnected in what sense?\\
-	Elaborate, why is that Interesting
-\end{TODO}
-then the minimizer is the external data itself. In the following we will give an example
-of a model, whose minimizer is not the external data itself, but contains a non - empty set
-in the prescribed set. This however depends on \( s \), since for \( s \to 1^ - \) the
-nonlocal perimeter converges to the classical perimeter in some sense.
-\begin{TODO}
-	Convergence in what sense?\\
-	Sources
-\end{TODO}
-
-In the following we want to give a situation in which the minimizer is not the external
-data itself, but contains a non - empty set in the prescribed set. For that we only need to
-show that there exists some set \( E_1 \) such that the fractional perimeter of \( E_0 \)
-relative to \( \Omega \) is greater than the fractional perimeter of \( E_0 \cap E_1 \)
-relative to \( \Omega \), i.e. we will show that
-\begin{gather*}
-	0 > \Per{s}{E_0 \cap E_1}{\Omega} - \Per{s}{E_0}{\Omega} = \Per{s}{E_1}{} - 2 \L(E_0, E_1). \tagged\label{eq:205}
-\end{gather*}
-Notice that the right - hand - side is independent of \( \Omega \). The only information we
-need from \( \Omega \) is that \( \dist(E_0, \Omega) \coloneqq d > 0 \), which gives
-us \( \dist(E_0, E_1) \geq d \). Thus going forward we only need to find an example
-for \( E_0 \) and \( E_1 \) such that \( \dist(E_0, E_1) > 0 \) and show that
-\cref{eq:205} depending on \( s \).
-
-\begin{TODO}
-	What do I want to say, when considering the convergence of the unbounded external data
-	to the bounded external data?
-\end{TODO}
-Let us consider the setting with \( E_0 = B_2^c \subset \mathbb{R}^n \) and \(
-E_1 = B_1 \subset \mathbb{R}^n \). We then have that \( \dist(E_0, E_1) = 1 \).
-We will show for that for \( s \) small enough, the minimizer is not \( E_0 \) itself,
-at least in dimensions \( n = 1, 2, 3 \). For higher dimensions, our example should still
-hold, for which we will give an argument later. Afterwards we will consider a variation of
-the example in dimension \( 2 \). Instead of \( E_0 = B_2^c \), we will take \(
-B_{2 + T} \setminus B_2 \). We will see, that there exist \( s_0, s_1 \in (0, 1) \)
-such that for all \( s \in (s_0, s_1) \) \cref{eq:205} is satisfied and that the limit
-of \cref{eq:205} for \( s \to 0^ + \) is positive and independent of \( T \), which is
-consistent with the observations done in~\cite{dipierro2012asymptotics}. Interestingly,
-this implies that the fractional perimeter of the bounded external data does not converge
-pointwise/uniformly to the fractional perimeter of the unbounded external data for \( s \to 0^ + \).
-
-
-\section{Unbounded external data}
-\label{sec:unbounded_external_data}
-
-
-\subsection[n = 1]{\( n = 1 \)}
-\label{subsec:n1}
-
-\begin{TODO}
-	Is that interesting?\\
-	Add discussion whether \( n = 1 \) makes even sense to consider
-\end{TODO}
-
-\begin{gather*}
-	\Per{s}{E_1}{} = 2 \int_{- 1}^1 \int_1^\infty \frac{1}{(y - x)^{1 + s}} \dd{y} \dd{x} = \frac{2}{s} \int_{- 1}^1 (1 - x)^{- s} \dd{x} = \frac{2^{2 - s}}{s(1 - s)}
+	\Per{s}{E_M}{\Omega \setminus Z_R} \leq \Per{s}{E_M}{\Omega_n} \geq \Per{s}{E_0}{\Omega_n} \nwarrow \Per{s}{E_0}{\Omega \setminus Z_R}.
 \end{gather*}
 
-\begin{gather*}
-	\L(E_0, E_1) = 2 \int_{- 1}^1 \int_2^\infty \frac{1}{(y - x)^{1 + s}} \dd{y} \dd{x} = \frac{2}{s} \int_{- 1}^1 (2 - x)^{- s} \dd{x} = \frac{2}{s(1 - s)} (3^{1 - s} - 1)
-\end{gather*}
+As it turns out, this is not true in general and thus we cannot state connectedness just
+with the existence of the cylinder in the minimizer.\\
+In the following, we will consider an example where depending on \( s \) the minimizer is
+not the external data itslef, even though the external data and the prescribed set have
+nonzero distance.
 
-Thus for \cref{eq:205} we have
-\begin{gather*}
-	\Per{s}{E_1}{} - 2 \L(E_0, E_1) = \frac{4}{s(1 - s)} (2^{- s} - 3^{1 - s} + 1). \tagged\label{eq:206}
-\end{gather*}
-Notice that \cref{eq:206} is continuous in \( s \) and
-\begin{gather*}
-	\lim_{s \to 1^x} 4 (2^{- s} - 3^{1 - s} + 1) = 2 > 0
-\end{gather*}
-and
-\begin{gather*}
-	\lim_{s \to 0^ +} 4 (2^{- s} - 3^{1 - s} + 1) = - 4 < 0.
-\end{gather*}
-Thus there exist \( s_0 \in (0, 1) \), such that for all \( s \in (0, s_0) \)
-\cref{eq:205} is satisfied. \\
-\begin{TODO}
-	Add expectation and discussion
-\end{TODO}
-
-\subsection[n = 2]{\( n = 2 \)}
-\label{subsec:n2}
-
-\begin{TODO}
-	Rewrite with choice of \( \Omega \) and \( E_1 \) in mind
-\end{TODO}
-
-Consider the following model in \( \mathbb{R}^2 \):\\
-Let \( E_0 \coloneqq B_2^c \) and \( \Omega \coloneqq B_1 \). Then we show that there
-exists \( s_0 \in (0, 1) \) such that for all \( s \in (0, s_0) \) the minimizer \( E \)
-is not the external data \( E_0 \) itself. We do that by showing that for those \( s \)
-the fractional perimeter of \( E_0 \) relative to \( \Omega \) is strictly smaller than
-the fractional perimeter of \( E_0 \cap E_1 \) relative to \( \Omega \) with \( E_1 = B_1
-\).
-\begin{TODO}
-	Is that a proof? for a theorem/proposition/..?\\
-	Improve proof and figure
-\end{TODO}
-
-\begin{proof}
-	We compare \( \Per{s}{E_0 \cup E_1}{\Omega} \) with \( \Per{s}{E_0}{\Omega} \).
-	\begin{align*}
-		\Per{s}{E_0 \cup E_1}{\Omega} - \Per{s}{E_0}{\Omega}
-		 & = \L(E_1, (E_0 \cup E_1)^c) + \L(E_0, \Omega \setminus E_1) - \L(E_0, \Omega) \\
-		 & = \L(E_1, E_1^c) - 2 \L(E_0, E_1) \\
-		 & = \Per{s}{E_1}{} - 2 \L(E_0, E_1). \tagged\label{eq:202}
-	\end{align*}
-	We can give an explicit value for the first term in \Cref{eq:202} by using the result
-	of~\cite[Eq. (11)]{haddad2022affine}. We then have
+\begin{example}
+	\label{ex:201}
+	Let \( E_{0} = B_{2} ^{c} \) and \( \Omega = B_{1}  \) in \( \mathbb{R}^{2} \). Then we
+	compare the fractional perimeter of \( E_{0}  \) relative to \( \Omega \) with the
+	fractional perimeter of \( E_{0} \cup \Omega \) relative to \( \Omega \)
 	\begin{gather*}
-		\Per{s}{E_1}{} = \frac{2^{2 - s} \pi^{\frac{3}{2}}}{s(2 - s)} \frac{\Gamma (\frac{1 - s}{2})}{\Gamma (\frac{2 - s}{2})},
+		\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega} = \Per{s}{B_{1}}{} - 2L(B_{2} ^{c}, B_{1} ) \tagged\label{eq:208}
 	\end{gather*}
-	where \( \Gamma \) is the gamma function. The second term in \Cref{eq:202} is not so
-	easy to compute, thus we will estimate it from above and below. Since these are rather
-	delicate computations, we have to refine the integral first. To do that we split the
-	domain of integration over the second variable into two parts depended on the first,
-	namely \( B_{2 + \lvert x\rvert}^c (x) \) and \( B_{2 + \lvert x\rvert} (x) \setminus B_2
-	\) for \( x \in B_1 = E_1 \). We then can write the second term as
+	and show that this difference is negative for \( s \) small enough.
+
+	For the first term we have by~\cite[Eq. (11)]{haddad2022affine}
 	\begin{gather*}
-		\L(E_0, E_1) = \underbrace{\int_{B_1} \int_{B_{2 + \lvert x\rvert}^c (x)} \frac{1}{\lvert x - y \rvert^{2 + s}} \dd{y} \dd{x}}_{\eqqcolon I_1} + \underbrace{\int_{B_1} \int_{B_{2 + \lvert x\rvert} (x) \setminus B_2} \frac{1}{\lvert x - y \rvert^{2 + s}} \dd{y} \dd{x}}_{\eqqcolon I_2}.
+		\Per{s}{B_{1} }{} = \frac{2^{2-s} \pi^{\frac{3}{2} } }{s(2-s)} \frac{\Gamma(\frac{1-s}{2})}{\Gamma(\frac{2-s}{2})}.
 	\end{gather*}
-	See \Cref{fig:201} for splitup \\
-	\begin{figure}[h]
+
+	We want to bound the second term from above and below. For that we will split the domain
+	depending on \( x \), see \Cref{fig:201}.
+	\begin{figure}[ht]
 		\centering
-		\def\svgwidth{0.5\textwidth}
+		\def\svgscale{1}
 		\import{figures/split_domain}{split_domain.pdf_tex}
-		\caption{SplitUp of Domain}
+		\caption{Split \( B_{2} ^{c} \) depending on \( x \) }
 		\label{fig:201}
 	\end{figure}
+
+	Thus we have
+	\begin{gather*}
+		\L(B_{2} ^{c}, B_{1} ) = \int_{B_{1}} \int_{B_{2}^{c} } \frac{1}{\lvert x - y \rvert^{2-s}} \dd{y} \dd{x}
+		= \underbrace{\int_{B_{1}} \int_{B_{2+\lvert x \rvert }^{c} (x) } \frac{1}{\lvert x - y \rvert^{2-s}} \dd{y} \dd{x}}_{I_{1}} + \underbrace{\int_{B_{1} } \int_{B_{2+\lvert x \rvert }(x)\setminus B_{2}  } \frac{1}{\lvert x - y \rvert^{2-s}} \dd{y} \dd{x}}_{I_{2}}.
+	\end{gather*}
 	We start with \( I_1 \):
 	\begin{align*}
 		I_1
@@ -246,7 +99,7 @@ the fractional perimeter of \( E_0 \cap E_1 \) relative to \( \Omega \) with \( 
 	\end{align*}
 	Thus for \( I_1 \) we have
 	\begin{gather*}
-		I_1 = \frac{4\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - (s + 1) 3^{1 - s} \right). \tagged\label{eq:203}
+		I_1 = \frac{4\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - (s + 1) 3^{1 - s} \right). \tagged\label{eq:202}
 	\end{gather*}
 	Now to \( I_2 \). Here the idea is to use radial coordinates again. Since the ntegral
 	is radial symmetric with respect to \( x \), we can fix \( x \) such that \( x = (r,
@@ -266,9 +119,9 @@ the fractional perimeter of \( E_0 \cap E_1 \) relative to \( \Omega \) with \( 
 	\begin{gather*}
 		4 \leq \lvert x - y\rvert^2 \leq (2 + 2r_1)^2 \\
 		\Leftrightarrow 4 \leq r_1^2 + r_2^2 - 2r_1 r_2 \cos(\vartheta) \leq 4(1 + r_1)^2 \\
-		\Leftrightarrow \frac{r_1^2 + r_2^2 - 4}{2r_1 r_2} \geq \cos(\vartheta) \geq \frac{r_1^2 + r_2^2 - 4(1 + r_1)^2}{2r_1 r_2}. \tagged\label{eq:204}
+		\Leftrightarrow \frac{r_1^2 + r_2^2 - 4}{2r_1 r_2} \geq \cos(\vartheta) \geq \frac{r_1^2 + r_2^2 - 4(1 + r_1)^2}{2r_1 r_2}. \tagged\label{eq:207}
 	\end{gather*}
-	From the second restriction we get that the right - hand - side of \Cref{eq:204} is always
+	From the second restriction we get that the right - hand - side of \Cref{eq:207} is always
 	greater or equal to \( - 1 \), thus we have
 	\begin{gather*}
 		\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2} \geq \cos(\vartheta) \geq - 1.
@@ -296,7 +149,7 @@ the fractional perimeter of \( E_0 \cap E_1 \) relative to \( \Omega \) with \( 
 		 & = \frac{4\pi^2}{s(1 - s)(2 - s)} \left((s + 1) 3^{1 - s} - 3 + s \right) - \frac{4\pi^2}{s} \int_0^1 \frac{r_1}{(2 - r_1)^s} \dd{r_1} + \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{r_2^{1 + s}} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - (r_1^2 + r_2^2 - 4)^2}} \dd{r_2} \dd{r_1} \\
 		 & = \underbrace{\frac{4\pi^2}{s(1 - s)(2 - s)} \left((s + 1) 3^{1 - s} - 2^{2 - s} \right)}_{- I_1} + \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{r_2^{1 + s}} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - (r_1^2 + r_2^2 - 4)^2}} \dd{r_2} \dd{r_1}.
 	\end{align*}
-	Thus we get for the second term in \Cref{eq:202}
+	Thus we get for the second term in \Cref{eq:208}
 	\begin{gather*}
 		\L(E_0, E_1) = \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{r_2^{1 + s}} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - (r_1^2 + r_2^2 - 4)^2}} \dd{r_2} \dd{r_1}.
 	\end{gather*}
@@ -325,98 +178,236 @@ the fractional perimeter of \( E_0 \cap E_1 \) relative to \( \Omega \) with \( 
 		Give justification, that both sides are continuous w.r.t.\ s and conclude\\
 		Maybe draw a picture
 	\end{TODO}
+\end{example}
+
+\begin{example}[Continuoation of \Cref{ex:201}]
+	Let us now consider the same setting as in \Cref{ex:201}, but instead with the external
+	data \( E_{1} = B_{2+T} \setminus B_{2} \) for \( T >0 \) large enough. Notice, that this change just adds one
+	additional term compared to before
+	\begin{gather*}
+		\L(B_{2+T}\setminus B_{2} , B_{1} ) = 	\L(B_{2} ^{c}, B_{1} ) - \underbrace{ \int_{B_{2+T}^{c}}^{} \int_{B_{1} }^{} \frac{1}{\lvert x-y \rvert ^{2-s} }  \dd{x}   \dd{y}  }_{I_{3} }
+	\end{gather*}
+
+	We will bound \( I_{3}  \) from above and below. \\
+	The upper bound
+	\begin{align*}
+		\int_{B_{1} }^{} \int_{B_{2+T-\lvert x \rvert }^{c} (x)}^{} \frac{1}{\lvert x-y \rvert ^{2-s} }  \dd{y}  \dd{x}
+		 & \leq 4 \pi^{2} \int_{0}^{1} \int_{2+T-r_{1} }^{\infty} \frac{r_{1}}{r_{2}^{1-s} }  \dd{r_{2} }  \dd{r_{1} } \\
+		 & = \frac{4 \pi^{2} }{s} \int_{0}^{1} \frac{r_{1}}{(2+T-r_{1} )^{s} }  \dd{r_{1} } \\
+		 & = \frac{4 \pi^{2} }{s(1-s)(2-s)} [(2+T)^{2-s}-(3-s+T) (1+T)^{1-s}]
+	\end{align*}
+	and the lower bound
+	\begin{align*}
+		\int_{B_{1} }^{} \int_{B_{2+T+\lvert x \rvert }^{c} (x)}^{} \frac{1}{\lvert x-y \rvert ^{2-s} }  \dd{y}  \dd{x}
+		 & \geq 4 \pi^{2} \int_{0}^{1} \int_{2+T+r_{1} }^{2+T+r_{1} } \frac{r_{1}}{r_{2}^{1-s} }  \dd{r_{2} }  \dd{r_{1} } \\
+		 & = \frac{4 \pi^{2} }{s} \int_{0}^{1} \frac{r_{1}}{(2+T+r_{1} )^{s} }  \dd{r_{1} } \\
+		 & = \frac{4 \pi^{2} }{s(1-s)(2-s)} [(2+T)^{2-s}-(1+s+T) (3+T)^{1-s}]
+	\end{align*}
+
+	Thus we have the bounds
+	\begin{gather*}
+		\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega} \leq (\text{add upper bound}) + \frac{4 \pi^{2} }{s(1-s)(2-s)} [(2+T)^{2-s}-(3-s+T) (1+T)^{1-s}] \\
+		\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega} \geq (\text{add lower bound}) + \frac{4 \pi^{2} }{s(1-s)(2-s)} [(2+T)^{2-s}-(1+s+T) (3+T)^{1-s}]
+	\end{gather*}
+
+	\begin{TODO}
+		Add picture and more explanation
+	\end{TODO}
+	Notice that the limits for \( s \searrow 0 \) and \( s \nearrow 1 \) are independent of
+	\( T \) and that for \( s \nearrow 1 \) the limit is the same as in the unbounded case.
+	For \( s \searrow 0 \) however we have a different limit than in the unbounded case.
+	\begin{TODO}
+		Add limit for \( s \searrow 0 \), independent of \( T \) and show that for \( T \)
+		large enough the difference is negative for some interval of \( s \).
+	\end{TODO}
+
+\end{example}
+
+\begin{TODO}
+	Go from the example to the general case
+\end{TODO}
+
+We will consider the following setting once with unbounded data and once with bounded
+data: Let \( n \geq 1 \) and \( r, R, T > 0 \), such that \( r < R \). Take the external
+data \( E_0 = B_R^c \) in the unbounded case and \( E_0 = B_T \setminus B_R
+\) in the bounded case. Define the prescribed set \( \Omega = B_r \). \\
+
+\begin{CHECK}
+	Is that correct?\\
+	Elaborate
+\end{CHECK}
+
+In~\cite{Caffarelli2011} the authors have shown that for \( s \nearrow 1 \) the fractional
+perimeter approaches the classical perimeter. Thus, we can expect that for \( s \) large
+enough the minimizer should be the external data itself. In~\cite{dipierro2012asymptotics}
+the authors have shown that for bounded sets with nonzero distance and \( s \) small
+enough the minimizer is the external data itself as well. \\
+
+\begin{theorem}
+	\label{thm:201}
+	Let \( n \geq 2 \) and \( 0 < r < R \). Let \( E_0 = B_R^c \) and \( \Omega =
+	B_r \), then there exists a \( s_0 \in (0, 1) \) such that for all \( s \in (0,
+	s_0) \) the minimizer is not the external data itself.
+\end{theorem}
+
+\begin{theorem}
+	\label{thm:202}
+	Let \( n \geq 2 \) and \( 0 < r < R \) and \( R+T > 0 \). Let \( E_0 = B_{R+T}  \setminus
+	B_R \) and \( \Omega = B_r \), then there exists \( s_0, s_1 \in (0, 1) \)
+	such that for all \( s \in (s_0, s_1) \) and \( T \) large enough the minimizer is not
+	the external data itself and for \( s \) small and large enough the minimizer is the
+	external data.
+\end{theorem}
+
+We will proof that the minimizer is not the external data itself by comparing the
+fractional perimeter of \( E_0 \) with the fractional perimeter of \( E_0 \cup \Omega \).
+
+\begin{proof}[Proof of \Cref{thm:201}]
+	\begin{gather*}
+		\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega} = \Per{s}{\Omega}{} -
+		2L(E_0, \Omega) \tagged\label{eq:203}
+	\end{gather*}
+
+	For the first term we have by~\cite[Eq. (11)]{haddad2022affine}
+	\begin{gather*}
+		\Per{s}{\Omega}{} = \Per{s}{B_r}{}
+		= \frac{2^{1 - s} \pi^{\frac{n - 1}{2}} n \omega_n}{s(n - s)} \frac{\Gamma(\frac{1 - s}{2})}{\Gamma(\frac{n - s}{2})} r^{n - s}
+		= \frac{2^{2 - s} \pi^{n - \frac{1}{2}}}{s(n - s)} \frac{\Gamma(\frac{1 - s}{2})}{\Gamma(\frac{n - s}{2}) \Gamma(\frac{n}{2})} r^{n - s}
+	\end{gather*}
+	with \( \omega_n = \frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n}{2} + 1)} \).
+
+	The second term we will bound from below to get an upper bound for \Cref{eq:203}.
+	\begin{align*}
+		\L(E_0, E_1) = \L(B_r, B_R^c)
+		 & = \int_{B_r} \int_{B_R^c} \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x} \\
+		 & \geq \int_{B_r} \int_{B_{R + \lvert x \rvert}^c (x)} \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x} \\
+		 & = \int_{B_r} \int_{B_{R + \lvert x \rvert}^c} \frac{1}{\lvert y \rvert^{n - s}} \dd{y} \dd{x} \\
+		 & = \frac{4 \pi^n}{(\Gamma(\frac{n}{2}))^2} \int_0^r \int_{R + r_1}^\infty \frac{r_1^{n - 1}}{r_2^{1 + s}} \dd{r_2} \dd{r_1} \\
+		 & = \frac{4 \pi^n}{(\Gamma(\frac{n}{2}))^2} \frac{1}{s} \int_0^r \frac{r_1^{n - 1}}{\left(R + r_1 \right)^s} \dd{r_1} \\
+		 & = \frac{4 \pi^n}{(\Gamma(\frac{n}{2}))^2} \frac{1}{ns} \frac{r^{n - 1}}{R^s} \HG(s, n ; n + 1 ; - \frac{r}{R}).
+	\end{align*}
+
+	\begin{TODO}
+		Add source
+	\end{TODO}
+	In the last step we used the the following identity (source) for the hypergeometric
+	function
+	\begin{gather*}
+		B(b, c - b)\HG(a, b ; c ; z) = \int_0^1 t^{b - 1} (1 - t)^{c - b - 1} (1 - tz)^{- a} \dd{t} \qquad
+		\text{for} \Re(c) > \Re(b) > 0,
+	\end{gather*}
+	where \( B \) is the beta function. In our case we have \( a = s \), \( b = n \), \( c =
+	n + 1 \) and \( z = - \frac{r}{R} \), thus
+	\begin{align*}
+		\int_0^r \frac{r_1^{n - 1}}{\left(R + r_1 \right)^s} \dd{r_1}
+		 & = \frac{r^n}{R^s} \int_0^1 r_1^{n - 1} (1 + \frac{r}{R} r_1)^{- s} \dd{r_1} \\
+		 & = \frac{r^n}{R^s} B(n, 1) \HG(s, n ; n + 1 ; - \frac{r}{R}) = \frac{r^n}{nR^s} \HG(s, n ; n + 1 ; - \frac{r}{R}).
+	\end{align*}
+
+	Thus we can bound \Cref{eq:203} from above by
+	\begin{gather*}
+		\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}
+		\leq \frac{2^{2 - s} \pi^{n - \frac{1}{2}}}{s(n - s)} \frac{\Gamma(\frac{1 - s}{2})}{\Gamma(\frac{n - s}{2}) \Gamma(\frac{n}{2})}r^{n - s} - \frac{8 \pi^n}{(\Gamma(\frac{n}{2}))^2} \frac{r^n}{snR^s} \HG(s, n ; n + 1 ; - \frac{r}{R}). \tagged\label{eq:204}
+	\end{gather*}
+
+	\begin{TODO}
+		Rewrite
+	\end{TODO}
+	Since we are interested in the behavior of \Cref{eq:203} depending on \( s \) we
+	multiply \Cref{eq:204} by \( s(1 - s) \) to deal with the singularities at \( s = 0 \) and
+	\( s = 1 \)
+	\begin{gather*}
+		s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega})
+		\leq \frac{2^{3 - s} \pi^{n - \frac{1}{2}}}{n - s} \frac{\Gamma(\frac{3 - s}{2})}{\Gamma(\frac{n - s}{2}) \Gamma(\frac{n}{2})}r^{n - s} - \frac{8 \pi^n}{(\Gamma(\frac{n}{2}))^2} \frac{r^n}{nR^s} (1 - s)\HG(s, n ; n + 1 ; - \frac{r}{R}). \tagged\label{eq:205}
+	\end{gather*}
+
+	\begin{TODO}
+		Add source
+	\end{TODO}
+	Since \( \Gamma \) is continuous for all positive reals and \( \HG \) is contiouous for
+	\( \lvert z \rvert \leq 1 \), the right hand side of \Cref{eq:205} is continuous for all
+	\( s \in (0, 1) \). Now take the limit for \( s \searrow 0 \) and \( s \nearrow 1 \)
+	\begin{gather*}
+		\lim_{s \searrow 0} s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega})
+		= - \frac{4 \pi^n}{n} \frac{1}{(\Gamma(\frac{n}{2}))^2} r^n < 0 \tagged\label{eq:206}
+	\end{gather*}
+	and
+	\begin{gather*}
+		\lim_{s \nearrow 1} s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega})
+		= \frac{4 \pi^{n - \frac{1}{2}}}{n - 1} \frac{1}{\Gamma(\frac{n - 1}{2})\Gamma(\frac{n}{2})} r^{n - 1} > 0.
+	\end{gather*}
+
+	Now we know for \( s \nearrow 1 \) that \( (1 - s)\Per{s}{E}{\Omega} \) is aproaching the
+	classical perimeter, thus in \Cref{eq:206} is actually an equality. Thus we can conclude
+	that there exists a \( s_0 \in (0, 1) \) such that for all \( s \in (0, s_0) \) the
+	minimizer is not the external data itself.
+
+\end{proof}
+
+
+\begin{proof}[Proof of \Cref{thm:202}]
+	We consider again the difference
+	\begin{gather*}
+		\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{ s}{E_{0} }{\Omega} = \Per{s}{\Omega}{} - 2\L(E_{0} , \Omega) = \Per{s}{B_{R+T}\setminus B_{R}  }{} -2 \L(B_{R}^{c} , B_{r} ) + 2 \L(B_{R+T} ^{c}, B_{r} ) \tagged\label{eq:209}
+	\end{gather*}
+
+	We can use the upper bound from the proof of \Cref{thm:201} for the first 2 terms in
+	\Cref{eq:209}. The third term we will bound from above
+	\begin{align*}
+		\L(B_{R+T} ^{c}, B_{r} )
+		 & = \int_{B_{r}} \int_{B_{R+T} ^{c} } \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x} \\
+		 & \leq \int_{B_{r}} \int_{B_{R+T-\lvert x \rvert} ^{c} } \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x} \\
+		 & = \frac{4 \pi^{n} }{( \Gamma(\frac{n}{2}))^{2} } \int_{0}^{r} \int_{R+T-r_{1} }^{\infty} \frac{r_{1}^{n-1} }{r_{2}^{1+s} } \dd{r_{2} } \dd{r_{1} } \\
+		 & = \frac{4 \pi^{n} }{( \Gamma(\frac{n}{2}))^{2} } \frac{1}{s} \int_{0}^{r} \frac{r_{1}^{n-1} }{(R+T-r_{1} )^{s} } \dd{r_{1} } \\
+		 & = \frac{4 \pi^{n} }{( \Gamma(\frac{n}{2}))^{2} } \frac{1}{ns} \frac{r^{n} }{(R+T)^{s} } \HG(s, n ; n+1 ; - \frac{r}{R+T} ).
+	\end{align*}
+
+	Thus we can bound \Cref{eq:209} from above by
+	\begin{align*}
+		 & \Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega} \\
+		 & \leq \frac{2^{2-s} \pi^{n-\frac{1}{2}}}{s(n-s)} \frac{\Gamma(\frac{1-s}{2})}{\Gamma(\frac{n-s}{2}) \Gamma(\frac{n}{2})} r^{n-s} - \frac{8 \pi^{n}}{(\Gamma(\frac{n}{2}))^{2}} \frac{r^{n} }{sn}  (\frac{1}{R^{s}} \HG(s, n ; n+1 ; - \frac{r}{R}) - \frac{1}{(R+T)^{s} } \HG(s, n ; n+1 ; - \frac{r}{R+T} ). \tagged\label{eq:210}
+	\end{align*}
+
+	\begin{TODO}
+		Argument for continuity
+	\end{TODO}
+	Now we multiply by \( s(1-s) \) to deal with the singularities at \( s = 0 \), \( s = 1
+	\) and let \( s \searrow 0 \) and \( s \nearrow 1 \)
+	\begin{gather*}
+		\lim_{s \searrow 0} s(1-s)(\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega}) = \frac{4 \pi^{n}}{n} \frac{1}{(\Gamma(\frac{n}{2}))^{2}} r^{n} > 0
+	\end{gather*}
+	and
+	\begin{gather*}
+		\lim_{s \nearrow 1} s(1-s)(\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega}) = \frac{4 \pi^{n-\frac{1}{2}}}{n-1} \frac{1}{\Gamma(\frac{n-1}{2})\Gamma(\frac{n}{2})} r^{n-1} > 0.
+	\end{gather*}
+
+	Notice, that the limits are independent of \( R \) and \( T \). Also both limits are
+	positive. Nonetheless for \( T  \) big enough, there will exist some interval in \(
+	(0,1) \) such that the difference is negative. \\
+
+	\begin{TODO}
+		Elaborate or justify
+	\end{TODO}
+	The upper bound \Cref{eq:210} is continuous in \( T \) for all \( s \in (0,1) \) and for
+	\( T \to \infty \), the third term vanishes. Thus for \( s,T \) large enough, the upper
+	bound behaves similar to the upper bound in the proof of \Cref{thm:201}. Thus there
+	exists some \( s \in (0,1) \) such that the difference is negative. \\
+	Since the limit for \( s \searrow 0 \) is independent of \( T \) and positive and by
+	~\cite[Eq. (3.2)]{dipierro2012asymptotics} we have that \( s \L(B_{R+T}\setminus B_{R}  , B_{r} ) \to 0 \) for \( s \searrow 0 \).
+	Thus the limits in \( s = 0 \) and \( s=1 \) are not only upper bounds but exact values.
+	\\
+
+	Thus we can conclude, that there exists an interval \( (s_0, s_1) \) such that for all
+	\( s \in (s_{0} , s_{1} ) \) the minimizer is not the external data itself.
+
 \end{proof}
 
 \begin{TODO}
-	Add discussion and extend to \( E_0 = B_R^c \) and \( E_1 = B_r \)
+	Give some conclusion and interpretation of these results
 \end{TODO}
 
-
-
-\subsection[n > = 3]{\( n \geq 3 \)}
-\label{subsec:n3}
-
-\begin{TODO}
-	Show that the model also works for \( n \geq 3 \)
-\end{TODO}
-
-We can extend the model to higher dimensions as well, but instead we will only give an
-upper bound.
-
-For arbitrary dimensions \( n \geq 3 \) we have that by~\cite[eq 11]{haddad2022affine}
-\begin{gather*}
-	\Per{s}{E_1}{} = \frac{2^{1 - s} \pi^{\frac{n - 1}{2}} n \omega_n}{s(n - s)} \frac{\Gamma (\frac{1 - s}{2})}{\Gamma (\frac{n - s}{2})}
-	= \frac{2^{1 - s} \pi^{n - \frac{1}{2}} n}{s(n - s)} \frac{\Gamma (\frac{1 - s}{2})}{\Gamma (\frac{n - s}{2}) \Gamma (\frac{n}{2} - 1)}
-\end{gather*}
-
-For the second term in ..
-\begin{align*}
-	L(E_{0} , E_{1} ) & \geq \int_{B_{1} }^{} \int_{B^{c}_{2+ \lvert x \rvert  } (x)}^{} \frac{1}{\lvert x-y \rvert ^{n+2} }  \dd{x}  \dd{y}
-	= \int_{B_{1} }^{} \int_{B^{c}_{2+ \lvert x \rvert  } }^{} \frac{1}{\lvert y \rvert ^{n+2} }  \dd{y}  \dd{x} \\
-	                  & = \frac{4 \pi ^{n} }{(\Gamma (\frac{n}{2}))^{2} } \int_{0}^{1} \int_{2+r_{1} }^{\infty} \frac{r_{1}^{n-1}  }{r_{2} ^{1+s} }  \dd{r_{2} }  \dd{r_{1} }
-	= \frac{4 \pi ^{n} }{(\Gamma (\frac{n}{2}))^{2} } \frac{1}{s}  \int_{0}^{1} \frac{r_{1}^{n-1}  }{(2+r_{1} )^{s} }  \dd{r_{1} } \\
-	                  & = \frac{4 \pi ^{n} }{(\Gamma (\frac{n}{2}))^{2} } \frac{1}{ns} 2^{-s} \HG (n, s; n+1; -\frac{1}{2} )
-\end{align*}
-where \( \HG \) is the hypergeometric function. \\
-
-If we now consider the limit of the upper bound of
-\begin{gather*}
-	s(1-s)\Per{s}{E_{1}}{} - 2L(E_{0} , E_{1} )
-\end{gather*}
-for \( s \to 0 \) we get we get that the limit is negative. For \( s \to 1 \) we get that
-the limit is positive. Since for \( s \to 1 \) the fractional perimeter converges to the
-classical perimeter, i.e. \( \L(E_{0} , E_{1} ) \to 0 \), we can conclude that there
-exists \( s_{0} \in (0,1) \) such that for all \( s \in (0,s_{0}) \) the minimizer is not
-the external data itself.
-
-\begin{TODO}
-	Give an argument why the model should work for higher dimensions as well\\
-	Hypergeometric function
-\end{TODO}
-
-
-\section{Bounded external data}
-\label{sec:bounded_external_data}
-
-\begin{TODO}
-	Show that for \( E_0 \) bounded, the minimizer is connected for \( s \) small and
-	large enough (at least in the model above)\\
-	Refer to~\cite{dipierro2012asymptotics} for bounded data and \( s \to 0 \)
-\end{TODO}
-
-In ~\cite{dipierro2012asymptotics} the authors discussed the behavior of the fractional
-perimeter for \( s \to 0 \) for bounded external data.
-\begin{TODO}
-	Check that again
-\end{TODO}
-
-We will now consider the model with \( E_0 = B_{2 + T} \setminus B_2 \) and \( E_1 = B_1
-\). We will show that there exists \( s_0, s_1 \in (0, 1) \) such that for all \( s \in
-(s_0, s_1) \) the minimizer is not the external data itself. We will do that by showing
-that for those \( s \) the fractional perimeter of \( E_0 \) relative to \( \Omega \) is
-strictly smaller than the fractional perimeter of \( E_0 \cap E_1 \) relative to \( \Omega
-\) with \( E_1 = B_1 \). Interestingly enough, we will see that the limit for \( S \to 0
-\) does not depend on \( T \), i.e. for all \( T \) the limit is the same and positive,
-which does not happen for unbounded external data. Thus not converging..
-\begin{TODO}
-	See what ~\cite{dipierro2012asymptotics} says about the limit for \( s \to 0 \)
-\end{TODO}
-
-
-\begin{TODO}
-	Add proof
-\end{TODO}
-\begin{proof}
-	Proof is just an extension of the proof before with an additional term.
-	..
-\end{proof}
-
-We proved that there could exist a part disconected from the external data. If the
-external data is bounded, then the minimizer will be the external data itself for \( s \)
-big and small enough, since .. \\
-For unbounded external data, the minimizer could be disconnected for \( s \) small enough
-..
-\begin{TODO}
-	Take a look at the example given in ~\cite{dipierro2012asymptotics}. Does it fit?
-\end{TODO}
-
+When comparing both theorems and their proofs, we notice that the example with bounded
+exxternal data doesn't seem to converge to the example of unbounded external data. At
+least in the limit for \( s \searrow 0 \). This is interesting, as this entails, that if
+we want to analyze the limiting behavior of a minimizer for \( s \searrow 0 \) we cannot
+restrict the boundary data to be bounded or unbounded.

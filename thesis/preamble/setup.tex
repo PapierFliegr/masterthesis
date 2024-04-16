@@ -24,17 +24,17 @@
 \mdfsetup{skipabove=1em, skipbelow=0em, innertopmargin=4pt, innerbottommargin=4pt}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak }
-    ]{defbox}
+	headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak }
+]{defbox}
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak }
-    ]{thmbox}
+	headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak }
+]{thmbox}
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily, bodyfont=\normalfont
-    ]{remarkbox}
+	headfont=\bfseries\sffamily, bodyfont=\normalfont
+]{remarkbox}
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily, bodyfont=\normalfont
-    ]{notebox}
+	headfont=\bfseries\sffamily, bodyfont=\normalfont
+]{notebox}
 
 \declaretheorem[numberwithin=chapter, style=defbox, name=Definition]{definition}
 \declaretheorem[sibling=definition, style=thmbox, name=Theorem]{theorem}
@@ -48,31 +48,31 @@
 
 % --------------------- structure environments --------------------- %
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{yellow!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=yellow, backgroundcolor=yellow!5,
-    }
-    ]{idea}
+	headfont=\bfseries\sffamily\color{yellow!70!black}, bodyfont=\normalfont,
+	mdframed={
+			linewidth=2pt,
+			rightline=false, topline=false, bottomline=false,
+			linecolor=yellow, backgroundcolor=yellow!5,
+		}
+]{idea}
 \declaretheorem[numbered=no, style=idea, name=IDEA]{IDEA}
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{red!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=red, backgroundcolor=red!5,
-    }
-    ]{todo}
+	headfont=\bfseries\sffamily\color{red!70!black}, bodyfont=\normalfont,
+	mdframed={
+			linewidth=2pt,
+			rightline=false, topline=false, bottomline=false,
+			linecolor=red, backgroundcolor=red!5,
+		}
+]{todo}
 \declaretheorem[numbered=no, style=todo, name=TODO]{TODO}
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{green!70!black}, bodyfont=\normalfont,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=green, backgroundcolor=green!5,
-    }
-    ]{check}
+	headfont=\bfseries\sffamily\color{green!70!black}, bodyfont=\normalfont,
+	mdframed={
+			linewidth=2pt,
+			rightline=false, topline=false, bottomline=false,
+			linecolor=green, backgroundcolor=green!5,
+		}
+]{check}
 \declaretheorem[numbered=no, style=check, name=CHECK]{CHECK}
 
 % \usepackage{environ}

@@ -1,4 +1,4 @@
-%latexindenttrailingcomment1 - END
+%latexindenttrailingcomment - LIN1 - END
 \chapter{Models}
 \label{ch:models}
 
@@ -26,7 +26,7 @@ the minimizer which is fully disconnected from the rest of the minimizer. We wil
 this situation in \Cref{ch:disconnected_minimizer}.
 
 
-%latexindenttrailingcomment2 - END
+%latexindenttrailingcomment - LIN2 - END
 \section{Model 01}
 \label{sec:model01}
 
@@ -229,7 +229,7 @@ R \) large enough, \( M_0 \) increases.
 
 
 
-%latexindenttrailingcomment3 - END
+%latexindenttrailingcomment - LIN3 - END
 \section{Model 02}
 \label{sec:model02}
 
@@ -242,7 +242,7 @@ for \( R > 0 \) and \( M > 0 \). The \Cref{fig:104} illustrates the setting.
 
 \begin{figure}[h]
 	\centering
-	\def\svgwidth{0.5\textwidth}
+	\def\svgscale{1}
 	\import{figures/model02}{model02_base.pdf_tex}
 	\caption{}
 	\label{fig:104}
@@ -284,7 +284,7 @@ Add some more discussion.
 	\) is in the minimizer for some \( r_0 > 0 \). \\
 	\begin{figure}[h]
 		\centering
-		\def\svgwidth{0.5\textwidth}
+		\def\svgscale{1}
 		\import{figures/model02}{model02_balls.pdf_tex}
 		\caption{}
 		\label{fig:105}
@@ -301,9 +301,9 @@ Add some more discussion.
 	is no touching as well. \\
 	For that we split into four parts as seen in the figure:
 
-	\begin{figure}[h]
+	\begin{figure}[ht]
 		\centering
-		\def\svgwidth{0.5\textwidth}
+		\def\svgscale{1}
 		\import{figures/model02}{model02_split.pdf_tex}
 		\caption{}
 		\label{fig:106}
@@ -335,7 +335,16 @@ Add some more discussion.
 		\int_C \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} = - \int_C \frac{1}{\lvert y - q \rvert^{n + s}} \dd{y} \leq - c(n) \int_{B_M (\ldots)} \frac{1}{\lvert y\rvert^{n + s}} \dd{y} \leq - c(n, s) M^{- s}
 	\end{align*}
 	Idea: Move part of the stripe outside, restrict to ball with radius \( M \) and
-	multiply with \( \frac{1}{2} \) since not whole ball may be in the set.\\
+	multiply with \( \frac{1}{2} \) since not whole ball may be in the set. See \Cref{fig:107}.
+
+	\begin{figure}[ht]
+		\centering
+		\def\svgscale{1}
+		\import{figures/model02}{model02_mball.pdf_tex}
+		\caption{caption}
+		\label{fig:107}
+	\end{figure}
+
 
 	Integration over the fourth part: \\
 	We split \( S \) into four parts:
@@ -387,7 +396,7 @@ Talk about the contribution of the complement.
 \end{TODO}
 \begin{proof}[Proof of \Cref{thm:104}]
 	In theorems 1.2 in \cite{dipierro2020disconnectedness} the authors have shown that
-	that \( \exists M_0 > 1 \), such that..
+	\( \exists M_0 > 1 \), such that..
 	\begin{gather*}
 		E_M \subset F_M \quad E_M^c \subset F_M^c
 	\end{gather*}
@@ -408,17 +417,16 @@ Talk about the contribution of the complement.
 \end{theorem}
 
 We will prove this in a somehow similar manner than before, but this time we consider a
-ball of fixed radius \( R/4 \) and slide it on the \( x_1 \) direction. Since symmtries
+ball of fixed radius \( R/2 \) and slide it on the \( x_1 \) direction. Since symmtries
 are preserved it is enough to consider \( x_1 \). We will push the ball outside from the
 origin and contradict the assumption, that if the minimizer is not \( E_0 \cup \Omega \),
-by assuming the exitence of the ball of radius \( R/4 \) at \( (1 - R/4 - t)e_1 + h e_n
-\) for some \( t \in (0, 1 - R/4) \) and all \( h \in (- M, M) \). Then since the cylinder is
+by assuming the exitence of the ball of radius \( R/2 \) at \( (1 - R/2 - t)e_1 + h e_n
+\) for some \( t \in (0, 1 - R/2) \) and all \( h \in (- M, M) \). Then since the cylinder is
 in the minimizer, we can conclude that \( (1 - t)e_1 + h e_n \) is in the boundary for
 any \( h \), thus the minimzer is \( E_M = E_0 + \Omega \).
 
 \begin{proof}[Proof of \Cref{thm:105}]
-	..
-\end{proof}
+Proof by contradiction. Assume \( E_M \neq E_0 \cup \Omega \). By \Cref{thm:103}
 
 
 \begin{TODO}
@@ -430,4 +438,5 @@ stickiness at some point.\newline
 New idea: If there is a minimizer \( E_M \), can it ever be non sticky to the
 boundary?\newline
 Maybe able to give own interpretation of nonlocal minimal surfaces. Idea about Volume or
+Gravity?
 Gravity?
