@@ -1,6 +1,12 @@
-%latexindenttrailingcomment - LIN1 - END
 \chapter{Models}
 \label{ch:models}
+
+\begin{TODO}
+	Instead of considering both models seperately consider them together
+\end{TODO}
+
+
+
 
 \begin{TODO}
 	Rewrite the text \\
@@ -26,7 +32,6 @@ the minimizer which is fully disconnected from the rest of the minimizer. We wil
 this situation in \Cref{ch:disconnected_minimizer}.
 
 
-%latexindenttrailingcomment - LIN2 - END
 \section{Model 01}
 \label{sec:model01}
 
@@ -205,15 +210,15 @@ model seems (maybe prove that) to converge to the problem, considered in
 \cite{dipierro2020disconnectedness}.\newline
 
 \begin{TODO}
-	Complete proof of \Cref{thm:102}
+	Do I need to elaborate more? Yes..
 \end{TODO}
 
 \begin{proof}[Proof of \Cref{thm:102}]
-	In theorems 1.2 in \cite{dipierro2020disconnectedness} the authors have shown that
-	that \( \exists M_0 > 1 \), such that..
-	\begin{gather*}
-		E_M \subset F_M \quad E_M^c \subset F_M^c
-	\end{gather*}
+	In theorem 1.2 of \cite{dipierro2020disconnectedness} the authors have shown that
+	for ecternal data \( F_{0} = \{\lvert x_{n}  \rvert > M \} \), that there exists
+	\( M_0 > 1 \), such that for all \( M \geq M_0 \) the minimizer is disconnected.
+	In particular, we have that \( E_{0} \subset F_{0} \) thus we can apply the same proof
+	as in \cite{dipierro2020disconnectedness} to show that the minimizer is disconnected.
 \end{proof}
 
 
@@ -228,8 +233,6 @@ that the width \( R \) is with negative exponents in the upper bound, thus if we
 R \) large enough, \( M_0 \) increases.
 
 
-
-%latexindenttrailingcomment - LIN3 - END
 \section{Model 02}
 \label{sec:model02}
 
@@ -259,7 +262,7 @@ We state the following two results, which we will prove afterwards.
 	exists \( M_0 \in (0, 1) \) depending only on the dimension and \( s \), such that
 	for any \( M \in (0, M_0) \), the minimizer is \( E_M = E_0 \cup \Omega \). For \( R
 	< 2 \), the cylinder \( A \coloneqq \{(x^\prime, x_n) \in \mathbb{R}^{n - 1} \times
-	\mathbb{R} \text{s.t.~} \lvert x^\prime \rvert \leq.., \, \lvert x_n \rvert \leq M
+	\mathbb{R} \text{s.t.~} \lvert x^\prime \rvert \leq  \frac{R}{2} , \, \lvert x_n \rvert \leq M
 	\} \) is in the minimizer, i.e.\ \( E_M \supset E_0 \cup A \).
 \end{theorem}
 \begin{note}
@@ -395,11 +398,7 @@ Talk about the contribution of the complement.
 	Complete proof of \Cref{thm:104}
 \end{TODO}
 \begin{proof}[Proof of \Cref{thm:104}]
-	In theorems 1.2 in \cite{dipierro2020disconnectedness} the authors have shown that
-	\( \exists M_0 > 1 \), such that..
-	\begin{gather*}
-		E_M \subset F_M \quad E_M^c \subset F_M^c
-	\end{gather*}
+	Analogously to \Cref{thm:102}.
 \end{proof}
 
 
@@ -426,7 +425,74 @@ in the minimizer, we can conclude that \( (1 - t)e_1 + h e_n \) is in the bounda
 any \( h \), thus the minimzer is \( E_M = E_0 + \Omega \).
 
 \begin{proof}[Proof of \Cref{thm:105}]
-Proof by contradiction. Assume \( E_M \neq E_0 \cup \Omega \). By \Cref{thm:103}
+	Proof by contradiction. Assume \( E_M \neq E_0 \cup \Omega \). By \Cref{thm:103} we know
+	that at least the cylinder \( B^\prime_{\frac{R}{2}} \times (- M, M) \) is in the
+	minimizer, thus we know that the ball \( B_{\frac{R}{2}} \) is in the minimizer. We
+	slide the ball out in \( e_1 \) direction. It is enough to consider the \( e_1 \)
+	direction as by (source) symmteies are preserved. Thus we consider the ball \( B_{th} \coloneqq
+	B_{\frac{R}{2}} ((1 - \frac{R}{2} - t)e_1 + h e_n) \) for \( t \in (0, 1 - \frac{R}{2}
+	) \) and \( h \in (- M, M) \). Since \( E_M \neq E_0 \cup \Omega \), there exists
+	some \( t \) and \( h \) such that the ball touches the minimizer, say in \( q \in
+	\partial E_M \cap \partial B_{th} \). Then since \( B_{th} \subset E_M \) we have
+	by the Euler - Lagrange equation
+	\begin{gather*}
+		\int_{\mathbb{R}^n} \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n - s}} \dd{y} \geq 0.
+	\end{gather*}
+	We will contradict this by splitting the domain into three parts, see (figure).
+
+	\begin{TODO}
+		Add somewhere that \( M < \frac{R}{2} \)
+	\end{TODO}
+	Consider the following three parts:
+	\begin{align*}
+		A & \coloneqq \{(x^\prime, x_n) \mid \lvert x^\prime - q^\prime \rvert < R, \lvert x_n - q_n \rvert < 2M \} \\
+		B & \coloneqq E_M^c \setminus A \\
+		C & \coloneqq E_M \setminus A.
+	\end{align*}
+	We estimate the integrals over the three parts.
+
+	\begin{TODO}
+		Add argument for first inequality
+	\end{TODO}
+	First we consider the integral over \( B \):
+	\begin{align*}
+		\int_B \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n - s}} \dd{y}
+		 & = \int_B \frac{1}{\lvert y - q \rvert^{n - s}} \dd{y} \\
+		 & \leq \int_{\lvert y \rvert > R} \frac{1}{\lvert y \rvert^{n - s}} \dd{y} \\
+		 & \leq c(n, s) R^{- s}.
+	\end{align*}
+
+	\begin{TODO}
+		Add argument for first inequality
+	\end{TODO}
+	Next we consider the integral over \( C \):
+	\begin{align*}
+		\int_C \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n - s}} \dd{y}
+		 & = - \int_C \frac{1}{\lvert y - q \rvert^{n - s}} \dd{y} \\
+		 & \leq - c(n) \int_{B_M (4Me_n)} \frac{1}{\lvert y \rvert^{n - s}} \dd{y} \\
+		 & \leq - c(n, s) M^{- s}.
+	\end{align*}
+
+	\begin{TODO}
+		Add argument for first inequality\\
+		Add context for \( P_{\frac{R}{2}, 1} \)
+	\end{TODO}
+	Finally we consider the integral over \( A \):
+	\begin{align*}
+		\int_A \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n - s}} \dd{y}
+		 & \leq \int_{B_4 \setminus B_{\frac{R}{2}}} \frac{1}{\lvert y \rvert^{n - s}} \dd{y} + \int_{P_{\frac{R}{2}, 1}} \frac{1}{\lvert y \rvert^{n - s}} \dd{y} \\
+		 & \leq c(n) \int_{\frac{R}{2}}^4 \frac{1}{r^{1 + s}} \dd{r} + c(n) \frac{(\frac{R}{2})^{- s}}{1 - s} \\
+		 & \leq c(n, s) (R^{- s} - 4^{- s}).
+	\end{align*}
+
+	Adding the three integrals we get
+	\begin{align*}
+		\int_{\mathbb{R}^n} \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n - s}} \dd{y} \leq - c_0 M^{- s} + c_1 (R^{- s} - 4^{- s})
+	\end{align*}
+	now if we choose \( M \) small enough, then the right hand side is strictly smaller than
+	zero, which is a contradiction to the assumption that the ball touches the minimizer.
+
+\end{proof}
 
 
 \begin{TODO}
