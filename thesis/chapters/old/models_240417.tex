@@ -1,0 +1,508 @@
+\chapter{Models}
+\label{ch:models}
+
+\begin{TODO}
+	Instead of considering both models seperately consider them together
+\end{TODO}
+
+
+
+
+\begin{TODO}
+	Rewrite the text \\
+	Add discussion about variation of models and why we are considering that
+\end{TODO}
+
+In this chapter we will consider two different models, which are variations of the model
+considered by Dipierro et al. in \cite{dipierro2020disconnectedness}, where they
+considered the external date \( E_0 \) as the complement of a slab in \( \mathbb{R}^n \)
+of width \( 2M \) and the prescribed data \( \Omega \) as the cylinder of radius \( 1 \)
+and height \( 2M \). The showed that for \( M \) big enough the minimizer is disconnected
+which is consistent with the classical theory of minimal surfaces. When \( M \) is small
+enough, the minimizer is connected and even sticks to the boundary. The latter being a
+unique property of nonlocal minimal surfaces. \\ Here we will first consider a variation
+of the model, where we vary the width of the external data \( E_0 \). We observe similar
+behavior of the minimizer as in the original model. This is interesting in the sense of
+the stickiness property, since even for width of \( 1 \) we get stickiness to the
+boundary. \\ In the second model we will consider a variation of the height of the
+external data \( E_0 \). Again we observe similar behavior of the minimizer as in the
+original model, but for smaller heights, we cannot say a priori whether the minimizer is
+connected for small \( M \) as in the nonlocal case we could have a connected component of
+the minimizer which is fully disconnected from the rest of the minimizer. We will discuss
+this situation in \Cref{ch:disconnected_minimizer}.
+
+
+\section{Model 01}
+\label{sec:model01}
+
+
+For \( n \geq 2 \) consider the model as follows:
+\begin{align*}
+	E_0    & \coloneqq \{(x^\prime, x_n) \in \mathbb{R}^{n - 1} \times \mathbb{R} \text{s.t.} \lvert x^\prime \rvert \leq R, \, \lvert x_n \rvert \geq M \} \\
+	\Omega & \coloneqq \{(x^\prime, x_n) \in \mathbb{R}^{n - 1} \times \mathbb{R} \text{s.t.} \lvert x^\prime \rvert \leq 1, \, \lvert x_n \rvert \leq M \}
+\end{align*}
+for \( R \geq 1 \) and \( M > 0 \). The \Cref{fig:101} illustrates the setting.
+
+\begin{figure}[ht]
+	\centering
+	\def\svgscale{1}
+	\import{figures/model01}{model01_base.pdf_tex}
+	\caption{}
+	\label{fig:101}
+\end{figure}
+
+We state the following two results, which we will prove afterwards.
+
+\begin{theorem}
+	\label{thm:101}
+	For \( \Omega \) and \( E_0 \) as given above and for all \( R \geq 1 \), then there
+	exists \( M_0 \in (0, 1) \) depending only on the dimension and \( s \), such that for
+	any \( M \in (0, M_0) \), the minimizer is \( E_M = E_0 \cup \Omega \).
+\end{theorem}
+
+\begin{theorem}
+	\label{thm:102}
+	For \( \Omega \) and \( E_0 \) as given above and for all \( R \geq 1 \), then there
+	exists \( M_0 > 1 \) depending only on the dimension and \( s \), such that for any \(
+	M \geq M_0 \), the minimizer \( E_M \) is disconnected.
+\end{theorem}
+
+\begin{TODO}
+	Elaborate and add source\\
+	Connect to classical minimal surfaces by observing disconnectedness of the minimizer, but
+	when connected, the minimizer may \enquote{stick} to the boundary. Whereas classical
+	minimal surfaces cannot stick to the boundary.
+\end{TODO}
+
+\begin{TODO}
+	Rewrite \\
+	Improve the figure
+\end{TODO}
+For the first proof, we will follow a similar construction as in
+\cite{dipierro2020disconnectedness}.\newline
+In \cite{caffarelli2009nonlocal} the authors have shown that nonlocal minimizer satisfy
+the Euler - Lagrange equation in the viscosity sense, i.e. if \( E \) is a minimizer, there
+exists some such that \( q \in \partial E \) and \( B_r (q + r \nu) \subset E \) for some \(
+r > 0 \) and unit vector \( \nu \in \mathbb{R}^n \), then
+\begin{gather*}
+	\int_{\mathbb{R}^n} \frac{\chi_{E^c}(y) - \chi_E (y)}{\lvert y - q\rvert^{n + s}} \dd{y} \geq 0. \tagged\label{eq:101}
+\end{gather*}
+In the proof we will assume that there exist a minimizer which is not \( E_0 \cup \Omega
+\). To bring this assumption to a contradiction, we want to show that the left hand side
+of \cref{eq:101} is negative for \( M \) small enough. Thus, we have to construct some
+suitable ball such that we can apply the Euler - Lagrange equation. Constructing the ball by
+sliding it down from \( t e_n \). If the minimizer is not \( E_0 \cup \Omega \), then at
+some point the ball will touch the minimizer for any \( 0 < r < 1 \) and a point \( q \),
+then exists. Then we will split the domain into four parts and estimate each part to get
+the contradiction.
+
+\begin{TODO}
+	Improve the proof
+\end{TODO}
+\begin{proof}[Proof of \Cref{thm:101}]
+	Proof by contradiction. Assume \( E_M \) is not \( E_0 \cup \Omega \), then we can
+	slide a ball of radius \( r \) down and at some point it will touch \( E_M \). We
+	consider the ball \( B_r (t e_n) \). Since \( E_M \) not cylindrical, there exists \(
+	r_0 \in (0, 1) \) and \( t_0 > 0 \) s.t.\ \( \partial B_{r_0}(t_0 e_n) \cap \partial
+	E_M \neq \emptyset \) and \( B_{r_0}(t e_n) \subset E_M \) for all \( t > t_0 \). See
+	figure \cref{fig:102}.
+	\begin{figure}[h]
+		\centering
+		\def\svgscale{1}
+		\import{figures/model01}{model01_balls.pdf_tex}
+		\caption{}
+		\label{fig:102}
+	\end{figure}
+
+	Since \( E_M \) is a minimizer it is also a variational solution and the inequality
+	holds
+	\[\int_{\mathbb{R}^n} \frac{\chi_{E_M^c}(y) - \chi_{E_M} (y)}{\lvert y - q\rvert^{n + s}} \dd{y} \geq 0
+	\]
+	whereas \( q \in \partial B_{r_0}(t_0 e_n) \cap \partial E_M \). \\
+	We show that the left hand side is negative. Split the domain into four parts, as seen
+	in the Figure \cref{fig:103}.
+
+	\begin{CHECK}
+		\Cref{fig:103} looks good, but is this needed?
+	\end{CHECK}
+
+	\begin{figure}[h]
+		\centering
+		\def\svgscale{1}
+		\import{figures/model01}{model01_split.pdf_tex}
+		\caption{}
+		\label{fig:103}
+	\end{figure}
+
+	We define
+	\begin{align*}
+		A                                & \coloneqq \{(x^\prime, x_n) \text{s.t.} \lvert x^\prime - q^\prime \rvert \geq R + 1\} \text{Green Area} \\
+		B                                & \coloneqq \{(x^\prime, x_n) \text{s.t.} \lvert x^\prime \rvert < R, \lvert x_n - q_n \rvert > 2M \} \\
+		C                                & \coloneqq \{(x^\prime, x_n) \text{s.t.} \lvert x^\prime \rvert \geq R, \lvert x^\prime - q^\prime \rvert \leq R + 1, \lvert x_n - q_n \rvert > \Lambda M \} \\
+		\text{Everything else} \subset S & \coloneqq \{(x^\prime, x_n) \text{s.t.} \lvert x^\prime - q^\prime \rvert \leq R + 1, \lvert x_n - q_n \rvert \leq \Lambda M \}
+	\end{align*}
+
+
+	Integration over the first part:
+	\begin{gather*}
+		\int_A \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} \overset{A \subset E^c}{=} \int_{\lvert y^\prime \rvert > R + 1} \frac{1}{\lvert y \rvert^{n + s}} \dd{y} \leq c(n) \int_{R + 1}^\infty r^{- s - 2} \dd{y} \leq c(n, s) R^{- (1 + s)}
+	\end{gather*}
+
+	Integration over the second part:
+	\begin{gather*}
+		\int_B \frac{\chi_{E^c} - \chi_E}{\lvert y - q \rvert^{n + s}} \dd{y} \overset{B \subset E}{=} - \int_B \frac{1}{\lvert y - q\rvert^{n + s}} \dd{y} \leq - c(n, s) M^{- s} \qquad \text{Idea: Consider ball with factor \( 2^{- n} \)}
+	\end{gather*}
+
+	Integration over the third part:
+	\begin{align*}
+		 & \int_C \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} \overset{C \subset E^C}{=} \int_C \frac{1}{\lvert y - q\rvert^{n + s}} \dd{y} \leq c(n) \int_{R - 1}^{R + 1} \int_{\Lambda M}^\infty \frac{r^{n - 2}}{(r^2 + y_n^2)^{\frac{n + s}{2}}} \dd{y_n} \dd{r} \\
+		 & \overset{r^2 \leq r^{2 + y_n^2}}{\leq} c(n) \int_{R - 1}^{R + 1} \int_{2
+		\Lambda M}^\infty \frac{1}{(r^2 + y_n^2)^{\frac{s + 2}{2}}} \dd{y_n} \dd{r} \overset{\text{convexity}}{\leq} \int_{R - 1}^{R + 1} \int_{\Lambda M}^\infty \frac{1}{(r + y_n)^{s + 2}} \dd{y_n} \dd{r} \\
+		 & \leq c(n, s) \int_{R - 1}^{R + 1} \frac{1}{(r + \Lambda M)^{s + 1}} \leq c(n, s)(R - 1 + \Lambda M)^{- s} \leq c(n, s)(\Lambda M)^{- s}
+	\end{align*}
+
+	Integration over the fourth part: \\
+	Justification that we can estimate with \( S \): Only negative part of the integration
+	is fully in the set we want to estimate and the rest in \( S \) is positive. \\
+	We split \( S \) into four parts:
+	\begin{enumerate}[label = \roman*)]
+		\item \( S \cap B_{\Lambda M} (q) \cap B_{r_0}(z) \)
+		\item \( S \cap B_{\Lambda M} (q) \cap B_{r_0}(\overline{z}) \)
+		\item \( S \cap (B_{\Lambda M} (q)\setminus (B_{r_0}(z) \cup
+		      B_{r_0}(\overline{z}))) \)
+		\item \( S \setminus B_{\Lambda M} (q) \)
+	\end{enumerate}
+	where \( \overline{z}\coloneqq z + 2(q - z) \) and \( \Lambda > 4 \) chosen big enough
+	and \( M \) chosen small enough s.t.\ \( \Lambda M \leq 1 \). \\
+	We estimate the first and second part:
+	\begin{align*}
+		     & \int_{S \cap B_{\Lambda M} (q) \cap B_{r_0}(z) \cup S \cap B_{\Lambda M} (q) \cap B_{r_0}(\overline{z})} \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} \\
+		\leq & \int_{S \cap B_{\Lambda M} (q) \cap B_{r_0}(z)} \frac{1}{\lvert y - q\rvert^{n + s}} \dd{y} - \int_{S \cap B_{\Lambda M} (q) \cap B_{r_0}(\overline{z})} \frac{1}{\lvert y - q\rvert^{n + s}} \dd{y} \leq 0
+	\end{align*}
+	These two integrals cancel because of symmetry. \\
+	We estimate the third part:
+	\begin{gather*}
+		\int_{S \cap (B_{\Lambda M} (q)\setminus (B_{r_0}(z) \cup B_{r_0}(z)))}\frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} \leq \int_{P_{1, \Lambda M}} \frac{1}{\lvert y - q\rvert^{n + s}} \dd{y} \leq C \Lambda^{1 - s} M^{1 - s}
+	\end{gather*}
+	where we used lemma 3.1 in \cite{Dipierro2016} with \( R = r_0 = 1 and \lambda =
+	\Lambda M \) (we can choose \( r_0 = 1 \), since if we can show the bound for \( r_0 =
+	1 \) then it holds for all smaller balls as well). \\
+	We estimate the fourth part:
+	\begin{gather*}
+		\int_{S\setminus B_{\Lambda M} (q)} \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} \leq \int_{B_{R + 2}\setminus B_{\Lambda M}} \frac{1}{\lvert y\rvert^{n + s}} \dd{y} = c(n, s)((\Lambda M)^{- s} - (R + 2)^{- s})
+	\end{gather*}
+	since \( S \subset B_{R + 2} \) for \( R \geq 1 \) since \( ((\Lambda M)^2 +
+	(R + 1)^2)^{\frac{1}{2}} \leq (R^2 + 4R + 4)^{\frac{1}{2}} = R + 2 \). \\
+	\par
+	Thus in total we get:
+	\begin{align*}
+		\int_{\mathbb{R}^n} \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y}
+		 & \leq - c_1 M^{- s} + c_0 (R^{- (1 + s)} + (\Lambda M)^{- s} + (\Lambda M)^{- s} - (R + 2)^{- s} + \Lambda^{1 - s} M^{1 - s}) \\
+		 & \leq - c_1 M^{- s}(1 - + \frac{c_0}{c_1} (R^{- (1 + s)}M^s + 2 \Lambda^{- s} - (R + 2)^{- s} M^s + \Lambda^{1 - s} M)
+		\intertext{Choose \( \Lambda \) large and \( M \) small enoguh}
+		 & \leq - c_2 M^{- s} < 0
+	\end{align*}
+\end{proof}
+
+Interesting to see, that the contribution of the cylinder of radius \( 1 \) is enough to
+get connectedness of the minimizer and even stickiness to the boundary. Also see, that the
+model seems (maybe prove that) to converge to the problem, considered in
+\cite{dipierro2020disconnectedness}.\newline
+
+\begin{TODO}
+	Do I need to elaborate more? Yes..
+\end{TODO}
+
+\begin{proof}[Proof of \Cref{thm:102}]
+	In theorem 1.2 of \cite{dipierro2020disconnectedness} the authors have shown that
+	for ecternal data \( F_{0} = \{\lvert x_{n}  \rvert > M \} \), that there exists
+	\( M_0 > 1 \), such that for all \( M \geq M_0 \) the minimizer is disconnected.
+	In particular, we have that \( E_{0} \subset F_{0} \) thus we can apply the same proof
+	as in \cite{dipierro2020disconnectedness} to show that the minimizer is disconnected.
+\end{proof}
+
+
+Whereas \Cref{thm:102} is consistent with the classical therory of minimal surfaces, the
+behvavior of the minimizer in \Cref{thm:101} is unique to nonlocal minimal surfaces. In~\cite{dipierro2020disconnectedness} the authors have shown that the minimizer exhibits
+similar behavior as we found in \Cref{thm:101} for the model considered in this chapter,
+however interesting to see is that even in the case \( R = 1 \) the minimizer is connected
+and even sticks to the boundary, for \( M \) small enough. This suggegests that the
+contribution of the external data \( E_0 \) above and below is enough to push the
+minimzer to the boundary of the prescribed set \( \Omega \). In the proof we have seen
+that the width \( R \) is with negative exponents in the upper bound, thus if we choose \(
+R \) large enough, \( M_0 \) increases.
+
+
+\section{Model 02}
+\label{sec:model02}
+
+For \( n \geq 2 \) consider the model as follows:
+\begin{align*}
+	E_0    & \coloneqq \{(x^\prime, x_n) \in \mathbb{R}^{n - 1} \times \mathbb{R} \text{s.t.} M \lvert x_n \rvert \geq R + M \} \\
+	\Omega & \coloneqq \{(x^\prime, x_n) \in \mathbb{R}^{n - 1} \times \mathbb{R} \text{s.t.} \lvert x^\prime \rvert \leq 1, \, \lvert x_n \rvert \leq M \}
+\end{align*}
+for \( R > 0 \) and \( M > 0 \). The \Cref{fig:104} illustrates the setting.
+
+\begin{figure}[h]
+	\centering
+	\def\svgscale{1}
+	\import{figures/model02}{model02_base.pdf_tex}
+	\caption{}
+	\label{fig:104}
+\end{figure}
+
+We state the following two results, which we will prove afterwards.
+
+\begin{TODO}
+	Specifiy \( R \)
+\end{TODO}
+\begin{theorem}
+	\label{thm:103}
+	Let \( \Omega \) and \( E_0 \) as given above and for all \( R \geq 2 \), then there
+	exists \( M_0 \in (0, 1) \) depending only on the dimension and \( s \), such that
+	for any \( M \in (0, M_0) \), the minimizer is \( E_M = E_0 \cup \Omega \). For \( R
+	< 2 \), the cylinder \( A \coloneqq \{(x^\prime, x_n) \in \mathbb{R}^{n - 1} \times
+	\mathbb{R} \text{s.t.~} \lvert x^\prime \rvert \leq  \frac{R}{2} , \, \lvert x_n \rvert \leq M
+	\} \) is in the minimizer, i.e.\ \( E_M \supset E_0 \cup A \).
+\end{theorem}
+\begin{note}
+	Bound on \( R \) depends on the construction of the proof.
+	\begin{TODO}
+		Elaborate
+	\end{TODO}
+\end{note}
+
+\begin{theorem}
+	\label{thm:104}
+	For \( \Omega \) and \( E_0 \) as given above and for all \( R > 0 \), then there
+	exists \( M_0 >.. \) depending only on the dimension and \( s \), such that
+	for any \( M \geq M_0 \), the minimizer \( E_M \) is disconnected.
+\end{theorem}
+
+Again, similar proofs as in \cref{sec:model01}.\newline
+Add some more discussion.
+
+\begin{proof}[Proof of \Cref{thm:103}]
+	We show that for every \( R > 0 \) at least the tube \( \{\lvert x_n \rvert < r_0 \}
+	\) is in the minimizer for some \( r_0 > 0 \). \\
+	\begin{figure}[h]
+		\centering
+		\def\svgscale{1}
+		\import{figures/model02}{model02_balls.pdf_tex}
+		\caption{}
+		\label{fig:105}
+	\end{figure}
+	\begin{TODO}
+		Edit proof to show cylinder is in minimizer and not assume that it's disconnected
+	\end{TODO}
+	We do that analogously to theorem \cref{thm:101} by contradiction. We assume that \(
+	E_M \) is disconnected, thus we can slide a ball of radius \( r \) down and for all \(
+	r_0 \in (0, 1) \) there exists a \( t_0 > 0 \) s.t.\ \( \partial B_{r_0}(t_0 e_n) \cap
+	\partial E_M \neq \emptyset \). If we can show that there exists a \( r_0 \) s.t.\
+	this conntradicts then the tube is in the minimizer. It is enough to show that for one
+	\( r_0 \) since if we can contradict this for one \( r_0 \) then for all smaller there
+	is no touching as well. \\
+	For that we split into four parts as seen in the figure:
+
+	\begin{figure}[ht]
+		\centering
+		\def\svgscale{1}
+		\import{figures/model02}{model02_split.pdf_tex}
+		\caption{}
+		\label{fig:106}
+	\end{figure}
+	We define
+	\begin{align*}
+		A & \coloneqq \{(x^\prime, x_n) \text{s.t.} \lvert x_n \rvert \geq M + R \} \\
+		B & \coloneqq \{(x^\prime, x_n) \text{s.t.} \lvert x_n \rvert \leq M, \lvert x^\prime - q^\prime \rvert > 2 \} \\
+		C & \coloneqq E_0 \setminus S \\
+		S & \coloneqq \{(x^\prime, x_n) \text{s.t.} \lvert x_n - q_n \rvert \leq M + R, \lvert x^\prime - q^\prime \rvert \leq 2\}
+	\end{align*}
+
+	Integration over the first part:
+	\begin{align*}
+		     & \int_A \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} \overset{A \subset E^c}{\leq} \int_{\lvert y_n \rvert \geq R} \frac{1}{\lvert y \rvert^{n + s}} \dd{y} \leq c(n) \int_0^\infty \int_R^\infty \frac{r^{n - 2}}{(r^2 + y_n^2)^{\frac{n + s}{2}}} \dd{y_n} \dd{r} \\
+		\leq & \ c(n) \int_0^\infty \int_R^\infty \frac{1}{(r^2 + y_n^2)^{\frac{s + 2}{2}}} \dd{y_n} \dd{r} \leq c(n) \int_0^\infty \int_R^\infty \frac{1}{(r + y_n)^{s + 2}} \dd{y_n} \dd{r} \\
+		=    & \ c(n, s) \int_0^\infty \frac{1}{(r + R)^{s + 1}} \dd{r} = c(n, s) R^{- s}
+	\end{align*}
+
+	Integration over the second part:
+	\begin{align*}
+		     & \int_B \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} \overset{B \subset E^c}{\leq} c(n) \int_0^M \int_2^\infty \frac{r^{n - 2}}{(r^2 + y_n^2)^{\frac{n + s}{2}}} \dd{r} \dd{y_n} \\
+		\leq & \ c(n) \int_0^M \int_2^\infty \frac{1}{(r + y_n)^{s + 2}} \dd{r} \dd{y_n} = c(n, s) \int_0^M \frac{1}{(2 + y_n)^{s + 1}} \dd{r} \\
+		=    & \ c(n, s)(2^{- s} - (2 + M)^{- s}) \leq c(n, s) 2^{- s}
+	\end{align*}
+
+	Integration over the third part (here we need \( R > M \)):
+	\begin{align*}
+		\int_C \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} = - \int_C \frac{1}{\lvert y - q \rvert^{n + s}} \dd{y} \leq - c(n) \int_{B_M (\ldots)} \frac{1}{\lvert y\rvert^{n + s}} \dd{y} \leq - c(n, s) M^{- s}
+	\end{align*}
+	Idea: Move part of the stripe outside, restrict to ball with radius \( M \) and
+	multiply with \( \frac{1}{2} \) since not whole ball may be in the set. See \Cref{fig:107}.
+
+	\begin{figure}[ht]
+		\centering
+		\def\svgscale{1}
+		\import{figures/model02}{model02_mball.pdf_tex}
+		\caption{caption}
+		\label{fig:107}
+	\end{figure}
+
+
+	Integration over the fourth part: \\
+	We split \( S \) into four parts:
+	\begin{enumerate}[label = \roman*)]
+		\item \( S \cap B_{\Lambda M} (q) \cap B_{r_0}(z) \)
+		\item \( S \cap B_{\Lambda M} (q) \cap B_{r_0}(\overline{z}) \)
+		\item \( S \cap (B_{\Lambda M} (q)\setminus (B_{r_0}(z) \cup B_{r_0}(z))) \)
+		\item \( S \setminus B_{\Lambda M} (q) \)
+	\end{enumerate}
+	where \( \overline{z}\coloneqq z + 2(q - z) \) and \( \Lambda > 4 \) chosen big enough
+	and \( M \) chosen small enough s.t.\ \( \Lambda M \leq 1 \). \\
+	Again the first and second part are in sum smaller than zero. \\
+	We estimate the third part:
+	\begin{align*}
+		     & \int_{S \cap (B_{\Lambda M} (q)\setminus (B_{r_0}(z) \cup B_{r_0}(\overline{z})))} \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} \\
+		\leq & \ \int_{P_{r_0, 1}} \frac{1}{\lvert y\rvert^{n + s}} \dd{y} + \int_{B_{\Lambda M}\setminus B_{r_0}} \frac{1}{\lvert y\rvert^{n + s}} \dd{y} \leq c(n, s) (r_0^{- s} - (\Lambda M)^{- s})
+	\end{align*}
+	We estimate the fourth part:
+	\begin{align*}
+		     & \int_{S \setminus B_{\Lambda M}(q)} \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} \\
+		\leq & \ c(n) \int_{\Lambda M}^{R + 3} \frac{1}{r^{s + 1}} \dd{r} \leq c(n, s)((\Lambda M)^{- s} - (R + 3)^{- s})
+	\end{align*}
+	Thus we estimate the domain \( S \) with
+	\begin{align*}
+		\int_S \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y} \leq c(n, s)(r_0^{- s} - (R + 3)^{- s}) \leq c(n, s) r_0^{- s}
+	\end{align*}
+	\par
+	Thus in total we get:
+	\begin{align*}
+		\int_{\mathbb{R}^n} \frac{\chi_{E^c} - \chi_E}{\lvert y - q\rvert^{n + s}} \dd{y}
+		 & \leq - c_0 M^{- s} + c_1 (R^{- s} + 2^{- s} + r_0^{- s}) \\
+		 & \leq - c_0 M^{- s}(1 - \frac{c_1}{c_0} (R^{- s}M^s + 2^{- s}M^s + r_0^{- s}M^s))
+		\intertext{Now choose \( r_0 = \frac{R}{2} \) and at most \( 2 \)}
+		 & \leq - c_0 M^{- s}(1 - \frac{c_1}{c_0} (R^{- s}M^s + 2^{- s}M^s + \left(\frac{2M}{R}\right)^s))
+		\intertext{Choose \( \Lambda \) large and \( M \) small enoguh}
+		 & \leq - c_2 M^{- s} < 0
+	\end{align*}
+\end{proof}
+
+\begin{TODO}
+	Elaborate
+\end{TODO}
+Disscussion about connectedness in case of small \( R \) and refer to next chapter.
+Behavior unique to nonlocal minimal surfaces.\newline
+Talk about the contribution of the complement.
+
+\begin{TODO}
+	Complete proof of \Cref{thm:104}
+\end{TODO}
+\begin{proof}[Proof of \Cref{thm:104}]
+	Analogously to \Cref{thm:102}.
+\end{proof}
+
+
+
+\begin{TODO}
+	Ignore the existence of a disconnected part of the minimizer for now and come back to
+	that in \Cref{ch:disconnected_minimizer}
+\end{TODO}
+
+\begin{theorem}
+	\label{thm:105}
+	For \( \Omega \) and \( E_0 \) as given above and for all \( R \geq 2 \), then there exists
+	\( M_0 \in (0, 1) \) depending only on the dimension and \( s \), such that for any \( M \in
+	(0, M_0) \), the minimizer is \( E_M = E_0 \cup \Omega \).
+\end{theorem}
+
+We will prove this in a somehow similar manner than before, but this time we consider a
+ball of fixed radius \( R/2 \) and slide it on the \( x_1 \) direction. Since symmtries
+are preserved it is enough to consider \( x_1 \). We will push the ball outside from the
+origin and contradict the assumption, that if the minimizer is not \( E_0 \cup \Omega \),
+by assuming the exitence of the ball of radius \( R/2 \) at \( (1 - R/2 - t)e_1 + h e_n
+\) for some \( t \in (0, 1 - R/2) \) and all \( h \in (- M, M) \). Then since the cylinder is
+in the minimizer, we can conclude that \( (1 - t)e_1 + h e_n \) is in the boundary for
+any \( h \), thus the minimzer is \( E_M = E_0 + \Omega \).
+
+\begin{proof}[Proof of \Cref{thm:105}]
+	Proof by contradiction. Assume \( E_M \neq E_0 \cup \Omega \). By \Cref{thm:103} we know
+	that at least the cylinder \( B^\prime_{\frac{R}{2}} \times (- M, M) \) is in the
+	minimizer, thus we know that the ball \( B_{\frac{R}{2}} \) is in the minimizer. We
+	slide the ball out in \( e_1 \) direction. It is enough to consider the \( e_1 \)
+	direction as by (source) symmteies are preserved. Thus we consider the ball \( B_{th} \coloneqq
+	B_{\frac{R}{2}} ((1 - \frac{R}{2} - t)e_1 + h e_n) \) for \( t \in (0, 1 - \frac{R}{2}
+	) \) and \( h \in (- M, M) \). Since \( E_M \neq E_0 \cup \Omega \), there exists
+	some \( t \) and \( h \) such that the ball touches the minimizer, say in \( q \in
+	\partial E_M \cap \partial B_{th} \). Then since \( B_{th} \subset E_M \) we have
+	by the Euler - Lagrange equation
+	\begin{gather*}
+		\int_{\mathbb{R}^n} \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n - s}} \dd{y} \geq 0.
+	\end{gather*}
+	We will contradict this by splitting the domain into three parts, see (figure).
+
+	\begin{TODO}
+		Add somewhere that \( M < \frac{R}{2} \)
+	\end{TODO}
+	Consider the following three parts:
+	\begin{align*}
+		A & \coloneqq \{(x^\prime, x_n) \mid \lvert x^\prime - q^\prime \rvert < R, \lvert x_n - q_n \rvert < 2M \} \\
+		B & \coloneqq E_M^c \setminus A \\
+		C & \coloneqq E_M \setminus A.
+	\end{align*}
+	We estimate the integrals over the three parts.
+
+	\begin{TODO}
+		Add argument for first inequality
+	\end{TODO}
+	First we consider the integral over \( B \):
+	\begin{align*}
+		\int_B \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n - s}} \dd{y}
+		 & = \int_B \frac{1}{\lvert y - q \rvert^{n - s}} \dd{y} \\
+		 & \leq \int_{\lvert y \rvert > R} \frac{1}{\lvert y \rvert^{n - s}} \dd{y} \\
+		 & \leq c(n, s) R^{- s}.
+	\end{align*}
+
+	\begin{TODO}
+		Add argument for first inequality
+	\end{TODO}
+	Next we consider the integral over \( C \):
+	\begin{align*}
+		\int_C \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n - s}} \dd{y}
+		 & = - \int_C \frac{1}{\lvert y - q \rvert^{n - s}} \dd{y} \\
+		 & \leq - c(n) \int_{B_M (4Me_n)} \frac{1}{\lvert y \rvert^{n - s}} \dd{y} \\
+		 & \leq - c(n, s) M^{- s}.
+	\end{align*}
+
+	\begin{TODO}
+		Add argument for first inequality\\
+		Add context for \( P_{\frac{R}{2}, 1} \)
+	\end{TODO}
+	Finally we consider the integral over \( A \):
+	\begin{align*}
+		\int_A \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n - s}} \dd{y}
+		 & \leq \int_{B_4 \setminus B_{\frac{R}{2}}} \frac{1}{\lvert y \rvert^{n - s}} \dd{y} + \int_{P_{\frac{R}{2}, 1}} \frac{1}{\lvert y \rvert^{n - s}} \dd{y} \\
+		 & \leq c(n) \int_{\frac{R}{2}}^4 \frac{1}{r^{1 + s}} \dd{r} + c(n) \frac{(\frac{R}{2})^{- s}}{1 - s} \\
+		 & \leq c(n, s) (R^{- s} - 4^{- s}).
+	\end{align*}
+
+	Adding the three integrals we get
+	\begin{align*}
+		\int_{\mathbb{R}^n} \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n - s}} \dd{y} \leq - c_0 M^{- s} + c_1 (R^{- s} - 4^{- s})
+	\end{align*}
+	now if we choose \( M \) small enough, then the right hand side is strictly smaller than
+	zero, which is a contradiction to the assumption that the ball touches the minimizer.
+
+\end{proof}
+
+
+\begin{TODO}
+	Elaborate
+\end{TODO}
+Discussion about extending the model to arbitrary models with symmetric external data.
+Enough to consider discs of radius.. and heigth.. to have connectedness and even
+stickiness at some point.\newline
+New idea: If there is a minimizer \( E_M \), can it ever be non sticky to the
+boundary?\newline
+Maybe able to give own interpretation of nonlocal minimal surfaces. Idea about Volume or
+Gravity?
+Gravity?

@@ -1,21 +1,18 @@
 % ----------------------------- Symbols ---------------------------- %
 \renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+\renewcommand{\Re}{\operatorname{Re}}                               % Real numbers
 
 % ---------------------------- Operators --------------------------- %
 \let\div\relax
-\DeclareMathOperator{\div}{div\!}
+\DeclareMathOperator{\div}{div}
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\area}{Area}
 \let\L\relax
 \DeclareMathOperator{\L}{\mathscr{L}}
 
-
 % -------------------------- Mathcommands -------------------------- %
 \newcommand*{\dd}[1]{\mathop{}\!\mathrm{d}#1}         	% dx Integral
 \newcommand*{\ddd}[2]{\mathop{}\!\mathrm{d^{#1}}#2}     % dx higher dim
-\let\oldpartial\partial% Store \partial
-\renewcommand{\partial}{\oldpartial\!}                  % Remove space
-
 
 \newcommand*{\Per}[3]{                                  % Perimeter
 	\operatorname{Per}\nolimits_{#1}\mathopen{}\left(#2
@@ -25,15 +22,16 @@
 	\right)\mathclose{}} % mathopen/close for correct spacing
 
 \newcommand*\restr[2]{{% we make the whole thing an ordinary symbol
-\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
-#1 % the function
-\littletaller % pretend it's a little taller at normal size
-\right|_{#2} % this is the delimiter
+\left.\kern-\nulldelimiterspace% automatically resize the bar with \right
+#1% the function
+\littletaller% pretend it's a little taller at normal size
+\right|_{#2}% this is the delimiter
 }}
 \newcommand*{\littletaller}{\mathchoice{\vphantom{\big|}}{}{}{}}
 
 \newcommand*\HG{{}_{2}F_{1}}     % Hypergeometric function
 
+% ---------------------------- Displays ---------------------------- %
 % \let\oldfrac\frac% Store \frac                          % Better display of frac in text
 % \renewcommand{\frac}[2]{%
 % 	\mathchoice%
@@ -42,3 +40,6 @@
 % 	{#1/#2}% script style
 % 	{#1/#2}% script-script style
 % }
+
+\newcommand*\centermath[1]{\omit\hfil\(\displaystyle#1\)\hfil\ignorespaces}
+\newcommand*\rightmath[1]{\omit\hfil\(\displaystyle#1\)\ignorespaces}

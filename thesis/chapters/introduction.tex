@@ -1,300 +1,330 @@
-% Statements
 \chapter{Introduction}
 \label{ch:introduction}
 
-\begin{IDEA}
-	Idea: Start with short historical background\\
-	18th century: Lagrange, Euler\\
-	20th Century: DeGiorgi Perimeter and localized entity\\
-	2009 Cafarelli, Roquejoffre, Savin: Nonlocal minimal surfaces\\
-	Perimeter and nonlocal perimeter as the (semi)norm of an indicator function\\
-	Define the usual problem considered\\
-	Better regularity than classical minimal surfaces\\
-
-	Chapter 02\\
-	Model 01\\
-	Model 02\\
-	Combination of both\\
-
-	Chapter 03\\
-	Fully disconnected minimizer\\
-
-	Use the introduction in~\cite{dipierro2012asymptotics} as inspiration.
-\end{IDEA}
-
-\begin{TODO}
-	Add sources \\
-	What does \enquote{locally} mean here? And what do we minimize? The surface or the area
-	the encompassed?\\
-	Rewrite the text\\
-\end{TODO}
-
-\emph{Minimal surfaces}, characterized by locally minimizing their surface area, have
-captivated mathematicians for centuries. Dating back to the 18th century, mathematicians
-like \emph{Euler} and \emph{Lagrange} laid the foundation for the field. In an effort to
-describe these surfaces mathematically, they formulated the \emph{Euler-Lagrange
-	equations} in the late 18th century. These equations provide a powerful framework for
-identifying and characterizing minimal surfaces. Since the 19th century, many
-mathematicians contributed to the study of minimal surfaces, uncovering profound insights.
-Since then minimal surfaces found many applications in various fields beyond pure
-mathematics. From understanding physical phenomena like soap films and black holes to
-informing the design of optimal structures in engineering and architecture, the
-versatility of minimal surfaces continues to inspire exploration.\newline
+\emph{Minimal surfaces} - During the 18th century mathematicians like \emph{Euler} and
+\emph{Lagrange} concerned themselves with the problem of finding the set of smallest surface area
+given some contour, often referred to as the \emph{Plateau Problem}. The solution of such a problem is
+called \emph{Minimal Surface} and the work of Euler and Lagrange laid the foundation for the study
+of those. While not solving the Plateau Problem themselves, they found necessary conditions on these
+surfaces, namely the \emph{Euler-Lagrange equations}~\cite{Maggi_2012}. Nowadays, we have multiple
+tools to define and characterize minimal surfaces, among those the concept known as
+\emph{Perimeter}. The modern understanding of the perimeter is due to the work of \emph{Caccioppoli}
+and \emph{De Giorgi} in the 20th century~\cite{Maggi_2012}. Roughly speaking, the perimeter of a set
+can be understood as the area of the boundary of the set, more on that in \Cref{sec:001}. With the
+concept of the perimeter, we can define a minimal surface as the set which has the smallest
+perimeter given some external data. In modern times, minimal surfaces have found many applications,
+from understanding physical phenomena like soap films and black holes to informing the design of
+optimal structures in engineering and architecture.\\
 
 In this thesis, we want to explore a rather recent concept of minimal surfaces, namely
 \emph{Nonlocal Minimal Surfaces}, which were first introduced by \emph{Cafarelli},
-\emph{Roquejoffre}, and \emph{Savin} in 2009. For that purpose, we will first give a short
+\emph{Roquejoffre}, and \emph{Savin} in 2010~\cite{caffarelli2009nonlocal}. For that purpose, we will first give a short
 introduction to the theory of minimal surfaces in the context of this work.
 
 \section{Classical Minimal Surfaces}
 \label{sec:001}
 
-\begin{CHECK}
-	Is this introduction enough and complete/correct?
-\end{CHECK}
-The study of minimal surfaces concerns itself with finding the set with least surface area
-under certain constrains. But before we can formulate the usual problem, we have to define
-some tools.
+The study of minimal surfaces concerns itself with finding the set of least surface area or
+\emph{perimeter} under certain constrains. But before we can formulate the usual problem, we have to
+define some tools~\cite{Cozzi2017}.
 
-\begin{CHECK}
-	Do I need to cite this definition from~\cite{Cozzi2017}? Give a justification?
-\end{CHECK}
 \begin{definition}
-	Let \( A \subset \mathbb{R}^n \) with smooth boundary, then the surface area or
-	\emph{perimeter} of \( A \) is given by
+	Let \( E \subset \mathbb{R}^n \) be a set with smooth boundary, then the surface area or
+	\emph{perimeter}
+	of \( E \) is given by
 	\begin{gather*}
-		\Per{}{A}{} \coloneqq \sup \left\{\int_{\partial A} \varphi \cdot \nu_A \dd{\mathcal{H}^{n-1}} \mid \varphi \in C_c^1 (\mathbb{R}^n, \mathbb{R}^n), \lvert \varphi \rvert \leq 1 \right\},
+		\Per{}{E}{} \coloneqq \sup \left\{\int_{\partial E} \varphi \cdot \nu_E \dd{\mathcal{H}^{n - 1}} \mid \varphi \in C_c^1 (\mathbb{R}^n, \mathbb{R}^n), \lvert \varphi \rvert \leq 1 \right\},
 	\end{gather*}
-	where \( \nu_A \) is the outer normal to \( A \).
+	where \( \nu_E \) is the outer normal to \( E \).
 \end{definition}
 
-% \begin{CHECK} Do I need an example? Seems trivial \end{CHECK} \begin{example} Consider
-%   \( A = B_1 \subset \mathbb{R}^2 \), then \begin{gather*} \left\lvert \int \varphi
-%   \cdot \nu_A \dd{x} \right\rvert \leq \int_{\partial A} \lvert \varphi \rvert \lvert
-%   \nu_A \rvert \dd{x} = \int_{\partial A} \dd{x} = 2 \pi. \end{gather*} Now take \(
-%   \varphi = \eta_3 \nu_A \) with \( \eta_3 \) a cutoff function such that \(
-%   \restr{\eta_3}{B_2} \equiv 1 \), \( \restr{\eta_3}{B_3^c} \equiv 0 \) and \( \eta_3
-%   \nu_A \in C_c^1 \) since \( \partial A \) smooth, then \begin{gather*} \int_{\partial
-%   A} \varphi \cdot \nu_A \dd{x} = \int_{\partial A} \eta_3 \nu_A \cdot \nu_A \dd{x} =
-%   \int_{\partial A} \dd{x} = 2 \pi. \end{gather*} Thus we have \( \Per{}{A}{} = 2 \pi
-%   \), as well known. \end{example}
+The \emph{perimeter} of a set can be understood as the surface area of the set's boundary. An easy
+example would be the perimeter of a circle, which is just the circumference of the circle. To extend
+this definition to general measurable sets, we can use the divergence theorem and rewrite the
+integration over the boundary as an integration over the set itself. This removes the need for a
+smooth boundary and allows us to define the surface area for general sets.
 
-
-To extend this definition to general measurable sets, we can use the divergence theorem
-and rewrite the integration over the boundary as an integration over the set itself. This
-removes the need for a smooth boundary and allows us to define the surface area for
-general sets.
 \begin{definition}
-	Let \( A \subset \mathbb{R}^n \) be a Borel set, then the perimeter of \( A \) is given
-	by
+	Let \( E \subset \mathbb{R}^n \), then the perimeter of \( E \) is given by
 	\begin{gather*}
-		\Per{}{A}{} \coloneqq \sup \left\{\int_A \div \varphi \mid \varphi \in C_c^1 (\mathbb{R}^n, \mathbb{R}^n), \lvert \varphi \rvert \leq 1 \right\}.
+		\Per{}{E}{} \coloneqq \sup \left\{\int_E \div \varphi \mid \varphi \in C_c^1 (\mathbb{R}^n, \mathbb{R}^n), \lvert \varphi \rvert \leq 1 \right\}.
 	\end{gather*}
 \end{definition}
 
-% \begin{CHECK} Do I need an example? \end{CHECK} \begin{example} Cube example
-%   \end{example}
+Even now, without the explicit integration over the boundary of the set, we can understand the
+perimeter in a sense as the surface area of the boundary. In fact, De Giorgi and Federer have shown
+that the perimeter of a set coincides with the \( (n\!-\!1) \)-dimensional Hausdorff measure of a
+suitable subset of the topological boundary of the set~\cite{Fleming_2020}. This supports the idea
+that the perimeter of a set can be understood as the surface area of the set's boundary. \\
 
-\begin{TODO}
-	Rewrite this text\\
-	Not just for Minimization problem, but Perimeter of a set in some other set
-\end{TODO}
+Usually we are interested in the minimization of the perimeter of a set relative to some external
+data. Thus, we need a tool which allows us to localize the area of interest.
 
-In the minimization problem, we want to find some set \( E \) which minimizes the surface
-of some external data \( E_0 \). Since the surface area may be infinite, if \( E_0 \) is
-unbounded, we can \enquote{localize}\footnote{Here \enquote{local} refers to the area in
-	which we minimize} the problem by just considering the part of \( \partial E \) in some
-bounded set \( \Omega \).
 \begin{definition}
-	Let \( A \subset \mathbb{R}^n \) be a Borel set and \( \Omega \subset \mathbb{R}^n \)
-	bounded, then the perimeter of \( A \) relative to \( \Omega \) is given by
+	Let \( E \subset \mathbb{R}^n \) and take \( \Omega \subset \mathbb{R}^n \) bounded,
+	then the perimeter of \( E \) relative to \( \Omega \) is given by
 	\begin{gather*}
-		\Per{}{A}{\Omega} \coloneqq \sup \left\{\int_A \div \varphi \mid \varphi \in C_c^1 (\Omega, \mathbb{R}^n), \lvert \varphi \rvert \leq 1 \right\}.
+		\Per{}{E}{\Omega} \coloneqq \sup \left\{\int_E \div \varphi \mid \varphi \in C_c^1 (\Omega, \mathbb{R}^n), \lvert \varphi \rvert \leq 1 \right\}.
 	\end{gather*}
 \end{definition}
 
-Now we can formulate the usual problem.
+With the necessary tools defined we can formulate the usual problem.
 \begin{definition}[Minimal Surface Problem]
 	\label{def:minimal_surface_problem}
-	Let \( \Omega \subset \mathbb{R}^n \) bounded and \( E_0 \subset \mathbb{R}^n \), then
-	we want to find \( E \subset \mathbb{R}^n \) such that \( E \) minimizes the perimeter
-	of \( E_0 \) relative to \( \Omega \), i.e.
+	Let \( \Omega \subset \mathbb{R}^n \) bounded and \( E_0 \subset \mathbb{R}^n \), then we want to
+	find \( E \subset \mathbb{R}^n \) such that \( E \) minimizes the perimeter of \( E_0 \) relative
+	to \( \Omega \), i.e.
 	\begin{gather*}
-		\Per{}{E}{\Omega} = \min \left\{\Per{}{A}{\Omega} \mid A \setminus \Omega = E_0 \setminus \Omega \right\}.
+		\Per{}{E}{\Omega} = \min \left\{\Per{}{F}{\Omega} \mid F \setminus \Omega = E_0 \setminus \Omega \right\}.
 	\end{gather*}
 	This set \( E \) is then called a \emph{minimal surface}.
 \end{definition}
-\begin{TODO}
-	Complete note\\
-	Case that \( E_0 \cap \Omega \neq \emptyset \)..\\
-	Give sources, that minimizer exists, thus minimal surfaces exist and say something about
-	uniqueness\\
-	Note that in classical theory often one just has a contour over which one minimizes
-\end{TODO}
+
 \begin{note}
-	Usually \( E_0 \) is chosen such that \( E_0 \cap \Omega = \emptyset \), then we
-	minimize over the set \( E \) such that \( E \setminus \Omega = E_0 \). If \( E_0 \cap
-	\Omega \neq \emptyset \), then we can minimize over..
+	We use the term \enquote{minimal surface} in the sense that we minimize over the area of surfaces,
+	whereas in the context of differential geometry one sometimes uses the term \enquote{minimal
+		surfaces} for critical points of the area functional, see~\cite{meeks2012survey}.
 \end{note}
 
-\begin{TODO}
-	Standard example of minimal surfaces (Plateau's problem, soap bubble)
-\end{TODO}
-
+For existence and other interesting properties of the classical perimeter and minimal surfaces not
+needed here in this work, we refer
+to~\cite{Cozzi2017},~\cite{Evans2015},~\cite{Giusti1984},~\cite{Grinfeld2013} and~\cite{Maggi_2012}.
 
 \section{Nonlocal Minimal Surfaces}
 \label{sec:002}
 
-\begin{TODO}
-	Do again, but start this time from the example of a soap bubble\\
-	Soap bubble, classical example, 2 dim surface..\\
-	Nanoscale, 3 dim, classical theory doesn't suffice anymore\\
-	Short construction of fractional perimeter a la Cafarelli ~\cite{caffarelli2009nonlocal}\\
-
-	Rewrite the text\\
-	Is the example fitting?\\
-	Emphasize that we are no longer just minimizing boundary but the set as well
-\end{TODO}
-
-Let us for now consider some set \( A \subset \mathbb{R}^n \) with smooth boundary, then
-to get its perimeter we have to take the supremum of
+A standard example of a minimal surface are soap films~\cite{Serra2023}. Imagine you have a some
+wire, dip it in soap and observe the soap film that forms. This film is a minimal surface, i.e.\ it
+has the smallest surface area for the given contour (the wire). Observing the soap film with the
+naked eye, it seems like the soap film is a \( 2 \)-dimensional object, see \Cref{fig:002}, thus to
+minimize the area we only need to consider each point and its immediate neighborhood in the film,
+i.e.\ we only need to minimize locally\footnote{Refers to the proximity of a point and not the area
+	of interest}.
+\begin{figure}[ht]
+	\centering
+	\def\svgscale{1}
+	\import{figures/soap_film}{soap_film.pdf_tex}
+	\caption{Soap film formed by a wire. Soap molecules are represented by the orange dots.}
+	\label{fig:002}
+\end{figure}
+If we consider some set \( E \subset \mathbb{R}^n \) with smooth
+boundary, then to obtain its perimeter we have to compute
 \begin{gather*}
-	\int_{\partial A} \varphi \cdot \nu_A.
+	\int_{\partial E} \varphi \cdot \nu_E.
 \end{gather*}
-This is a local quantity, i.e. it only depends on the boundary of \( A \). Thus if we want
-to minimize the perimeter of some set \( E \) with external data \( E_0 \), we are only
-interested in the behavior of the boundary of \( E \) close to and in \( \Omega \) and not
-in the contribution or the size of the external data. In many cases, this is enough to
-describe the behavior of the minimizer, but in some cases, this is not enough anymore.
-Take a soap bubble as an example, a standard example for a classical minimal surfaces. In
-our normal scaling, we can see the film of the soap bubble as a \( 2 \)-dimensional
-object. But if we go to the molecular level, we see that the film is a \( 3 \)-dimensional
-object. Thus we need to incorporate long-range correlation into our definition of
-perimeter and minimal surfaces. \emph{Cafarelli}, \emph{Roquejoffre}, and \emph{Savin} did
-exactly that in 2009, when they introduced the concept of \emph{nonlocal minimal surfaces}
-and \emph{fractional perimeter} in~\cite{caffarelli2009nonlocal}.
+Notice that this is a local quantity, i.e.\ it only depends on the boundary of \( E \). Now let us
+zoom in on the soap film. Zooming in on the soap film at molecular scale, we see that the soap film
+is a \( 3 \)-dimensional object, see \Cref{fig:002}, and the classical theory of minimal surfaces
+does not suffice anymore. Notice that we can no longer just minimize over the boundary of the set,
+but also need to minimize the volume of the set itself, thus we need to incorporate long-range
+correlation into the definition of the perimeter and minimal surfaces. This is where the concept of
+a \emph{Fractional Perimeter} comes into play as introduced by \emph{Cafarelli}, \emph{Roquejoffre}
+and \emph{Savin} in 2010~\cite{caffarelli2009nonlocal}.
 
-\begin{TODO}
-	What is the effect of \( s \)? \\
-	Which definition is standard? Add note about other definitions\\
-	Maybe use the definition from~\cite{Serra2023}, but it's without \( s \), just with \(
-	(1-s) \) and with \( 2 \) in front. The \( 2 \) is just convention for the relation to
-	the Gagliardo seminorm. Why not with \( s \)? Can I define it with \( s \)?\\
-	For the limiting behavior of \( \Per{s}{}{} \) for \( s \to 0 / 1 \)
-	see~\cite{Ludwig_2014}
-\end{TODO}
+
 \begin{definition}[Fractional Perimeter]
 	\label{def:fractional_perimeter}
-	Let \( A \subset \mathbb{R}^n \) be a Borel set, \( s \in (0, 1) \), then the \( s
-	\)-perimeter of \( A \) to is given by
+	Let \( E \subset \mathbb{R}^n \) be a Borel set, \( s \in (0, 1) \), then the \( s \)-perimeter
+	or fractional perimeter of \( E \) is given by
 	\begin{gather*}
-		\Per{s}{A}{} \coloneqq \int_A \int_{A^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x}.
+		\Per{s}{E}{} \coloneqq \int_E \int_{E^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x}.
 	\end{gather*}
 \end{definition}
-Intuitively, we can understand the parameter \( s \) as the grade of nonlocality. For \( s
-\) big, we have a more local\ldots \\
 
-Just as in the classical case, we can define a relative fractional perimeter by removing
-the integration over the constant part..
-\begin{align*}
-	 & \int_A \int_{A^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} \\
-	 & = \int_{A \cap \Omega} \int_{A^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} + \int_{A \setminus \Omega} \int_{A^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} \\
-	 & = \int_{A \cap \Omega} \int_{A^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} + \int_{A \setminus \Omega} \int_{\Omega \setminus A} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} + \int_{A \setminus \Omega} \int_{A^c \setminus \Omega} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x}
-\end{align*}
-While minimizing \( A \) relative to \( \Omega \) we can ignore the last term as it is
-constant and thus does not affect the minimization.
-\begin{definition}
-	Let \( A, B \subset \mathbb{R}^n \) be Borel sets, \( s \in (0, 1) \), then the
-	interaction of \( A \) and \( B \) is given by
-	\begin{gather*}
-		\L (A, B) \coloneqq \int_A \int_{B^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x}.
-	\end{gather*}
-\end{definition}
-\begin{definition}[Relative Fractional Perimeter]
-	\label{def:relative_fractional_perimeter}
-	Let \( A \subset \mathbb{R}^n \) be a Borel set, \( \Omega \subset \mathbb{R}^n \)
-	bounded and \( s \in (0, 1) \), then the \( s \)-perimeter of \( A \) relative to \(
-	\Omega \) is given by
-	\begin{gather*}
-		\Per{s}{A}{\Omega} \coloneqq \L (A \cap \Omega, A^c)+\L(A \setminus \Omega, \Omega \setminus A).
-	\end{gather*}
-\end{definition}
-\begin{TODO}
-	Rewrite.. very bad\\
-	Not precise enough
-\end{TODO}
+\begin{corollary}
+	\label{cor:001}
+	The fractional perimeter is translation invariant and positive homogeneous of grade \( n-s \).
+\end{corollary}
+\begin{proof}
+	Let \( E \subset \mathbb{R}^n \) be a Borel set, \( s \in (0, 1) \). Take any \( h \in
+	\mathbb{R}^n \), then
+	\begin{align*}
+		\Per{s}{E + h}{}
+		= \int_{E + h} \int_{(E + h)^c} \frac{1}{{\lvert x - y \rvert}^{n + s}} \dd{y} \dd{x}
+		= \int_E \int_{E^c} \frac{1}{{\lvert x - y \rvert}^{n + s}} \dd{y} \dd{x} = \Per{s}{E}{}.
+	\end{align*}
+	Now take any \( \lambda > 0 \), then
+	\begin{align*}
+		\Per{s}{\lambda E}{}
+		= \int_{\lambda E} \int_{(\lambda E)^c} \frac{1}{{\lvert x - y \rvert}^{n + s}} \dd{y} \dd{x}
+		= \int_E \int_{E^c} \frac{\lambda^{2n}}{{\lvert \lambda x - \lambda y \rvert}^{n + s}} \dd{y} \dd{x}
+		= \lambda^{n-s} \Per{s}{E}{}.
+	\end{align*}
+\end{proof}
+
+Intuitively, we can understand the parameter \( s \) as the grade of nonlocality. Indeed, for
+smaller \( s \) the contribution of points further away from each other have a bigger impact on the
+fractional perimeter.
+
 \begin{note}
-	In some literature, the fractional perimeter is sometimes defined with the factor \( 2
-	\) in front of the integral. This is just a convention to relate the Gagliardo seminorm
+	Here we consider the definition of the fractional perimeter given by the authors in~\cite{Caffarelli2011}. 
+  Other papers like~\cite{mazon2019nonlocal} define a more
+	general definition of the fractional perimeter with some nonlocal kernel \( K: \mathbb{R}^n \to
+	[0, \infty] \), \( K \not\equiv \infty \)
+	\begin{gather*}
+		\Per{K}{E}{} \coloneqq \int_E \int_{E^c} K(x - y) \dd{y} \dd{x}.
+	\end{gather*}
+	Our definition is a special case of this more general definition with the kernel \( K(x) =
+	\frac{1}{\lvert x \rvert^{n + s}} \).
+\end{note}
+
+\begin{note}
+	In some literature like~\cite{Cozzi2017}, the fractional perimeter is sometimes defined with a
+	factor \( 2 \) in front of the integral. This is just a convention to relate the fractional
+	perimeter to the Gagliardo seminorm
 	\begin{gather*}
 		\lVert f \rVert_{W^{s, 1}(\mathbb{R}^n)} = \int_{\mathbb{R}^n} \int_{\mathbb{R}^n} \frac{\lvert f(x) - f(y) \rvert}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x}
 	\end{gather*}
 	to the fractional perimeter. Notice that
 	\begin{gather*}
-		\Per{s}{A}{} = \int_A \int_{A^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} = \frac{1}{2} \int_{\mathbb{R}^n} \int_{\mathbb{R}^n} \frac{\lvert \chi_A (x)-\chi_A (y) \rvert}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} = \frac{1}{2} \lVert \chi_A \rVert_{W^{s, 1}(\mathbb{R}^n)},
+		\Per{s}{E}{} = \int_E \int_{E^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} = \frac{1}{2} \int_{\mathbb{R}^n} \int_{\mathbb{R}^n} \frac{\lvert \chi_E (x) - \chi_E (y) \rvert}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} = \frac{1}{2} \lVert \chi_A \rVert_{W^{s, 1}(\mathbb{R}^n)},
 	\end{gather*}
-	i.e.\ the fractional perimeter is the seminorm of the indicator function of \( A \) up
-	to a multiplicative constant. \\
-	In more recent literature like~\cite{Serra2023}, the fractional perimeter is defined
-	with the factor \( (1-s) \) in front of the integral. This is based on the limiting
-	behavior of the fractional perimeter for \( s \to 1^- \) as shown in
-	~\cite{Ambrosio_2010} and~\cite{Caffarelli2011}. In the latter, the authors have shown
-	that for sets of finite \emph{classical} perimeter, we have that \(
-	(1-s)\Per{s}{A}{\Omega} \to c \Per{}{A}{\Omega} \) as \( s \to 1^- \) for some constant
-	\( c \) depending on the dimension. In the former paper, the authors have shown the same
-	behavior in sense of \( \Gamma \)-convergence and general measurable sets.
-	In~\cite{Serra2023}, the factor \( (1-s) \) is used, to justify the fractional perimeter
-	as a generalization of the classical perimeter. \\
-	In~\cite{dipierro2012asymptotics}, the authors analyzed the behavior of \(
-	s\Per{s}{A}{\Omega} \) for \( s \to 0^+ \). They showed that not all sets have a limit
-	for \( s \to 0^+ \) and if a limit exits, then it relates to the volume of the sets.\\
-	Thus if we are interested in the limiting behavior, it would make sense to define
-	Perimeter with the factor \( s(1-s) \) in front of the integral. We will stick to the
-	usual definition for convenience and add the factor \( s(1-s) \), when are interested in
-	the limiting behavior.
+	i.e.\ the fractional perimeter is the seminorm of the indicator function of \( E \) up to a
+	multiplicative constant.
 \end{note}
 
-\begin{TODO}
-	give an example where classical theory doesn't suffice (cube rotated by 45 degree)\\
-	Serra 2023 pixelled square
-\end{TODO}
+The fractional perimeter can be seen as a generalization of the classical perimeter. This is among
+other reasons due to the fact that for a set of finite \emph{classical} perimeter, say \( E \), we
+have that \( (1-s) \Per{s}{E}{} \to c \Per{}{E}{} \) as \( s \nearrow 1 \) for some dimensional
+constant \( c > 0 \)~\cite{Caffarelli2011}. Another argument for the relation between the fractional perimeter
+and the classical perimeter is that the fractional perimeter can be seen as the \( W^{s, 1} \)
+Gagliardo seminorm, as mentioned before. Thus, for \( s \nearrow 1 \) we can see the natural
+connection to the classical perimeter, which is in some sense the \( W^{1, 1} \) seminorm of \(
+\chi_E \)~\cite{Evans2015}. \\
 
-\begin{TODO}
-	Add note about advantages/properties (e.g. Euler-Lagrange Viscos) of nonlocal minimal
-	surfaces like better regularity properties and..\\
-	Add some sentences about stickiness property and that we are looking at a model
-	precisely about that property.\\
-	Give some justification, why fractional perimeter can be seen as a generalization of the
-	classical perimeter.
-\end{TODO}
+Let us now consider an example where the classical perimeter does not suffice and the fractional
+perimeter gives us better results. The example was discussed in~\cite{cinti2016quantitative} and~\cite{Serra2023}.
 
+\begin{example}
+	Consider a grid of square pixels of length \( \rho \) and a unit square rotated by \( 45 \) degrees, see \Cref{fig:001}.
+
+	\begin{figure}[ht]
+		\centering
+		\def\svgscale{1}
+		\import{figures/rotated_square}{rotated_square.pdf_tex}
+		\caption{Unit square displayed by a grid of square pixels of length \( \rho \). Orange the actual
+			boundary of the square, Blue the boundary of the pixelated square.}
+		\label{fig:001}
+	\end{figure}
+
+	While the perimeter of the actual square is \( 4 \), the classical perimeter of the unit square
+	composed of pixels is \( 4 \sqrt{2} \) independent of the size of the pixels \( \rho \). Indeed,
+	we have that
+	\begin{gather*}
+		\Per{}{\text{Pixelated Square}}{} = 2 \rho \cdot (\text{number of pixels on the boundary}) = 8 \rho \cdot
+		\frac{1}{\sqrt{2} \rho} = 4 \sqrt{2}.
+	\end{gather*}
+	We assume that the number of pixels on the boundary is a natural number for simplicity. We see,
+	that the classical perimeter does not suffice to capture the actual perimeter of the square
+	accurately, even for small pixel sizes.
+
+	Now let us consider the fractional perimeter of the pixelated square. Let \( Q \) be the unit
+	square, \( Q_\rho \) the pixelated square and \( N \in \mathbb{N} \) be the number of pixels on the
+	boundary of \( Q \). Notice that \( Q_\rho \) is the union of \( Q \) and \( N \) disjoint isosceles
+	triangles \( T_i \). We then have (omit the argument for simplicity)
+	\begin{align*}
+		\Per{s}{Q_\rho}{}
+		 & = \int_{Q_\rho} \int_{Q_\rho^c}
+		= \int_Q \int_{Q_\rho^c} + \int_{\cup_{i = 1}^N T_i} \int_{Q_\rho^c}
+		= \int_Q \int_{Q^c} - \int_Q \int_{\cup_{i = 1}^N T_i} + \int_{\cup_{i = 1}^N T_i} \int_{Q_\rho^c} \\
+		 & = \Per{s}{Q}{} + \Per{s}{\cup_{i = 1}^N T_i}{} - 2 \int_Q \int_{\cup_{i = 1}^N T_i}. \tagged\label{eq:001}
+	\end{align*}
+
+	We can bound \( \Per{s}{\cup_{i = 1}^N T_i}{} \) from above by
+	\begin{align*}
+		\Per{s}{\cup_{i = 1}^N T_i}{} \leq \sum_{i = 1}^N \Per{s}{T_i}{} \leq \sum_{i = 1}^N \rho^{2-s} \Per{s}{T}{} = N \rho^{2-s} \Per{s}{T}{} \leq c \rho^{1-s},
+	\end{align*}
+	where we scaled \( T_i \) to the Triangle \( T \) with side length \( 1 \) and \( c \) is a
+	constant. With the dominated convergence theorem we can show that the last term in~\eqref{eq:001} goes
+	to for \( \rho \to 0 \). Indeed, we have \( \chi_{\cup_{i = 1}^N T_i {}} \to 0 \) a.e.\ for \(
+	\rho \to 0 \) and \( \int_Q \int_{\cup_{i = 1}^N T_i} \leq \Per{s}{Q}{} < \infty \) for all \( \rho \)~\cite{onoue2022}. \\
+	Thus, the discrepancy between the fractional perimeter of the pixelated square and the actual
+	square, that is \( \lvert \Per{s}{Q}{} - \Per{s}{Q_\rho}{} \rvert \), behaves like \(
+	\rho^{1-s} + a(\rho) \) for some function \( a \) such that \( a(\rho) \to 0 \) as \( \rho \to 0
+	\). This shows that the fractional perimeter can capture the actual perimeter of the square more
+	accurately and serves as a more robust framework than the classical perimeter in some cases.
+\end{example}
+
+\vspace{1em}
+Just as in the classical case, we can define a relative fractional perimeter by removing the
+integration over some constant part. We split up the domain of integration (omit the argument for simplicity)
+\begin{gather*}
+	\int_E \int_{E^c}
+	= \int_{E \cap \Omega} \int_{E^c} + \int_{E \setminus \Omega} \int_{E^c}
+	= \int_{E \cap \Omega} \int_{E^c} + \int_{E \setminus \Omega} \int_{\Omega \setminus E} + \int_{E \setminus \Omega} \int_{E^c \setminus \Omega}.
+\end{gather*}
+While minimizing \( E \) relative to \( \Omega \) we can ignore the last term. Since we are only
+interested in the part of the minimizer \( E \) in \( \Omega \), the last term is constant and
+thus does not affect the minimization.
+\begin{definition}
+	Let \( A, B \subset \mathbb{R}^n \) be Borel sets, \( s \in (0, 1) \), then the interaction of \(
+	A \) and \( B \) is given by
+	\begin{gather*}
+		\L (A, B) \coloneqq \int_A \int_{B^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x}.
+	\end{gather*}
+\end{definition}
+\begin{note}
+	In particular, we have that \( \Per{s}{E}{} = \L(E, E^c) \).
+\end{note}
+\begin{definition}[Relative Fractional Perimeter]
+	\label{def:relative_fractional_perimeter}
+	Let \( E \subset \mathbb{R}^n \) be a Borel set, \( \Omega \subset \mathbb{R}^n \) bounded and \(
+	s \in (0, 1) \), then the \( s \)-perimeter of \( E \) relative to \( \Omega \) is given by
+	\begin{gather*}
+		\Per{s}{E}{\Omega} \coloneqq \L (E \cap \Omega, E^c) + \L(E \setminus \Omega, \Omega \setminus E).
+	\end{gather*}
+\end{definition}
 
 With these tools we can now define the nonlocal minimal surface problem.
 \begin{definition}[Nonlocal Minimal Surface Problem]
 	\label{def:nonlocal_minimal_surface_problem}
-	Let \( \Omega \subset \mathbb{R}^n \) bounded and \( E_0 \subset \mathbb{R}^n \), then
-	we want to find \( E \subset \mathbb{R}^n \) such that \( E \) minimizes the \( s
-	\)-perimeter of \( E_0 \) relative to \( \Omega \), i.e.
+	Let \( \Omega \subset \mathbb{R}^n \) bounded and \( E_0 \subset \mathbb{R}^n \), then we want to
+	find \( E \subset \mathbb{R}^n \) such that \( E \) minimizes the \( s \)-perimeter of \( E_0 \)
+	relative to \( \Omega \), i.e.
 	\begin{gather*}
-		\Per{s}{E}{\Omega} = \min \left\{\Per{s}{A}{\Omega} \mid A \setminus \Omega = E_0 \setminus \Omega \right\}.
+		\Per{s}{E}{\Omega} = \min \left\{\Per{s}{F}{\Omega} \mid F \setminus \Omega = E_0 \setminus \Omega \right\}.
 	\end{gather*}
 \end{definition}
 
-Over the last few years these nonlocal minimal surfaces have been an are of great
-interest. Various properties have been studied and many results have been obtained. Next
-to the better regularity properties, Euler-Lagrange equations, stickiness property, .. \\
+Over the last few years these nonlocal minimal surfaces have been an area of great interest. Various
+properties have been studied and numerous results have been obtained. Some of the more notable ones are
+a monotonicity formula, see~\cite{caffarelli2009nonlocal}, and enhanced regularity properties
+compared to classical minimal surfaces, see~\cite{caselli2024yaus}
+and~\cite{millot2016asymptotics}. \\
 
-\begin{TODO}
-	Quick summary of \Cref{ch:models}
-	Quick summary of \Cref{ch:disconnected_minimizer}
-\end{TODO}
+An important tool in the study of minimal surfaces are the \emph{Euler-Lagrange equations}. These
+equations give us necessary conditions for a set to be a minimal surface. In the case of classical
+minimal surfaces these equations with the right argument are even sufficient~\cite{Maggi_2012}. The
+authors in~\cite{caffarelli2009nonlocal} have shown that nonlocal minimal surfaces also have to satisfy a
+nonlocal version of the Euler-Lagrange equations in the viscosity sense. \\
+Let \( E \subset \mathbb{R}^n \) be a nonlocal minimal surface relative to some set \( \Omega \). If
+\( E \cap \Omega \) has an interior tangent ball at some point \( x \in \partial E \cap \Omega \),
+then
+\begin{gather*}
+	\int_{\mathbb{R}^n} \frac{\chi_{E^c} (y) - \chi_E (y)}{\lvert y-x \rvert^{n + s}} \dd{y} \geq 0.
+\end{gather*}
+Notice that this is a nonlocal version of the classical mean curvature equation given by \( H_E =
+0 \) on \( \partial E \), where \( H_E \) is the mean curvature on \( \partial E \), in particular a
+local entity. This gives us another reason as to why we refer to \emph{nonlocal} minimal surfaces.
+For further details on the Euler-Lagrange equations for minimal surfaces we refer
+to~\cite{caffarelli2009nonlocal} and~\cite{Maggi_2012}. \\
 
-In this thesis, we want to explore more on these surfaces and their properties. In
-\Cref{ch:models}, we will consider two models, analyze them on connectedness and try to
-understand the stickiness property and where the contribution lies to achieve stickiness.
-We will then derive the behavior of models similar to both, to get an understanding of
-general models of that form.
-In \Cref{ch:disconnected_minimizer}, we will discuss a natural question coming up while
-analyzing the models, namely the existence of a nontrivial minimizer in the case that the
-external data and the prescribed set are disconnected. We will provide an example where
-such a minimizer exists. This behavior is unique to nonlocal minimal surfaces.
+An interesting property unique to nonlocal minimal surfaces is the so-called \emph{stickiness
+	property}. With \emph{stickiness}, we refer to the case that the boundary of the minimizer and
+prescribed set intersect on a measurable set, i.e.\ \( \mathcal{H}^{n-1}(\partial E \cap \partial
+\Omega) \neq 0 \). While in the classical case minimal surfaces cannot stick to the boundary of
+the prescribed set, nonlocal minimal surfaces can stick. That is, let \( E \) be a classical minimal
+surface relative to some prescribed set \( \Omega \), then \( \partial E \) and \( \partial \Omega
+\) are transverse, see~\cite{Duzaar2000} and~\cite{hardt1979}.
+In~\cite{dipierro2020disconnectedness} the authors have given an explicit example of a nonlocal
+minimal surface which sticks to the boundary of the prescribed set. In this thesis we will
+generalize this example and show that for those models the stickiness property persists. \\
+
+In this thesis, we want to explore more on these surfaces and their properties, in particular the
+connectedness of minimizers of certain models and the stickiness property in the same context. In
+\Cref{ch:models} we will consider a generalization of the model given
+in~\cite{dipierro2020disconnectedness}. In \Cref{ch:disconnected_minimizer} we will discuss a
+natural question emerging while analyzing the models in \Cref{ch:models}, that is the existence of a
+nontrivial minimizer in the case that the external data and the prescribed set have nonzero
+distance. We will provide an example where such a minimizer exists. This behavior is unique to
+nonlocal minimal surfaces.

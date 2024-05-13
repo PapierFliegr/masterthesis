@@ -1,413 +1,399 @@
 \chapter{Disconnected Minimizer}
 \label{ch:disconnected_minimizer}
 
+When discussing the connectedness of the model in \Cref{ch:models} in the case that \( R < 2 \), we
+first just stated, that if \( R < 2 \) then at least the cylinder \( Z_R \coloneqq B^\prime_{R/2}
+\times (- M, M) \) is in the minimizer. This fact is not enough for connectedness of the minimizer.
+To show connectedness, we would still need to show, that there cannot exist a part of the minimizer
+that is fully detached from the cylinder and the external data. \\
 
-\begin{IDEA}
-	Open this chapter with the train of thought motivated by model02\\
-	For the unbounded case, consider all dimensions and general \( r, R \) and just the upper
-	bound.\\
-	For the bounded case consider \( n = 2 \) to show, that even though we are positive at
-	\( s = 0, 1 \) we could still have negative values somewhere in between\\
-	Then give some interpretation if or how that helps or the consequences of that.
-\end{IDEA}
+Motivated by the fact, that in the classical case, if we have some external data \( E_0 \) and some
+prescribed set \( \Omega \) that are fully disconnected, i.e.\ \( \dist(E_0, \Omega) \eqqcolon d > 0
+\), then the minimizer is the external data itself, we wanted to prove the same thing for the
+nonlocal case as well. \\
 
-
-When discussing the connectedness of the second model in \Cref{ch:models}, we first just
-stated, that if \( R \geq 2 \) the minimizer is connected and that if \( R < 2 \) then at
-least the cylinder \( Z_R \coloneqq B^{\prime\prime}_{R/2} \times (- M, M) \) is in the
-minimizer. This fact is not enough to for connectedness of the minimizer. To show
-connectedness, we would still need to show, that if there cannot exist a part of the
-minimizer that is fully detached from the cylinder and the external data. \\
-Motivated by the fact, that in the classical case, if we have some external data \( E_0 \)
-and some prescribed set \( \Omega \) that are fully disconnedted, i.e.\ \( \dist(E_0,
-\Omega) \eqqcolon d > 0 \), then the minimizer is the external data itself, we wanted to
-prove the same thing for the nonlocal case as well.\\
-
-Indeed, if we could show that, then the minimizer in the second model would be connected.
-Assume there exists a part of the minimizer that is not connected to the cylinder and the
-external data, i.e.\ there exists a set \( E_1 \) such that \( \dist(E_1, E_0 \cup
-Z_R) > 0 \). Then we can rewrite the fractional perimeter of \( E_M \coloneqq E_0
-\cup E_1 \) relative to \( \Omega \) as follows:
-
+Indeed, if we could show that, then the existence of the cylinder \( Z_R \) is enough to conclude
+that the minimizer is connected. Assume there exists a part of the minimizer that is not connected
+to the cylinder and the external data, i.e.\ there exists a set \( E_1 \) such that \( \dist(E_1,
+E_0 \cup Z_R) > 0 \). Then we can rewrite the fractional perimeter of \( E_M \coloneqq E_0 \cup E_1
+\cup Z_R \) relative to \( \Omega \) as follows:
 \begin{align*}
 	\Per{s}{E_M}{\Omega}
 	 & = \L(E_M \cap \Omega, E_M^c) + \L(E_M \setminus \Omega, \Omega \setminus E_M) \\
 	 & = \L(E_1 \cup Z_R, E_M^c) + \L(E_0, \Omega \setminus (E_1 \cup Z_R)) \\
 	 & = \L(E_1, E_M^c) + \L(Z_R, E_M^c) + \L(E_0 \cup Z_R, \Omega \setminus (E_1 \cup Z_R)) - \L(Z_R, \Omega \setminus (E_1 \cup Z_R)) \\
-	 & = \Per{s}{E_M}{\Omega \setminus Z_R} + \L(Z_R, (E_0 \cup Z_R)^c).
+	 & = \Per{s}{E_M}{\Omega \setminus Z_R} + \L(Z_R, {(E_0 \cup Z_R)}^c).
 	\tagged\label{eq:201}
 \end{align*}
 
-Notice that the second term in \Cref{eq:201} is now independent of \( E_1 \), thus to
-minimize \( \Per{s}{E_M}{\Omega} \) we can minimize \( \Per{s}{E_M}{\Omega \setminus
-	Z_R} \) instead.\\ We define a sequence of prescribed sets \( \Omega_n \) such that
-\( \dist(E_0 \cup Z_R, \Omega_n) = d/n \), where \( d = \dist(E_0 \cup Z_R
-, E_1) \). Then for each \( n \) we are in the situation of fully disconnected external
-data, here \( E_0 \cup Z_R \) and prescribed set, here \( \Omega_n \), and we could
-conclude
+Notice that the second term in \Cref{eq:201} is now independent of \( E_1 \), thus to minimize \(
+\Per{s}{E_M}{\Omega} \) we can minimize \( \Per{s}{E_M}{\Omega \setminus Z_R} \) instead.\\ We
+define a sequence of prescribed sets \( {(\Omega_n)}_n \) such that \( \Omega_n \subset
+\Omega_{n + 1} \subset \Omega \) and \( \dist(E_0 \cup Z_R, \Omega_n) = \frac{d}{n} \), where \( d
+\coloneqq \dist(E_0 \cup Z_R, E_1) \). Then for each \( n \) we are in the situation of fully
+disconnected external data, here \( E_0 \cup Z_R \), and prescribed set, here \( \Omega_n \). If our
+assumption is correct, then we could conclude
 \begin{gather*}
-	\Per{s}{E_M}{\Omega \setminus Z_R} \leq \Per{s}{E_M}{\Omega_n} \geq \Per{s}{E_0}{\Omega_n} \nwarrow \Per{s}{E_0}{\Omega \setminus Z_R}.
+	\Per{s}{E_M}{\Omega \setminus Z_R} \geq \Per{s}{E_M}{\Omega_n} \geq \Per{s}{E_0}{\Omega_n} \nwarrow \Per{s}{E_0}{\Omega \setminus Z_R}.
 \end{gather*}
+Thus, there cannot exist a set \( E_1 \) fully detached from \( E_0 \cup Z_R \). \\
 
-As it turns out, this is not true in general and thus we cannot state connectedness just
-with the existence of the cylinder in the minimizer.\\
-In the following, we will consider an example where depending on \( s \) the minimizer is
-not the external data itslef, even though the external data and the prescribed set have
-nonzero distance.
+As it turns out, this is \emph{not} true in general, and thus we cannot state connectedness just with the
+existence of the cylinder in the minimizer.\\
 
+In the following, we will consider an example of a model where the external data and the prescribed
+set have nonzero distance, but the minimizer is not the external data itself. We will then generalize
+the example to arbitrary dimensions \( n \geq 2 \) and radii.
 \begin{example}
 	\label{ex:201}
-	Let \( E_{0} = B_{2} ^{c} \) and \( \Omega = B_{1}  \) in \( \mathbb{R}^{2} \). Then we
-	compare the fractional perimeter of \( E_{0}  \) relative to \( \Omega \) with the
-	fractional perimeter of \( E_{0} \cup \Omega \) relative to \( \Omega \)
+	Let \( E_0 = B_2^c \) and \( \Omega = B_1 \) in \( \mathbb{R}^2 \). Then we compare the fractional
+	perimeter of \( E_0 \) relative to \( \Omega \) with the fractional perimeter of \( E_0 \cup
+	\Omega \) relative to \( \Omega \), that is
 	\begin{gather*}
-		\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega} = \Per{s}{B_{1}}{} - 2L(B_{2} ^{c}, B_{1} ) \tagged\label{eq:208}
+		\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega} = \Per{s}{B_1}{} - 2L(B_2^c, B_1), \tagged\label{eq:208}
 	\end{gather*}
-	and show that this difference is negative for \( s \) small enough.
+	and show that this difference is negative for \( s \) small enough. If the difference is negative
+	we have found a competitor to the external data with smaller fractional perimeter and thus the
+	external data cannot be the minimizer. \\
 
 	For the first term we have by~\cite[Eq. (11)]{haddad2022affine}
 	\begin{gather*}
-		\Per{s}{B_{1} }{} = \frac{2^{2-s} \pi^{\frac{3}{2} } }{s(2-s)} \frac{\Gamma(\frac{1-s}{2})}{\Gamma(\frac{2-s}{2})}.
+		\Per{s}{B_1}{} = \frac{2^{2 - s} \pi^{\frac{3}{2}}}{s(2 - s)} \frac{\Gamma(\frac{1 - s}{2})}{\Gamma(\frac{2 - s}{2})}.
 	\end{gather*}
 
-	We want to bound the second term from above and below. For that we will split the domain
-	depending on \( x \), see \Cref{fig:201}.
+	We want to bound the second term from above and below. For that we will split the domain depending
+	on \( x \), see \Cref{fig:201}.
+
 	\begin{figure}[ht]
 		\centering
 		\def\svgscale{1}
 		\import{figures/split_domain}{split_domain.pdf_tex}
-		\caption{Split \( B_{2} ^{c} \) depending on \( x \) }
+		\caption{Splitting of \( B_2^c \) depending on \( x \).}
 		\label{fig:201}
 	\end{figure}
 
-	Thus we have
+	Thus, we have
 	\begin{gather*}
-		\L(B_{2} ^{c}, B_{1} ) = \int_{B_{1}} \int_{B_{2}^{c} } \frac{1}{\lvert x - y \rvert^{2-s}} \dd{y} \dd{x}
-		= \underbrace{\int_{B_{1}} \int_{B_{2+\lvert x \rvert }^{c} (x) } \frac{1}{\lvert x - y \rvert^{2-s}} \dd{y} \dd{x}}_{I_{1}} + \underbrace{\int_{B_{1} } \int_{B_{2+\lvert x \rvert }(x)\setminus B_{2}  } \frac{1}{\lvert x - y \rvert^{2-s}} \dd{y} \dd{x}}_{I_{2}}.
+		\L(B_2^c, B_1) = \int_{B_1} \int_{B_2^c} \frac{1}{\lvert x - y \rvert^{2 - s}} \dd{y} \dd{x}
+		= \underbrace{\int_{B_1} \int_{B_{2 + \lvert x \rvert}^c (x)} \frac{1}{\lvert x - y \rvert^{2 - s}} \dd{y} \dd{x}}_{I_1} + \underbrace{\int_{B_1} \int_{B_{2 + \lvert x \rvert}(x)\setminus B_2} \frac{1}{\lvert x - y \rvert^{2 - s}} \dd{y} \dd{x}}_{I_2}.
 	\end{gather*}
 	We start with \( I_1 \):
 	\begin{align*}
 		I_1
-		 & = \int_{B_1} \int_{B_{2 + \lvert x\rvert}^c (x)} \frac{1}{\lvert x - y \rvert^{2 + s}} \dd{y} \dd{x} \\
-		 & = \int_{B_1} \int_{B_{2 + \lvert x\rvert}^c} \frac{1}{\lvert y \rvert^{2 + s}} \dd{y} \dd{x} \\
-		 & = 4 \pi^2 \int_0^1 \int_{2 + r_1}^\infty \frac{r_1}{r_2^{1 + s}} \dd{r_2} \dd{r_1} \\
-		 & = \frac{4\pi^2}{s} \int_0^1 \left[- \frac{r_1}{r_2^s} \right]_{2 + r_1}^\infty \dd{r_1} \\
-		 & = \frac{4\pi^2}{s} \int_0^1 \frac{r_1}{(2 + r_1)^s} \dd{r_1} \\
-		 & = \frac{4\pi^2}{s} \int_2^3 \frac{r_1 - 2}{r_1^s} \dd{r_1} \\
-		 & = \frac{4\pi^2}{s} \left[\frac{r_1^{2 - s}}{2 - s} - 2 \frac{r_1^{1 - s}}{1 - s} \right]_2^3 \\
+		 & = \int_{B_1} \int_{B_{2 + \lvert x\rvert}^c (x)} \frac{1}{\lvert x - y \rvert^{2 + s}} \dd{y} \dd{x}
+		= \int_{B_1} \int_{B_{2 + \lvert x\rvert}^c} \frac{1}{\lvert y \rvert^{2 + s}} \dd{y} \dd{x} \\
+		 & = 4 \pi^2 \int_0^1 \int_{2 + r_1}^\infty \frac{r_1}{r_2^{1 + s}} \dd{r_2} \dd{r_1}
+		= \frac{4\pi^2}{s} \int_0^1 \frac{r_1}{{(2 + r_1)}^s} \dd{r_1} \\
 		 & = \frac{4\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - (s + 1) 3^{1 - s} \right).
 	\end{align*}
-	Thus for \( I_1 \) we have
-	\begin{gather*}
-		I_1 = \frac{4\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - (s + 1) 3^{1 - s} \right). \tagged\label{eq:202}
-	\end{gather*}
-	Now to \( I_2 \). Here the idea is to use radial coordinates again. Since the ntegral
-	is radial symmetric with respect to \( x \), we can fix \( x \) such that \( x = (r,
-	0) \) for \( r = \lvert x\rvert \). Now for fixed \( x \) the domain of \( y \) is not
-	radial symmetric anymore, thus we first have to compute the domain of \( \vartheta:=
-	\vartheta (r_1, r_2) \). \\
+
+	Now to \( I_2 \). Here the idea is to use radial coordinates again. Since the integral is radial
+	symmetric w.r.t.\ \( x \), we can fix \( x \) such that \( x = (r, 0) \) for \( r = \lvert x\rvert
+	\). Now for fixed \( x \) the domain of \( y \) is not radial symmetric, thus we first have to
+	compute the domain of \( \vartheta \coloneqq \vartheta (r_1, r_2) \). \\
 	We have two restrictions on \( y \):
-	\begin{TODO}
-		Give justifications of bounds
-	\end{TODO}
+
 	\begin{enumerate}[label = (\arabic*)]
-		\item \( 4 \leq \lvert x - y\rvert^2 \leq (2 + 2\lvert x\rvert)^2 \)
+		\item \( 4 \leq \lvert x - y\rvert^2 \leq {(2 + 2\lvert x\rvert)}^2 \)
 		\item \( 2 - \lvert x\rvert \leq \lvert y\rvert \leq 2 + \lvert x\rvert \)
 	\end{enumerate}
-	From the first restriction with \( \lvert x\rvert = r_1 \), \( \lvert y\rvert = r_2 \)
-	and \( \vartheta \) the angle between \( x \) and \( y \) we get
-	\begin{gather*}
-		4 \leq \lvert x - y\rvert^2 \leq (2 + 2r_1)^2 \\
-		\Leftrightarrow 4 \leq r_1^2 + r_2^2 - 2r_1 r_2 \cos(\vartheta) \leq 4(1 + r_1)^2 \\
-		\Leftrightarrow \frac{r_1^2 + r_2^2 - 4}{2r_1 r_2} \geq \cos(\vartheta) \geq \frac{r_1^2 + r_2^2 - 4(1 + r_1)^2}{2r_1 r_2}. \tagged\label{eq:207}
-	\end{gather*}
-	From the second restriction we get that the right - hand - side of \Cref{eq:207} is always
-	greater or equal to \( - 1 \), thus we have
+
+	From the first restriction with \( \lvert x\rvert = r_1 \), \( \lvert y\rvert = r_2 \) and \(
+	\vartheta \) the angle between \( x \) and \( y \) we get
+	\begin{alignat*}{3}
+    && 4 &\leq{}& \centermath{\lvert x - y\rvert^2} & \leq {(2 + 2r_1)}^2 \\
+    \Leftrightarrow\ && 4 &\leq{}& \centermath{r_1^2 + r_2^2 - 2r_1 r_2 \cos(\vartheta)} & \leq 4{(1 + r_1)}^2 \\
+    \Leftrightarrow\ && \frac{r_1^2 + r_2^2 - 4}{2r_1 r_2} &\geq{}& \centermath{\cos(\vartheta)} & \geq \frac{r_1^2 + r_2^2 - 4{(1 + r_1)}^2}{2r_1 r_2}.  \tagged\label{eq:207}
+  \end{alignat*}
+	From the second restriction we have that the right-hand side of \Cref{eq:207} is always greater or
+	equal to \( - 1 \), thus we have
 	\begin{gather*}
 		\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2} \geq \cos(\vartheta) \geq - 1.
 	\end{gather*}
-	We will see, that for all \( r_1 \) and \( r_2 \) the argument is independent of \(
-	\vartheta \), thus we can integrate over \( \vartheta \) first. We then get
-	\begin{TODO}
-		Argument for symmetry and how domain was chosen
-	\end{TODO}
+	We will see, that for all \( r_1 \) and \( r_2 \) the argument of \( I_2 \) is independent of \( \vartheta \),
+	thus we can integrate over \( \vartheta \) first with \( \vartheta \in D_\vartheta \coloneqq \left(0,
+	\arccos\left(\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2}\right)\right) \cup \left(2 \pi - \arccos\left(\frac{r_1^2 +
+			r_2^2 - 4}{2r_1 r_2}\right), 2 \pi\right) \)
 	\begin{gather*}
-		\int_{- \vartheta}^\vartheta \dd{\vartheta} = 2\pi - 2 \arccos\left(\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2}\right).
+		\int_{D_\vartheta} \dd{\vartheta} = 2\pi - 2 \arccos\left(\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2}\right).
 	\end{gather*}
-	For \( I_2 \) we get then
-	\begin{TODO}
-		Simplify computations?\\
-		Add arguments about splitting, change of variables, computationsteps etc
-	\end{TODO}
+
+	For \( I_2 \) we can follow
 	\begin{align*}
 		I_2
-		 & = \int_{B_1} \int_{B_{2 + \lvert x\rvert} (x) \setminus B_2} \frac{1}{\lvert x - y \rvert^{2 + s}} \dd{y} \dd{x} \\
-		 & = \int_{B_1} \underbrace{\int_{B_{2 + \lvert x\rvert} \setminus B_2(- x)} \frac{1}{\lvert y \rvert^{2 + s}} \dd{y}}_{\text{radial symmetric w.r.t.\ \( x \)}} \dd{x} \\
-		 & = 2 \pi \int_0^1 \int_{2 - r_1}^{2 + r_1} \frac{r_1}{r_2^{1 + s}} \int_{- \vartheta}^\vartheta \dd{\vartheta} \dd{r_2} \dd{r_1} \\
-		 & = 2 \pi \int_0^1 \int_{2 - r_1}^{2 + r_1} \frac{r_1}{r_2^{1 + s}} \left(2\pi - 2 \arccos\left(\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2}\right) \right) \dd{r_2} \dd{r_1} \\
-		 & = 4 \pi^2 \int_0^1 \int_{2 - r_1}^{2 + r_1} \frac{r_1}{r_2^{1 + s}} \dd{r_2} \dd{r_1} - 4 \pi \int_0^1 \int_{2 - r_1}^{2 + r_1} \frac{r_1}{r_2^{1 + s}} \arccos\left(\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2}\right) \dd{r_2} \dd{r_1} \\
-		 & = \frac{4\pi^2}{s(1 - s)(2 - s)} \left((s + 1) 3^{1 - s} - 3 + s \right) - \frac{4\pi^2}{s} \int_0^1 \frac{r_1}{(2 - r_1)^s} \dd{r_1} + \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{r_2^{1 + s}} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - (r_1^2 + r_2^2 - 4)^2}} \dd{r_2} \dd{r_1} \\
-		 & = \underbrace{\frac{4\pi^2}{s(1 - s)(2 - s)} \left((s + 1) 3^{1 - s} - 2^{2 - s} \right)}_{- I_1} + \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{r_2^{1 + s}} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - (r_1^2 + r_2^2 - 4)^2}} \dd{r_2} \dd{r_1}.
+		 & = \int_{B_1} \int_{B_{2 + \lvert x\rvert} (x) \setminus B_2} \frac{1}{\lvert x - y \rvert^{2 + s}} \dd{y} \dd{x}
+		= \int_{B_1} \underbrace{\int_{B_{2 + \lvert x \rvert} \setminus B_2(- x)} \frac{1}{\lvert y \rvert^{2 + s}} \dd{y}}_{\text{radial symmetric w.r.t.\ \( x \)}} \dd{x}.
+		\intertext{We use radial coordinates}
+		 & = 2 \pi \int_0^1 \int_{2 - r_1}^{2 + r_1} \frac{r_1}{r_2^{1 + s}} \int_{- \vartheta}^\vartheta \dd{\vartheta} \dd{r_2} \dd{r_1}
+		= 2 \pi \int_0^1 \int_{2 - r_1}^{2 + r_1} \frac{r_1}{r_2^{1 + s}} \left(2\pi - 2 \arccos\left(\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2}\right) \right) \dd{r_2} \dd{r_1} \\
+		 & = 4 \pi^2 \int_0^1 \int_{2 - r_1}^{2 + r_1} \frac{r_1}{r_2^{1 + s}} \dd{r_2} \dd{r_1} - 4 \pi \int_0^1 \int_{2 - r_1}^{2 + r_1} \frac{r_1}{r_2^{1 + s}} \arccos\left(\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2}\right) \dd{r_2} \dd{r_1},
+		\intertext{then partial integration}
+		 & = 4 \pi^2 \int_0^1 \int_{2 - r_1}^{2 + r_1} \frac{r_1}{r_2^{1 + s}} \dd{r_2} \dd{r_1} - \frac{4\pi^2}{s} \int_0^1 \frac{r_1}{{(2 - r_1)}^s} \dd{r_1} + \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{r_2^{1 + s}} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - {(r_1^2 + r_2^2 - 4)}^2}} \dd{r_2} \dd{r_1} \\
+		 & = \underbrace{\frac{4\pi^2}{s(1 - s)(2 - s)} \left((s + 1) 3^{1 - s} - 2^{2 - s} \right)}_{- I_1} + \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{r_2^{1 + s}} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - {(r_1^2 + r_2^2 - 4)}^2}} \dd{r_2} \dd{r_1}.
 	\end{align*}
-	Thus we get for the second term in \Cref{eq:208}
+
+	Finally, we have for the second term in \Cref{eq:208}
 	\begin{gather*}
-		\L(E_0, E_1) = \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{r_2^{1 + s}} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - (r_1^2 + r_2^2 - 4)^2}} \dd{r_2} \dd{r_1}.
+		\L(E_0, E_1) = \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{r_2^{1 + s}} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - {(r_1^2 + r_2^2 - 4)}^2}} \dd{r_2} \dd{r_1}.
 	\end{gather*}
-	We can now bound this term without losing too much information. For the upper bound,
-	we will use that \( r_2 \geq 2 - r_1 \) and for the lower bound we will use that \( r_2
-	\leq 2 + r_1 \). We then get
+
+	We can now bound this term without losing too much information. For the upper bound, we will use
+	that \( r_2 \geq 2 - r_1 \) and for the lower bound we will use that \( r_2 \leq 2 + r_1 \). We
+	then get
 	\begin{align*}
 		\bullet) \quad \L(E_0, E_1)
-		 & \leq \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{(2 - r_1)^s} \frac{1}{r_2} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - (r_1^2 + r_2^2 - 4)^2}} \dd{r_2} \dd{r_1} \\
-		 & = \frac{4\pi}{s} \int_0^1 \frac{r_1}{(2 - r_1)^s} \left[\arccos\left(\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2}\right) \right]_{2 - r_1}^{2 + r_2} \dd{r_1} \\
-		 & = \frac{4\pi^2}{s} \int_0^1 \frac{r_1}{(2 - r_1)^s} \dd{r_1} \\
-		 & = \frac{4\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - 3 + s \right)
+		 & \leq \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{{(2 - r_1)}^s} \frac{1}{r_2} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - {(r_1^2 + r_2^2 - 4)}^2}} \dd{r_2} \dd{r_1} \\
+		 & = \frac{4\pi}{s} \int_0^1 \frac{r_1}{{(2 - r_1)}^s} {\left[\arccos\left(\frac{r_1^2 + r_2^2 - 4}{2r_1 r_2}\right) \right]}_{2 - r_1}^{2 + r_2} \dd{r_1} \\
+		% & = \frac{4\pi^2}{s} \int_0^1 \frac{r_1}{{(2 - r_1)}^s} \dd{r_1} \\
+		 & = \frac{4\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - 3 + s \right),
 		\intertext{and}
 		\bullet) \quad \L(E_0, E_1)
-		 & \geq \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{(2 + r_1)^s} \frac{1}{r_2} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - (r_1^2 + r_2^2 - 4)^2}} \dd{r_2} \dd{r_1} \\
-		 & = \frac{4\pi^2}{s} \int_0^1 \frac{r_1}{(2 + r_1)^s} \dd{r_1} \\
+		 & \geq \frac{4\pi}{s} \int_0^1 \int_{2 - r_1}^{2 + r_2} \frac{r_1}{{(2 + r_1)}^s} \frac{1}{r_2} \frac{r_2^2 - r_1^2 + 4}{\sqrt{4r_1^2 r_2^2 - {(r_1^2 + r_2^2 - 4)}^2}} \dd{r_2} \dd{r_1} \\
+		% & = \frac{4\pi^2}{s} \int_0^1 \frac{r_1}{{(2 + r_1)}^s} \dd{r_1} \\
 		 & = \frac{4\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - (s + 1) 3^{1 - s} \right).
 	\end{align*}
-	Thus we have that
+
+	Thus, we have the bounds for \Cref{eq:208}
 	\begin{gather*}
-		\frac{2^{2 - s} \pi^{\frac{3}{2}}}{s(2 - s)} \frac{\Gamma (\frac{1 - s}{2})}{\Gamma (\frac{2 - s}{2})} - \frac{8\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - 3 + s \right)
-		\leq \Per{s}{E_1}{} - 2\L(E_0, E_1)
-		\leq \frac{2^{2 - s} \pi^{\frac{3}{2}}}{s(2 - s)} \frac{\Gamma (\frac{1 - s}{2})}{\Gamma (\frac{2 - s}{2})} - \frac{8\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - (s + 1) 3^{1 - s} \right)
+		\Per{s}{E_1}{} - 2\L(E_0, E_1) \leq \frac{2^{2 - s} \pi^{\frac{3}{2}}}{s(2 - s)} \frac{\Gamma (\frac{1 - s}{2})}{\Gamma (\frac{2 - s}{2})} - \frac{8\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - (s + 1) 3^{1 - s} \right), \tagged\label{eq:211}
 	\end{gather*}
-	\begin{TODO}
-		Give justification, that both sides are continuous w.r.t.\ s and conclude\\
-		Maybe draw a picture
-	\end{TODO}
+	and
+	\begin{gather*}
+		\Per{s}{E_1}{} - 2\L(E_0, E_1) \geq \frac{2^{2 - s} \pi^{\frac{3}{2}}}{s(2 - s)} \frac{\Gamma (\frac{1 - s}{2})}{\Gamma (\frac{2 - s}{2})} - \frac{8\pi^2}{s(1 - s)(2 - s)} \left(2^{2 - s} - 3 + s \right). \tagged\label{eq:212}
+	\end{gather*}
+
+	\begin{figure}[ht]
+		\centering
+		\def\svgscale{1}
+		\import{figures/2D_bounds}{2D_bounded.pdf_tex}
+		\caption{Upper and lower bound plotted for \( s \in (0, 1) \).}
+		\label{fig:202}
+	\end{figure}
 \end{example}
 
-\begin{example}[Continuoation of \Cref{ex:201}]
-	Let us now consider the same setting as in \Cref{ex:201}, but instead with the external
-	data \( E_{1} = B_{2+T} \setminus B_{2} \) for \( T >0 \) large enough. Notice, that this change just adds one
-	additional term compared to before
+\begin{example}[Continuation of \Cref{ex:201}]
+	\label{ex:202}
+	Let us now consider the same setting as in \Cref{ex:201}, but instead with the external data \(
+	E_0 = B_{2 + T} \setminus B_2 \) for \( T > 0 \) large enough. Notice, that this change just adds
+	one additional term compared to before
 	\begin{gather*}
-		\L(B_{2+T}\setminus B_{2} , B_{1} ) = 	\L(B_{2} ^{c}, B_{1} ) - \underbrace{ \int_{B_{2+T}^{c}}^{} \int_{B_{1} }^{} \frac{1}{\lvert x-y \rvert ^{2-s} }  \dd{x}   \dd{y}  }_{I_{3} }
+		\L(B_{2 + T}\setminus B_2, B_1) = \L(B_2^c, B_1) - \underbrace{\int_{B_{2 + T}^c} \int_{B_1} \frac{1}{\lvert x - y \rvert^{2 - s}} \dd{x} \dd{y}}_{I_3}
 	\end{gather*}
 
-	We will bound \( I_{3}  \) from above and below. \\
+	We will bound \( I_3 \) from above and below. \\
 	The upper bound
 	\begin{align*}
-		\int_{B_{1} }^{} \int_{B_{2+T-\lvert x \rvert }^{c} (x)}^{} \frac{1}{\lvert x-y \rvert ^{2-s} }  \dd{y}  \dd{x}
-		 & \leq 4 \pi^{2} \int_{0}^{1} \int_{2+T-r_{1} }^{\infty} \frac{r_{1}}{r_{2}^{1-s} }  \dd{r_{2} }  \dd{r_{1} } \\
-		 & = \frac{4 \pi^{2} }{s} \int_{0}^{1} \frac{r_{1}}{(2+T-r_{1} )^{s} }  \dd{r_{1} } \\
-		 & = \frac{4 \pi^{2} }{s(1-s)(2-s)} [(2+T)^{2-s}-(3-s+T) (1+T)^{1-s}]
+		\int_{B_1} \int_{B_{2 + T - \lvert x \rvert}^c (x)} \frac{1}{\lvert x - y \rvert^{2 - s}} \dd{y} \dd{x}
+		 & \leq 4 \pi^2 \int_0^1 \int_{2 + T - r_1}^\infty \frac{r_1}{r_2^{1 - s}} \dd{r_2} \dd{r_1} \\
+		 & = \frac{4 \pi^2}{s} \int_0^1 \frac{r_1}{{(2 + T - r_1)}^s} \dd{r_1} \\
+		 & = \frac{4 \pi^2}{s(1 - s)(2 - s)} [{(2 + T)}^{2 - s} - (3 - s + T) {(1 + T)}^{1 - s}]
 	\end{align*}
 	and the lower bound
 	\begin{align*}
-		\int_{B_{1} }^{} \int_{B_{2+T+\lvert x \rvert }^{c} (x)}^{} \frac{1}{\lvert x-y \rvert ^{2-s} }  \dd{y}  \dd{x}
-		 & \geq 4 \pi^{2} \int_{0}^{1} \int_{2+T+r_{1} }^{2+T+r_{1} } \frac{r_{1}}{r_{2}^{1-s} }  \dd{r_{2} }  \dd{r_{1} } \\
-		 & = \frac{4 \pi^{2} }{s} \int_{0}^{1} \frac{r_{1}}{(2+T+r_{1} )^{s} }  \dd{r_{1} } \\
-		 & = \frac{4 \pi^{2} }{s(1-s)(2-s)} [(2+T)^{2-s}-(1+s+T) (3+T)^{1-s}]
+		\int_{B_1} \int_{B_{2 + T + \lvert x \rvert}^c (x)} \frac{1}{\lvert x - y \rvert^{2 - s}} \dd{y} \dd{x}
+		 & \geq 4 \pi^2 \int_0^1 \int_{2 + T + r_1}^{2 + T + r_1} \frac{r_1}{r_2^{1 - s}} \dd{r_2} \dd{r_1} \\
+		 & = \frac{4 \pi^2}{s} \int_0^1 \frac{r_1}{{(2 + T + r_1)}^s} \dd{r_1} \\
+		 & = \frac{4 \pi^2}{s(1 - s)(2 - s)} [{(2 + T)}^{2 - s} - (1 + s + T) {(3 + T)}^{1 - s}].
 	\end{align*}
 
-	Thus we have the bounds
+	Thus, we have the bounds
 	\begin{gather*}
-		\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega} \leq (\text{add upper bound}) + \frac{4 \pi^{2} }{s(1-s)(2-s)} [(2+T)^{2-s}-(3-s+T) (1+T)^{1-s}] \\
-		\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega} \geq (\text{add lower bound}) + \frac{4 \pi^{2} }{s(1-s)(2-s)} [(2+T)^{2-s}-(1+s+T) (3+T)^{1-s}]
+		\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega} \leq \Cref{eq:211} + \frac{8 \pi^2}{s(1 - s)(2 - s)} [{(2 + T)}^{2 - s} - (3 - s + T) {(1 + T)}^{1 - s}],
+		\intertext{and}
+		\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega} \geq \Cref{eq:212} + \frac{8 \pi^2}{s(1 - s)(2 - s)} [{(2 + T)}^{2 - s} - (1 + s + T) {(3 + T)}^{1 - s}].
 	\end{gather*}
 
-	\begin{TODO}
-		Add picture and more explanation
-	\end{TODO}
-	Notice that the limits for \( s \searrow 0 \) and \( s \nearrow 1 \) are independent of
-	\( T \) and that for \( s \nearrow 1 \) the limit is the same as in the unbounded case.
-	For \( s \searrow 0 \) however we have a different limit than in the unbounded case.
-	\begin{TODO}
-		Add limit for \( s \searrow 0 \), independent of \( T \) and show that for \( T \)
-		large enough the difference is negative for some interval of \( s \).
-	\end{TODO}
-
+	\begin{figure}[ht]
+		\centering
+		\def\svgscale{1}
+		\import{figures/2D_bounds}{2D_unbounded.pdf_tex}
+		\caption{Upper and lower bound plotted for \( s \in (0, 1) \) for \( T = 50000 \).}
+		\label{fig:203}
+	\end{figure}
 \end{example}
 
-\begin{TODO}
-	Go from the example to the general case
-\end{TODO}
+We now want to generalize this example to arbitrary dimensions \( n\geq 2 \) and radii \( 0 < r < R
+\). We will consider the following setting once with unbounded data and once with bounded data: Let
+\( n \geq 2 \) and \( r, R, T > 0 \), such that \( r < R \). Take the external data \( E_0 = B_R^c
+\) in the unbounded case and \( E_0 = B_{R + T} \setminus B_R \) in the bounded case and define the
+prescribed set \( \Omega = B_r \). \\
 
-We will consider the following setting once with unbounded data and once with bounded
-data: Let \( n \geq 1 \) and \( r, R, T > 0 \), such that \( r < R \). Take the external
-data \( E_0 = B_R^c \) in the unbounded case and \( E_0 = B_T \setminus B_R
-\) in the bounded case. Define the prescribed set \( \Omega = B_r \). \\
-
-\begin{CHECK}
-	Is that correct?\\
-	Elaborate
-\end{CHECK}
-
-In~\cite{Caffarelli2011} the authors have shown that for \( s \nearrow 1 \) the fractional
-perimeter approaches the classical perimeter. Thus, we can expect that for \( s \) large
-enough the minimizer should be the external data itself. In~\cite{dipierro2012asymptotics}
-the authors have shown that for bounded sets with nonzero distance and \( s \) small
-enough the minimizer is the external data itself as well. \\
+In~\cite{Caffarelli2011} the authors have shown that for \( s \nearrow 1 \) the fractional perimeter
+behaves like the classical perimeter. Thus, we can expect that for \( s \) large enough the minimizer
+should be the external data itself. In~\cite{dipierro2012asymptotics} the authors have shown that
+for bounded sets with nonzero distance and \( s \) small enough the minimizer is the external data
+itself as well. \\
 
 \begin{theorem}
 	\label{thm:201}
-	Let \( n \geq 2 \) and \( 0 < r < R \). Let \( E_0 = B_R^c \) and \( \Omega =
-	B_r \), then there exists a \( s_0 \in (0, 1) \) such that for all \( s \in (0,
-	s_0) \) the minimizer is not the external data itself.
+	Let \( n \geq 2 \) and \( 0 < r < R \). Let \( E_0 = B_R^c \) and \( \Omega = B_r \), then there
+	exists an \( s_0 \in (0, 1) \) such that for all \( s \in (0, s_0) \) the minimizer is not the
+	external data \( E_0 \) itself.
 \end{theorem}
 
 \begin{theorem}
 	\label{thm:202}
-	Let \( n \geq 2 \) and \( 0 < r < R \) and \( R+T > 0 \). Let \( E_0 = B_{R+T}  \setminus
-	B_R \) and \( \Omega = B_r \), then there exists \( s_0, s_1 \in (0, 1) \)
-	such that for all \( s \in (s_0, s_1) \) and \( T \) large enough the minimizer is not
-	the external data itself and for \( s \) small and large enough the minimizer is the
-	external data.
+	Let \( n \geq 2 \) and \( 0 < r < R \) and \( T > 0 \). Let \( E_0 = B_{R + T} \setminus B_R \)
+	and \( \Omega = B_r \), then for any \( T \) large enough there exists \( s_0, s_1 \in (0, 1) \)
+	such that for all \( s \in (s_0, s_1) \) the minimizer is not the external data \( E_0 \) itself.
 \end{theorem}
 
-We will proof that the minimizer is not the external data itself by comparing the
-fractional perimeter of \( E_0 \) with the fractional perimeter of \( E_0 \cup \Omega \).
-
 \begin{proof}[Proof of \Cref{thm:201}]
+	As in \Cref{ex:201} and \Cref{ex:202} we will compare the fractional perimeter of \( E_0 \cup
+	\Omega \) relative to \( \Omega \) with the fractional perimeter of \( E_0 \) relative to \(
+	\Omega \)
+
 	\begin{gather*}
 		\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega} = \Per{s}{\Omega}{} -
-		2L(E_0, \Omega) \tagged\label{eq:203}
+		2\L(E_0, \Omega) = \Per{s}{B_r}{}- 2 \L(B_R^c, B_r). \tagged\label{eq:203}
 	\end{gather*}
 
 	For the first term we have by~\cite[Eq. (11)]{haddad2022affine}
 	\begin{gather*}
-		\Per{s}{\Omega}{} = \Per{s}{B_r}{}
+		\Per{s}{B_r}{}
 		= \frac{2^{1 - s} \pi^{\frac{n - 1}{2}} n \omega_n}{s(n - s)} \frac{\Gamma(\frac{1 - s}{2})}{\Gamma(\frac{n - s}{2})} r^{n - s}
 		= \frac{2^{2 - s} \pi^{n - \frac{1}{2}}}{s(n - s)} \frac{\Gamma(\frac{1 - s}{2})}{\Gamma(\frac{n - s}{2}) \Gamma(\frac{n}{2})} r^{n - s}
 	\end{gather*}
-	with \( \omega_n = \frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n}{2} + 1)} \).
+	with \( \omega_n = \frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n}{2} + 1)} \) and where \( \Gamma \) is the
+	gamma function. \\
 
 	The second term we will bound from below to get an upper bound for \Cref{eq:203}.
 	\begin{align*}
-		\L(E_0, E_1) = \L(B_r, B_R^c)
-		 & = \int_{B_r} \int_{B_R^c} \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x} \\
-		 & \geq \int_{B_r} \int_{B_{R + \lvert x \rvert}^c (x)} \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x} \\
-		 & = \int_{B_r} \int_{B_{R + \lvert x \rvert}^c} \frac{1}{\lvert y \rvert^{n - s}} \dd{y} \dd{x} \\
-		 & = \frac{4 \pi^n}{(\Gamma(\frac{n}{2}))^2} \int_0^r \int_{R + r_1}^\infty \frac{r_1^{n - 1}}{r_2^{1 + s}} \dd{r_2} \dd{r_1} \\
-		 & = \frac{4 \pi^n}{(\Gamma(\frac{n}{2}))^2} \frac{1}{s} \int_0^r \frac{r_1^{n - 1}}{\left(R + r_1 \right)^s} \dd{r_1} \\
-		 & = \frac{4 \pi^n}{(\Gamma(\frac{n}{2}))^2} \frac{1}{ns} \frac{r^{n - 1}}{R^s} \HG(s, n ; n + 1 ; - \frac{r}{R}).
+		\L(B_r, B_R^c)
+		 & = \int_{B_r} \int_{B_R^c} \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x}
+		\geq \int_{B_r} \int_{B_{R + \lvert x \rvert}^c (x)} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} \\
+		 & = \int_{B_r} \int_{B_{R + \lvert x \rvert}^c} \frac{1}{\lvert y \rvert^{n + s}} \dd{y} \dd{x}
+		= \frac{4 \pi^n}{{(\Gamma(\frac{n}{2}))}^2} \int_0^r \int_{R + r_1}^\infty \frac{r_1^{n - 1}}{r_2^{1 + s}} \dd{r_2} \dd{r_1} \\
+		 & = \frac{4 \pi^n}{{(\Gamma(\frac{n}{2}))}^2} \frac{1}{s} \int_0^r \frac{r_1^{n - 1}}{{\left(R + r_1 \right)}^s} \dd{r_1} \\
+		 & = \frac{4 \pi^n}{{(\Gamma(\frac{n}{2}))}^2} \frac{1}{ns} \frac{r^{n - 1}}{R^s} \HG\left(s, n ; n + 1 ; - \frac{r}{R}\right).
 	\end{align*}
 
-	\begin{TODO}
-		Add source
-	\end{TODO}
-	In the last step we used the the following identity (source) for the hypergeometric
+	In the last step we used the following identity~\cite{bateman_2023_cnd32-h9x80} for the hypergeometric
 	function
 	\begin{gather*}
-		B(b, c - b)\HG(a, b ; c ; z) = \int_0^1 t^{b - 1} (1 - t)^{c - b - 1} (1 - tz)^{- a} \dd{t} \qquad
-		\text{for} \Re(c) > \Re(b) > 0,
+		B(b, c - b)\HG(a, b ; c ; z) = \int_0^1 t^{b - 1} {(1 - t)}^{c - b - 1} {(1 - tz)}^{- a} \dd{t} \qquad
+		\text{for}\ \Re(c) > \Re(b) > 0,
 	\end{gather*}
-	where \( B \) is the beta function. In our case we have \( a = s \), \( b = n \), \( c =
-	n + 1 \) and \( z = - \frac{r}{R} \), thus
+	where \( B \) is the beta function. In our case we have \( a = s \), \( b = n \), \( c = n + 1 \)
+	and \( z = - \frac{r}{R} \), thus
 	\begin{align*}
-		\int_0^r \frac{r_1^{n - 1}}{\left(R + r_1 \right)^s} \dd{r_1}
-		 & = \frac{r^n}{R^s} \int_0^1 r_1^{n - 1} (1 + \frac{r}{R} r_1)^{- s} \dd{r_1} \\
-		 & = \frac{r^n}{R^s} B(n, 1) \HG(s, n ; n + 1 ; - \frac{r}{R}) = \frac{r^n}{nR^s} \HG(s, n ; n + 1 ; - \frac{r}{R}).
+		\int_0^r \frac{r_1^{n - 1}}{{\left(R + r_1 \right)}^s} \dd{r_1}
+		 & = \frac{r^n}{R^s} \int_0^1 r_1^{n - 1} {(1 + \frac{r}{R} r_1)}^{- s} \dd{r_1} \\
+		 & = \frac{r^n}{R^s} B(n, 1) \HG\left(s, n ; n + 1 ; - \frac{r}{R}\right) = \frac{r^n}{nR^s} \HG\left(s, n ; n + 1 ; - \frac{r}{R}\right).
 	\end{align*}
 
-	Thus we can bound \Cref{eq:203} from above by
-	\begin{gather*}
-		\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}
-		\leq \frac{2^{2 - s} \pi^{n - \frac{1}{2}}}{s(n - s)} \frac{\Gamma(\frac{1 - s}{2})}{\Gamma(\frac{n - s}{2}) \Gamma(\frac{n}{2})}r^{n - s} - \frac{8 \pi^n}{(\Gamma(\frac{n}{2}))^2} \frac{r^n}{snR^s} \HG(s, n ; n + 1 ; - \frac{r}{R}). \tagged\label{eq:204}
-	\end{gather*}
+	Thus, we can bound \Cref{eq:203} from above by
+	\begin{align*}
+		 & \Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega} \\
+		 & \qquad \leq \frac{2^{2 - s} \pi^{n - \frac{1}{2}}}{s(n - s)} \frac{\Gamma(\frac{1 - s}{2})}{\Gamma(\frac{n - s}{2}) \Gamma(\frac{n}{2})}r^{n - s} - \frac{8 \pi^n}{{(\Gamma(\frac{n}{2}))}^2} \frac{r^n}{snR^s} \HG\left(s, n ; n + 1 ; - \frac{r}{R}\right). \tagged\label{eq:204}
+	\end{align*}
 
-	\begin{TODO}
-		Rewrite
-	\end{TODO}
-	Since we are interested in the behavior of \Cref{eq:203} depending on \( s \) we
-	multiply \Cref{eq:204} by \( s(1 - s) \) to deal with the singularities at \( s = 0 \) and
-	\( s = 1 \)
-	\begin{gather*}
-		s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega})
-		\leq \frac{2^{3 - s} \pi^{n - \frac{1}{2}}}{n - s} \frac{\Gamma(\frac{3 - s}{2})}{\Gamma(\frac{n - s}{2}) \Gamma(\frac{n}{2})}r^{n - s} - \frac{8 \pi^n}{(\Gamma(\frac{n}{2}))^2} \frac{r^n}{nR^s} (1 - s)\HG(s, n ; n + 1 ; - \frac{r}{R}). \tagged\label{eq:205}
-	\end{gather*}
+	Since we are interested in the behavior of \Cref{eq:203} depending on \( s \) we multiply
+	\Cref{eq:204} by \( s(1 - s) \) to deal with the singularities at \( s = 0 \) and \( s = 1 \)
+	\begin{align*}
+		 & s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}) \\
+		 & \qquad \leq \frac{2^{3 - s} \pi^{n - \frac{1}{2}}}{n - s} \frac{\Gamma(\frac{3 - s}{2})}{\Gamma(\frac{n - s}{2}) \Gamma(\frac{n}{2})}r^{n - s} - \frac{8 \pi^n}{{(\Gamma(\frac{n}{2}))}^2} \frac{r^n}{nR^s} (1 - s)\HG\left(s, n ; n + 1 ; - \frac{r}{R}\right). \tagged\label{eq:205}
+	\end{align*}
 
-	\begin{TODO}
-		Add source
-	\end{TODO}
-	Since \( \Gamma \) is continuous for all positive reals and \( \HG \) is contiouous for
-	\( \lvert z \rvert \leq 1 \), the right hand side of \Cref{eq:205} is continuous for all
-	\( s \in (0, 1) \). Now take the limit for \( s \searrow 0 \) and \( s \nearrow 1 \)
+	Since \( \Gamma \) is continuous for all positive reals and \( \HG \) is absolutely continuous for
+	\( \lvert z \rvert < 1 \)~\cite{bateman_2023_cnd32-h9x80}, the right-hand side of \Cref{eq:205} is continuous for all \( s \in
+	(0, 1) \). First notice that we have the following limits
+	\begin{align*}
+		\lim_{s \searrow 0} \HG(s, n ; n + 1 ; z) = 1 \quad \text{and} \quad \lim_{s \nearrow 1} (1-s)\HG(s, n ; n + 1 ; z) = 0,
+	\end{align*}
+	since for \( \lvert z \rvert < 1 \) the hypergeometric function has the following expression
+	\begin{gather*}
+		\HG(a, b ; c ; z) = \sum_{k = 0}^\infty \frac{{(a)}_k {(b)}_k}{{(c)}_k} \frac{z^k}{k!},
+	\end{gather*}
+	for \( {(q)}_k = q(q + 1)\ldots(q + k-1) \) and \( {(q)}_0 = 1 \) whenever \( q > 0 \).
+
+	Now take the limit for \( s \searrow 0 \) and \( s \nearrow 1 \) in \Cref{eq:205}
 	\begin{gather*}
 		\lim_{s \searrow 0} s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega})
-		= - \frac{4 \pi^n}{n} \frac{1}{(\Gamma(\frac{n}{2}))^2} r^n < 0 \tagged\label{eq:206}
+		= - \frac{4 \pi^n}{n} \frac{1}{{(\Gamma(\frac{n}{2}))}^2} r^n < 0
 	\end{gather*}
 	and
 	\begin{gather*}
 		\lim_{s \nearrow 1} s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega})
-		= \frac{4 \pi^{n - \frac{1}{2}}}{n - 1} \frac{1}{\Gamma(\frac{n - 1}{2})\Gamma(\frac{n}{2})} r^{n - 1} > 0.
+		= \frac{4 \pi^{n - \frac{1}{2}}}{n - 1} \frac{1}{\Gamma(\frac{n - 1}{2})\Gamma(\frac{n}{2})} r^{n - 1} > 0. \tagged\label{eq:206}
 	\end{gather*}
 
-	Now we know for \( s \nearrow 1 \) that \( (1 - s)\Per{s}{E}{\Omega} \) is aproaching the
-	classical perimeter, thus in \Cref{eq:206} is actually an equality. Thus we can conclude
-	that there exists a \( s_0 \in (0, 1) \) such that for all \( s \in (0, s_0) \) the
-	minimizer is not the external data itself.
+	Now we know for \( s \nearrow 1 \) that \( (1 - s)\Per{s}{E}{\Omega} \) is approaching the
+	classical perimeter whenever the classical perimeter is finite, thus in \Cref{eq:206} is actually
+	an equality. Thus, we can conclude that there exists an \( s_0 \in (0, 1) \) such that for all \(
+	s \in (0, s_0) \) the minimizer is not the external data itself.
 
 \end{proof}
 
 
 \begin{proof}[Proof of \Cref{thm:202}]
 	We consider again the difference
-	\begin{gather*}
-		\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{ s}{E_{0} }{\Omega} = \Per{s}{\Omega}{} - 2\L(E_{0} , \Omega) = \Per{s}{B_{R+T}\setminus B_{R}  }{} -2 \L(B_{R}^{c} , B_{r} ) + 2 \L(B_{R+T} ^{c}, B_{r} ) \tagged\label{eq:209}
-	\end{gather*}
+	\begin{align*}
+		\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}
+		 & = \Per{s}{\Omega}{} - 2\L(E_0, \Omega) \\
+		 & = \Per{s}{B_r}{} - 2 \L(B_R^c, B_r) + 2 \L(B_{R + T}^c, B_r). \tagged\label{eq:209}
+	\end{align*}
 
 	We can use the upper bound from the proof of \Cref{thm:201} for the first 2 terms in
 	\Cref{eq:209}. The third term we will bound from above
 	\begin{align*}
-		\L(B_{R+T} ^{c}, B_{r} )
-		 & = \int_{B_{r}} \int_{B_{R+T} ^{c} } \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x} \\
-		 & \leq \int_{B_{r}} \int_{B_{R+T-\lvert x \rvert} ^{c} } \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x} \\
-		 & = \frac{4 \pi^{n} }{( \Gamma(\frac{n}{2}))^{2} } \int_{0}^{r} \int_{R+T-r_{1} }^{\infty} \frac{r_{1}^{n-1} }{r_{2}^{1+s} } \dd{r_{2} } \dd{r_{1} } \\
-		 & = \frac{4 \pi^{n} }{( \Gamma(\frac{n}{2}))^{2} } \frac{1}{s} \int_{0}^{r} \frac{r_{1}^{n-1} }{(R+T-r_{1} )^{s} } \dd{r_{1} } \\
-		 & = \frac{4 \pi^{n} }{( \Gamma(\frac{n}{2}))^{2} } \frac{1}{ns} \frac{r^{n} }{(R+T)^{s} } \HG(s, n ; n+1 ; - \frac{r}{R+T} ).
+		\L(B_{R + T}^c, B_r)
+		 & = \int_{B_r} \int_{B_{R + T}^c} \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x}
+		\leq \int_{B_r} \int_{B_{R + T - \lvert x \rvert}^c} \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x} \\
+		 & = \frac{4 \pi^n}{{(\Gamma(\frac{n}{2}))}^2} \int_0^r \int_{R + T - r_1}^\infty \frac{r_1^{n - 1}}{r_2^{1 + s}} \dd{r_2} \dd{r_1}
+		= \frac{4 \pi^n}{{(\Gamma(\frac{n}{2}))}^2} \frac{1}{s} \int_0^r \frac{r_1^{n - 1}}{{(R + T - r_1)}^s} \dd{r_1} \\
+		 & = \frac{4 \pi^n}{{(\Gamma(\frac{n}{2}))}^2} \frac{1}{ns} \frac{r^n}{{(R + T)}^s} \HG\left(s, n ; n + 1 ; - \frac{r}{R + T}\right).
 	\end{align*}
 
-	Thus we can bound \Cref{eq:209} from above by
-	\begin{align*}
-		 & \Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega} \\
-		 & \leq \frac{2^{2-s} \pi^{n-\frac{1}{2}}}{s(n-s)} \frac{\Gamma(\frac{1-s}{2})}{\Gamma(\frac{n-s}{2}) \Gamma(\frac{n}{2})} r^{n-s} - \frac{8 \pi^{n}}{(\Gamma(\frac{n}{2}))^{2}} \frac{r^{n} }{sn}  (\frac{1}{R^{s}} \HG(s, n ; n+1 ; - \frac{r}{R}) - \frac{1}{(R+T)^{s} } \HG(s, n ; n+1 ; - \frac{r}{R+T} ). \tagged\label{eq:210}
-	\end{align*}
-
-	\begin{TODO}
-		Argument for continuity
-	\end{TODO}
-	Now we multiply by \( s(1-s) \) to deal with the singularities at \( s = 0 \), \( s = 1
-	\) and let \( s \searrow 0 \) and \( s \nearrow 1 \)
+	Thus, we can bound \Cref{eq:209} from above by
 	\begin{gather*}
-		\lim_{s \searrow 0} s(1-s)(\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega}) = \frac{4 \pi^{n}}{n} \frac{1}{(\Gamma(\frac{n}{2}))^{2}} r^{n} > 0
+		\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}
+		\leq \Cref{eq:204} + \frac{8 \pi^n}{{(\Gamma(\frac{n}{2}))}^2} \frac{1}{ns} \frac{r^n}{{(R + T)}^s} \HG\left(s, n ; n + 1 ; - \frac{r}{R + T}\right) \tagged\label{eq:210}
+	\end{gather*}
+
+	Now we multiply by \( s(1 - s) \) again to deal with the singularities at \( s = 0 \), \( s = 1 \)
+  and take the limits
+	\begin{gather*}
+		\lim_{s \searrow 0} s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}) = \frac{4 \pi^n}{n} \frac{1}{{(\Gamma(\frac{n}{2}))}^2} r^n > 0,
 	\end{gather*}
 	and
 	\begin{gather*}
-		\lim_{s \nearrow 1} s(1-s)(\Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega}) = \frac{4 \pi^{n-\frac{1}{2}}}{n-1} \frac{1}{\Gamma(\frac{n-1}{2})\Gamma(\frac{n}{2})} r^{n-1} > 0.
+		\lim_{s \nearrow 1} s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}) = \frac{4 \pi^{n - \frac{1}{2}}}{n - 1} \frac{1}{\Gamma(\frac{n - 1}{2})\Gamma(\frac{n}{2})} r^{n - 1} > 0.
 	\end{gather*}
 
-	Notice, that the limits are independent of \( R \) and \( T \). Also both limits are
-	positive. Nonetheless for \( T  \) big enough, there will exist some interval in \(
-	(0,1) \) such that the difference is negative. \\
+	Notice, that the limits are independent of \( R \) and \( T \). Also, both limits are positive.
+	Nonetheless, for \( T \) big enough, there will exist some interval in \( (0, 1) \) such that the
+	difference is negative. \\
 
-	\begin{TODO}
-		Elaborate or justify
-	\end{TODO}
-	The upper bound \Cref{eq:210} is continuous in \( T \) for all \( s \in (0,1) \) and for
-	\( T \to \infty \), the third term vanishes. Thus for \( s,T \) large enough, the upper
-	bound behaves similar to the upper bound in the proof of \Cref{thm:201}. Thus there
-	exists some \( s \in (0,1) \) such that the difference is negative. \\
-	Since the limit for \( s \searrow 0 \) is independent of \( T \) and positive and by
-	~\cite[Eq. (3.2)]{dipierro2012asymptotics} we have that \( s \L(B_{R+T}\setminus B_{R}  , B_{r} ) \to 0 \) for \( s \searrow 0 \).
-	Thus the limits in \( s = 0 \) and \( s=1 \) are not only upper bounds but exact values.
-	\\
+	The upper bound \Cref{eq:210} is continuous in \( T \) for all \( s \in (0, 1) \) and for \( T \to
+	\infty \) the third term vanishes. Thus, the upper bound converges pointwise to the upper bound in
+	the proof of \Cref{thm:201}. Thus, for \( T \) big enough there exists some \( s \in (0, 1) \) such
+	that the difference is negative. \\
 
-	Thus we can conclude, that there exists an interval \( (s_0, s_1) \) such that for all
-	\( s \in (s_{0} , s_{1} ) \) the minimizer is not the external data itself.
+	The limit for \( s \searrow 0 \) is independent of \( T \), positive and by~\cite[Eq.
+		(3.2)]{dipierro2012asymptotics} we have that \( s \L(B_{R + T}\setminus B_R, B_r) \to 0 \) for \(
+	s \searrow 0 \), thus the limits in \( s = 0 \) and \( s = 1 \) are not only upper bounds but
+	exact values. \\
+
+	Thus, we can conclude, that there exists an interval \( (s_0, s_1) \) such that for all \( s \in
+	(s_0, s_1) \) the minimizer is not the external data itself.
 
 \end{proof}
 
-\begin{TODO}
-	Give some conclusion and interpretation of these results
-\end{TODO}
+When comparing both theorems and their proofs, we notice that the example with bounded external
+data doesn't seem to converge to the example of unbounded external data, at least in the limit for
+\( s \searrow 0 \). This is interesting, as this entails, that if we want to analyze the limiting
+behavior of a minimizer for \( s \searrow 0 \) we cannot restrict the boundary data to be bounded or
+unbounded as the behavior might be different. \\
 
-When comparing both theorems and their proofs, we notice that the example with bounded
-exxternal data doesn't seem to converge to the example of unbounded external data. At
-least in the limit for \( s \searrow 0 \). This is interesting, as this entails, that if
-we want to analyze the limiting behavior of a minimizer for \( s \searrow 0 \) we cannot
-restrict the boundary data to be bounded or unbounded.
+In conclusion, if we are in the setting of having external data \( E_0 \) and prescribed set \(
+\Omega \) with nonzero distance, then we cannot assume the minimizer to be the external data.
+Whereas for classical minimal surfaces we can do that, nonlocal minimal surfaces can generate mass
+completely disconnected from its external data. Since for \( s \nearrow 1 \) the fractional
+perimeter behaves like the classical perimeter, we can at least say that for \( s \) close to 1 the
+minimizer will be the external data. Additionally, if we have bounded set \( E_0 \) and \( \Omega
+\) then by the work of the authors of~\cite{dipierro2012asymptotics} we can conclude the same.
+However, for general \( s \in (0, 1) \) we cannot do the same. \\
+Nonetheless, we suspect that for \( E_0 \) and \( \Omega \) with zero distance, that there exists
+no connected component \( E_1 \) part of the minimizer such that \( E_1 \) has nonzero distance
+from \( E_0 \).

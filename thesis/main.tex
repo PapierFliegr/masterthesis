@@ -8,7 +8,7 @@ english,% or `german`
 math=ams, % math font `newpxtx`; alternatives: `ams`, `pxtx`
 BCOR=0mm,% binding correction - adapt accordingly
 coverBCOR=11mm, % binding correction for the cover - adapt accordingly
-openany
+openany % open chapters on any page
 ]{tumbook}
 
 
@@ -41,7 +41,8 @@ openany
 % \input{chapters/appendix.tex}
 % \listoffigures % may be removed
 % \listoftables % may be removed
-\nocite{*} % include all references 
+\nocite{*} % include all references
+\renewcommand{\UrlFont}{\small\ttfamily}
 \printbibliography{} % print bibliography
 
 \end{document}
