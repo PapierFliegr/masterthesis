@@ -15,28 +15,34 @@ nonlocal case as well. \\
 Indeed, if we could show that, then the existence of the cylinder \( Z_R \) is enough to conclude
 that the minimizer is connected. Assume there exists a part of the minimizer that is not connected
 to the cylinder and the external data, i.e.\ there exists a set \( E_1 \) such that \( \dist(E_1,
-E_0 \cup Z_R) > 0 \). Then we can rewrite the fractional perimeter of \( E_M \coloneqq E_0 \cup E_1
-\cup Z_R \) relative to \( \Omega \) as follows:
+E_0 \cup A) > 0 \) with \( A\coloneqq E_M \setminus (E_0 \cup E_1) \). We can assume that \( A \) is
+connected and notice that \( Z_R \subset A \). Then we can rewrite the fractional perimeter of \(
+E_M \coloneqq E_0 \cup A \cup E_1 \) relative to \( \Omega \) as follows:
 \begin{align*}
 	\Per{s}{E_M}{\Omega}
 	 & = \L(E_M \cap \Omega, E_M^c) + \L(E_M \setminus \Omega, \Omega \setminus E_M) \\
-	 & = \L(E_1 \cup Z_R, E_M^c) + \L(E_0, \Omega \setminus (E_1 \cup Z_R)) \\
-	 & = \L(E_1, E_M^c) + \L(Z_R, E_M^c) + \L(E_0 \cup Z_R, \Omega \setminus (E_1 \cup Z_R)) - \L(Z_R, \Omega \setminus (E_1 \cup Z_R)) \\
-	 & = \Per{s}{E_M}{\Omega \setminus Z_R} + \L(Z_R, {(E_0 \cup Z_R)}^c).
+	 & = \L(E_1 \cup A, E_M^c) + \L(E_0, \Omega \setminus (E_1 \cup A)) \\
+	 & = \L(E_1, E_M^c) + \L(A, E_M^c) + \L(E_0 \cup A, \Omega \setminus (E_1 \cup A)) - \L(A, \Omega \setminus (E_1 \cup A)) \\
+	 & = \Per{s}{E_M}{\Omega \setminus A} + \L(A, {(E_0 \cup A)}^c).
 	\tagged\label{eq:201}
 \end{align*}
-
 Notice that the second term in \Cref{eq:201} is now independent of \( E_1 \), thus to minimize \(
-\Per{s}{E_M}{\Omega} \) we can minimize \( \Per{s}{E_M}{\Omega \setminus Z_R} \) instead.\\ We
-define a sequence of prescribed sets \( {(\Omega_n)}_n \) such that \( \Omega_n \subset
-\Omega_{n + 1} \subset \Omega \) and \( \dist(E_0 \cup Z_R, \Omega_n) = \frac{d}{n} \), where \( d
-\coloneqq \dist(E_0 \cup Z_R, E_1) \). Then for each \( n \) we are in the situation of fully
-disconnected external data, here \( E_0 \cup Z_R \), and prescribed set, here \( \Omega_n \). If our
-assumption is correct, then we could conclude
+\Per{s}{E_M}{\Omega} \) we can first minimize \( \L(A, {(E_0 \cup A)}^c) \) over \( A \) and then
+minimize \( \Per{s}{E_M}{\Omega \setminus A} \). \\
+
+We define a sequence of prescribed sets \( {(\Omega_n)}_n \) such that \( \Omega_n \subset \Omega_{n
+	+ 1} \subset \Omega \) and \( \dist(E_0 \cup A, \Omega_n) = \frac{d}{n} \), where \( d \coloneqq
+\dist(E_0 \cup A, E_1) \). Then for each \( n \) we are in the situation of fully disconnected
+external data, here \( E_0 \cup A \), and prescribed set, here \( \Omega_n \). If our assumption,
+that nonlocal minimizers behave like the classical minimizers for disconnected external data and
+prescribed set, is correct, then we could conclude
 \begin{gather*}
-	\Per{s}{E_M}{\Omega \setminus Z_R} \geq \Per{s}{E_M}{\Omega_n} \geq \Per{s}{E_0}{\Omega_n} \nwarrow \Per{s}{E_0}{\Omega \setminus Z_R}.
+	\Per{s}{E_M}{\Omega \setminus A} \geq \Per{s}{E_M}{\Omega_n} \geq \Per{s}{E_0}{\Omega_n} \nearrow \Per{s}{E_0}{\Omega \setminus A}.
 \end{gather*}
-Thus, there cannot exist a set \( E_1 \) fully detached from \( E_0 \cup Z_R \). \\
+That is, if there exists a set \( E_1 \) fully detached from \( E_0 \cup A \), then its fractional
+perimeter relative to \( \Omega \) is larger than the fractional perimeter of \( E_0 \cup A \)
+relative to \( \Omega \). Thus, there couldn't exist a set \( E_1 \) fully detached from \( E_0 \cup
+Z_R \). \\
 
 As it turns out, this is \emph{not} true in general, and thus we cannot state connectedness just with the
 existence of the cylinder in the minimizer.\\
@@ -221,8 +227,8 @@ prescribed set \( \Omega = B_r \). \\
 In~\cite{Caffarelli2011} the authors have shown that for \( s \nearrow 1 \) the fractional perimeter
 behaves like the classical perimeter. Thus, we can expect that for \( s \) large enough the minimizer
 should be the external data itself. In~\cite{dipierro2012asymptotics} the authors have shown that
-for bounded sets with nonzero distance and \( s \) small enough the minimizer is the external data
-itself as well. \\
+for bounded sets, say \( A \) and \( B \), the interaction multiplied with \( s \) goes to zero as
+\( s \searrow 0 \), that is \( s \L(A, B) \to 0 \) as \( s \searrow 0 \), see~\cite[Eq. (3.2)]{dipierro2012asymptotics}.
 
 \begin{theorem}
 	\label{thm:201}
@@ -352,7 +358,7 @@ itself as well. \\
 	\end{gather*}
 
 	Now we multiply by \( s(1 - s) \) again to deal with the singularities at \( s = 0 \), \( s = 1 \)
-  and take the limits
+	and take the limits
 	\begin{gather*}
 		\lim_{s \searrow 0} s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}) = \frac{4 \pi^n}{n} \frac{1}{{(\Gamma(\frac{n}{2}))}^2} r^n > 0,
 	\end{gather*}
@@ -391,9 +397,12 @@ In conclusion, if we are in the setting of having external data \( E_0 \) and pr
 Whereas for classical minimal surfaces we can do that, nonlocal minimal surfaces can generate mass
 completely disconnected from its external data. Since for \( s \nearrow 1 \) the fractional
 perimeter behaves like the classical perimeter, we can at least say that for \( s \) close to 1 the
-minimizer will be the external data. Additionally, if we have bounded set \( E_0 \) and \( \Omega
-\) then by the work of the authors of~\cite{dipierro2012asymptotics} we can conclude the same.
-However, for general \( s \in (0, 1) \) we cannot do the same. \\
-Nonetheless, we suspect that for \( E_0 \) and \( \Omega \) with zero distance, that there exists
-no connected component \( E_1 \) part of the minimizer such that \( E_1 \) has nonzero distance
-from \( E_0 \).
+minimizer will be the external data. Additionally, if we have bounded set \( E_0 \) and \( \Omega \)
+then by the work of the authors of~\cite{dipierro2012asymptotics} we can conclude the same. However,
+for general \( s \in (0, 1) \) we cannot do the same. \\
+
+Nonetheless, we suspect that for \( E_0 \) and \( \Omega \) with zero distance, that there exists no
+connected component \( E_1 \) part of the minimizer such that \( E_1 \) has nonzero distance from \(
+E_0 \). This conjecture is based on the idea, that for two sets of the same size, the one connected
+to either \( E_0 \) or \( \Omega \) will expose less surface area than the one connected to neither
+and thus will have a smaller fractional perimeter relative to \( \Omega \).
