@@ -3,23 +3,23 @@
 
 \emph{Minimal surfaces} - During the 18th century mathematicians like \emph{Euler} and
 \emph{Lagrange} concerned themselves with the problem of finding the set of smallest surface area
-given some contour, often referred to as the \emph{Plateau Problem}. The solution of such a problem is
-called \emph{Minimal Surface} and the work of Euler and Lagrange laid the foundation for the study
-of those. While not solving the Plateau Problem themselves, they found necessary conditions on these
-surfaces, namely the \emph{Euler-Lagrange equations}~\cite{Maggi_2012}. Nowadays, we have multiple
-tools to define and characterize minimal surfaces, among those the concept known as
+given some contour, often referred to as the \emph{Plateau Problem}. The solution of such a problem
+is called \emph{Minimal Surface} and the work of Euler and Lagrange laid the foundation for the
+study of those. While not solving the Plateau Problem themselves, they found necessary conditions on
+these surfaces, namely the \emph{Euler-Lagrange equations}~\cite{Maggi_2012}. Nowadays, we have
+multiple tools to define and characterize minimal surfaces, among those the concept known as
 \emph{Perimeter}. The modern understanding of the perimeter is due to the work of \emph{Caccioppoli}
 and \emph{De Giorgi} in the 20th century~\cite{Maggi_2012}. Roughly speaking, the perimeter of a set
-can be understood as the area of the boundary of the set, more on that in \Cref{sec:001}. With the
-concept of the perimeter, we can define a minimal surface as the set which has the smallest
+can be understood as the surface area of the boundary of the set, more on that in \Cref{sec:001}.
+With the concept of the perimeter, we can define a minimal surface as the set which has the smallest
 perimeter given some external data. In modern times, minimal surfaces have found many applications,
 from understanding physical phenomena like soap films and black holes to informing the design of
-optimal structures in engineering and architecture.\\
+optimal structures in engineering and architecture. \\
 
 In this thesis, we want to explore a rather recent concept of minimal surfaces, namely
 \emph{Nonlocal Minimal Surfaces}, which were first introduced by \emph{Cafarelli},
-\emph{Roquejoffre}, and \emph{Savin} in 2010~\cite{caffarelli2009nonlocal}. For that purpose, we will first give a short
-introduction to the theory of minimal surfaces in the context of this work.
+\emph{Roquejoffre}, and \emph{Savin} in 2010~\cite{caffarelli2009nonlocal}. For that purpose, we
+will first give a short introduction to the theory of minimal surfaces in the context of this work.
 
 \section{Classical Minimal Surfaces}
 \label{sec:001}
@@ -29,8 +29,7 @@ The study of minimal surfaces concerns itself with finding the set of least surf
 define some tools~\cite{Cozzi2017}.
 
 \begin{definition}
-	Let \( E \subset \mathbb{R}^n \) be a set with smooth boundary, then the surface area or
-	\emph{perimeter}
+	Let \( E \subset \mathbb{R}^n \) be a set with smooth boundary, then the \emph{perimeter}
 	of \( E \) is given by
 	\begin{gather*}
 		\Per{}{E}{} \coloneqq \sup \left\{\int_{\partial E} \varphi \cdot \nu_E \dd{\mathcal{H}^{n - 1}} \mid \varphi \in C_c^1 (\mathbb{R}^n, \mathbb{R}^n), \lvert \varphi \rvert \leq 1 \right\},
@@ -52,10 +51,11 @@ smooth boundary and allows us to define the surface area for general sets.
 \end{definition}
 
 Even now, without the explicit integration over the boundary of the set, we can understand the
-perimeter in a sense as the surface area of the boundary. In fact, De Giorgi and Federer have shown
-that the perimeter of a set coincides with the \( (n\!-\!1) \)-dimensional Hausdorff measure of a
-suitable subset of the topological boundary of the set~\cite{Fleming_2020}. This supports the idea
-that the perimeter of a set can be understood as the surface area of the set's boundary. \\
+perimeter in a sense as the surface area of the boundary. In fact, \emph{De Giorgi} and
+\emph{Federer} have shown that the perimeter of a set coincides with the \( (n\!-\!1) \)-dimensional
+Hausdorff measure of a suitable subset of the topological boundary of the set~\cite{Fleming_2020}.
+This supports the idea that the perimeter of a set can be understood as the surface area of the
+set's boundary. \\
 
 Usually we are interested in the minimization of the perimeter of a set relative to some external
 data. Thus, we need a tool which allows us to localize the area of interest.
@@ -131,6 +131,10 @@ and \emph{Savin} in 2010~\cite{caffarelli2009nonlocal}.
 	\end{gather*}
 \end{definition}
 
+Intuitively, we can understand the parameter \( s \) as the grade of nonlocality. Indeed, for
+smaller \( s \) the contribution of points further away from each other have a bigger impact on the
+fractional perimeter.
+
 \begin{corollary}
 	\label{cor:001}
 	The fractional perimeter is translation invariant and positive homogeneous of grade \( n-s \).
@@ -152,15 +156,10 @@ and \emph{Savin} in 2010~\cite{caffarelli2009nonlocal}.
 	\end{align*}
 \end{proof}
 
-Intuitively, we can understand the parameter \( s \) as the grade of nonlocality. Indeed, for
-smaller \( s \) the contribution of points further away from each other have a bigger impact on the
-fractional perimeter.
-
 \begin{note}
-	Here we consider the definition of the fractional perimeter given by the authors in~\cite{Caffarelli2011}. 
-  Other papers like~\cite{mazon2019nonlocal} define a more
-	general definition of the fractional perimeter with some nonlocal kernel \( K: \mathbb{R}^n \to
-	[0, \infty] \), \( K \not\equiv \infty \)
+	Here we consider the definition of the fractional perimeter given by the authors in~\cite{Caffarelli2011}. \\ 
+  Other papers like~\cite{mazon2019nonlocal} define a more general definition of the fractional perimeter 
+  with some nonlocal kernel \( K: \mathbb{R}^n \to [0, \infty] \), \( K \not\equiv \infty \)
 	\begin{gather*}
 		\Per{K}{E}{} \coloneqq \int_E \int_{E^c} K(x - y) \dd{y} \dd{x}.
 	\end{gather*}
