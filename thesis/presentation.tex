@@ -1,0 +1,413 @@
+\documentclass[9pt]{beamer}
+
+\usepackage{import}
+\usepackage{amsmath, mathtools, amsfonts, amsthm} % math symbols
+\usepackage{marvosym}
+\usepackage{mathrsfs}
+\usepackage[%
+	backend=bibtex, %, or `biber` on more up-to-date systems
+	sortcites, % sort automatically
+	sorting=nyt, % sort order
+	safeinputenc, % solves problems with unicode-formatted author names etc.
+	style=numeric,
+	hyperref=true, % provide clickable links
+	% maxnames=3, % shorten author list for more than 3 names
+	% url=false, % do not print URLs
+	% doi=false, % do not print DOIs
+	giveninits=true, % prints initials of first names
+]%
+{biblatex}
+\addbibresource{preamble/literature.bib}
+
+\input{preamble/commands.tex}
+
+\definecolor{tumblue}{HTML}{3070b3}
+\definecolor{tumorange}{HTML}{ef9067}
+\definecolor{tumgrey}{HTML}{6a757e}
+
+\setbeamerfont{date}{size=\footnotesize}
+\setbeamercolor{titlelike}{fg=tumblue}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamercolor{caption name}{fg=tumblue}
+\setbeamerfont{block title}{series=\normalsize}
+\setbeamercolor{block title}{fg=tumblue}
+\setbeamercolor{itemize item}{fg=tumblue}
+\setbeamertemplate{itemize item}[circle]
+\setbeamercolor{bibliography item}{fg=tumblue}
+\setbeamercolor*{bibliography entry author}{fg=tumblue}
+
+\setbeamertemplate{headline}{
+  \vspace{1em}
+  \hfill
+  \includegraphics[width=0.1\textwidth]{figures/TUMlogo.png}
+  \hspace{1em}\vspace{-1em}
+}
+\setbeamertemplate{footline}{
+  \hfill
+  \insertframenumber / \inserttotalframenumber
+  \hspace{1em}\vspace{1em}
+}
+
+\title{\textbf{\textcolor{black}{On the Connectedness of Nonlocal Minimal Surfaces in a Cylinder with (un)bounded Boundary Data}}}
+\author{\textbf{\textcolor{tumblue}{
+  Mohamed Noah Abdel Wahab \\ 
+  \scriptsize Master Thesis supervised by: Prof.\ Dr.\ Marco Cicalese, Dr.\ Fumihiko Onoue
+}}}
+\institute{\textcolor{tumblue}{
+  \scriptsize {Department of Mathematics \\ School of Computation, Information, and Technology \\ Technical University of Munich}}}
+\date{10.06.2024}
+
+\begin{document}
+
+\maketitle
+
+
+
+\begin{frame}{Introduction}
+  \framesubtitle{Historical Background}
+  \begin{itemize}
+    \item<+-> \emph{Euler} and \emph{Lagrange} were among the first to study minimal surfaces in the
+      18th century
+    \item<+-> They developed an important tool to study minimal surfaces, the \emph{Euler-Lagrange
+      equations}
+    \item<+-> The concept of \emph{Perimeter} is nowadays used to study minimal surfaces
+    \item<+-> Minimal surfaces can be defined as the set with the least perimeter given some
+      constraints 
+    \item<+-> We consider a rather new concept of minimal surfaces, the \emph{Nonlocal Minimal Surfaces}
+      as defined in the seminal work of Cafarelli, Roquejoffre and Savin~\cite{caffarelli2009nonlocal}
+  \end{itemize}
+  % \uncover<+->{In the following any set is assumed to be Lebesgue measurable and has at least Lipschitz boundary.}
+\end{frame}
+
+\begin{frame}{Introduction}
+  \framesubtitle{Soap Film}
+ \begin{figure}[ht]
+  \centering
+  \def\svgwidth{\textwidth}
+  \import{figures/soap_film}{soap_film.pdf_tex}
+  % \caption{caption}
+  \label{fig:002}
+ \end{figure}
+\end{frame}
+
+\begin{frame}{Introduction}
+  \framesubtitle{Nonlocal Perimeter}
+
+	%  \begin{definition}[Classical Perimeter]
+	%  \label{def:001}
+	%   Let \( E \subset \mathbb{R}^n \), then the perimeter of \( E \) is given by
+	% \begin{gather*}
+	% 	\Per{}{E}{} \coloneqq \sup \left\{\int_E \div \varphi \mid \varphi \in C_c^1 (\mathbb{R}^n, \mathbb{R}^n), \lvert \varphi \rvert \leq 1 \right\}.
+	% \end{gather*} 
+	%  \end{definition}
+
+  \begin{definition}[Nonlocal Perimeter]
+  \label{def:002}
+  Let \( E \subset \mathbb{R}^n \) and \( s \in (0, 1) \), then the \( s \)-perimeter
+	or fractional perimeter of \( E \) is given by
+	\begin{gather*}
+		\Per{s}{E}{} \coloneqq \int_E \int_{E^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x}.
+	\end{gather*}
+  \end{definition}
+
+  \begin{definition}[Relative Nonlocal Perimeter]
+    \label{def:006}
+    Let \( E \subset \mathbb{R}^n \), \( \Omega \subset \mathbb{R}^n \) bounded and \(
+	  s \in (0, 1) \), then the \( s \)-perimeter of \( E \) relative to \( \Omega \) is given by
+	  \begin{gather*}
+		  \Per{s}{E}{\Omega} \coloneqq \int_{E \cap \Omega}  \int_{E^c} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x} + \int_{E \setminus \Omega}  \int_{\Omega \setminus E} \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x}.
+    \end{gather*}
+  \end{definition}
+
+\end{frame}
+
+% \begin{frame}{Introduction}
+%   \begin{definition}
+%    Let \( A, B \subset \mathbb{R}^n \) and \( s \in (0, 1) \), then the interaction of \(
+%    A \) and \( B \) is given by
+%    \begin{gather*}
+%     \L (A, B) \coloneqq \int_A \int_B \frac{1}{\lvert x - y \rvert^{n + s}} \dd{y} \dd{x}.
+%    \end{gather*}
+%   \end{definition}
+% 	 \begin{definition}[Relative Nonlocal Perimeter]
+% 	 \label{def:006}
+% 	 Let \( E \subset \mathbb{R}^n \), \( \Omega \subset \mathbb{R}^n \) bounded and \(
+% 	s \in (0, 1) \), then the \( s \)-perimeter of \( E \) relative to \( \Omega \) is given by
+% 	\begin{gather*}
+% 		\Per{s}{E}{\Omega} \coloneqq \L (E \cap \Omega, E^c) + \L(E \setminus \Omega, \Omega \setminus E).
+% 	\end{gather*}
+% 	 \end{definition}
+% \end{frame}
+
+\begin{frame}{Introduction}
+  \framesubtitle{Rotated pixelated square}
+ \begin{columns}
+  \column{0.5\textwidth}
+  \begin{figure}[ht]
+    \def\svgwidth{\textwidth}
+    \import{figures/rotated_square}{rotated_square.pdf_tex}
+   \label{fig:004}
+  \end{figure}
+  \column{0.5\textwidth}
+    Pixelsize: \( \rho \), Square Sidelength: \( 1 \) \\ 
+    \begin{itemize}
+      \item<2-> Actual Perimeter: \( 4 \) \\
+      \item<3-> Classical Perimeter of pixelated Square: \( 4 \sqrt{2} \) \\ 
+      \item<4-> Nonlocal Perimeter of pixelated Square: \( \sim 4 + \rho ^{1-s} \) \\
+    \end{itemize}
+  \end{columns} 
+\end{frame}
+
+\begin{frame}{Introduction}
+  % \framesubtitle{Nonlocal Minimal Surface}
+  \begin{definition}[Nonlocal Minimal Surface]
+  \label{def:004}
+    	Let \( \Omega \subset \mathbb{R}^n \) bounded and \( E_0 \subset \mathbb{R}^n \), then we want to
+	find \( E \subset \mathbb{R}^n \) such that \( E \) minimizes the fractional perimeter of \( E_0 \)
+	relative to \( \Omega \), i.e.
+	\begin{gather*}
+		\Per{s}{E}{\Omega} = \min \left\{\Per{s}{F}{\Omega} \mid F \setminus \Omega = E_0 \setminus \Omega \right\}.
+	\end{gather*}
+  This set \( E \) is then called \emph{Nonlocal Minimal Surface}.
+  \end{definition}
+\end{frame}
+
+\begin{frame}{Aim}
+  Generalization of the result of Dipierro, Onoue and Valdinoci~\cite{dipierro2020disconnectedness}.
+  \begin{figure}[ht]
+   \centering
+    \import{figures/model_compare}{model_compare.pdf_tex}
+   \caption{Left: Model in~\cite{dipierro2020disconnectedness}. Right: Generalization.}
+   \label{fig:001}
+  \end{figure} 
+\end{frame}
+
+\begin{frame}{Preliminaries}
+
+  \begin{block}{Properties of Nonlocal Perimeter}
+    \begin{itemize}
+      \item \( \lim_{s \to 1^{-}} (1-s) \Per{s}{E}{\Omega} = c \Per{}{E}{\Omega} \) for any \( E \)
+        with finite classical Perimeter
+      \item \( \lim_{s \to 0^{+}} s \int_{A}^{} \int_{B}^{} \frac{1}{{ \lvert x-y \rvert } ^{n+s} }  \dd{y}  \dd{x}  = 0 \) for any \( A, B \) such that \( \dist(A,B) > 0 \) 
+    \end{itemize}
+  \end{block}
+
+  \begin{theorem}[Euler-Lagrange Equation]
+  \label{thm:001}
+    Let \( E \subset \mathbb{R}^n \) be a nonlocal minimal surface relative to some set \( \Omega \). If
+    \( E \cap \Omega \) has an interior tangent ball at some point \( q \in \partial E \cap \Omega \),
+    then
+    \begin{gather*}
+    	\int_{\mathbb{R}^n} \frac{\chi_{E^c} (y) - \chi_E (y)}{\lvert y-q \rvert^{n + s}} \dd{y} \geq 0.
+    \end{gather*}
+  \end{theorem}
+
+\end{frame}
+
+\begin{frame}{Problem Setting}
+  \begin{gather*}
+    E_R \coloneqq \{(x^\prime, x_n ) \mid \lvert x^\prime \rvert < 1, M < \lvert x_n \rvert < M + R \} \subset E_0 \subset \{(x^\prime, x_n) \mid \lvert x_n \rvert > M \} \\ 
+    \Omega \coloneqq \{(x^\prime, x_n) \mid \lvert x^\prime \rvert < 1, \lvert x_n \rvert < M \} 
+  \end{gather*}
+  \begin{figure}[ht]
+   \centering
+    \def\svgwidth{0.8\textwidth}
+    \import{figures/model_general}{model_general_base.pdf_tex}
+   \label{fig:003}
+  \end{figure}
+  
+\end{frame}
+
+\begin{frame}{Main Results}
+  \begin{theorem}[Connectedness of Nonlocal Minimal Surface]
+  \label{thm:003}
+    For \( E_0 \) and \( \Omega \) as above and any \( R > 0 \) there exists an \( M_0 \in (0, 1) \)
+	  depending on the dimension, \( R \) and \( s \), such that for any \( M \in (0, M_0) \) the
+	  minimizer \( E_M \) is given by \( E_M = E_0 \cup \Omega \).
+  \end{theorem}
+
+  \begin{theorem}[Disconectedness of Nonlocal Minimal Surface]
+  \label{thm:004}
+    For \( E_0 \) and \( \Omega \) as above and any \( R > 0 \) there exists an \( M_0 > 1 \)
+	  depending on the dimension, \( R \) and \( s \), such that for any \( M > M_0 \) the minimizer \(
+	  E_M \) is disconnected.
+  \end{theorem}
+\end{frame}
+
+\begin{frame}{Proof Idea of Main Results}
+  \framesubtitle{Connectedness of Nonlocal Minimal Surface}
+
+  % Proof per contradiction: Assume \( E_{M} \neq E_{0} \cup \Omega \), then 
+  \uncover<3->{
+  \begin{flalign*}
+    0 \leq \int_{\mathbb{R}^n} \frac{\chi_{E^c} (y) - \chi_E (y)}{\lvert y-q \rvert^{n + s}} \dd{y}
+    \only<6>{\leq -c_{0} M^{-s}}
+    \only<7>{\leq -c_{0} M ^{-s} + c_{1} 2^{-s}}
+    \only<8>{\leq -c_{0} M ^{-s} + c_{1} (2^{-s} + r_{0}^{-s}-{(R+2)}^{-s})}
+    \only<9>{\leq -c_{0} M ^{-s} + c_{1} (2^{-s} + 1-{(R+2)}^{-s})}
+    \only<10>{\leq -c_{0} M ^{-s} + c_{1} (2^{-s} + 1-{(R+2)}^{-s}) < 0 \textup{ \Lightning} }
+    &&
+\end{flalign*}}
+
+  \only<1>{
+    \begin{figure}[ht]
+      \def\svgwidth{0.7\textwidth}
+      \import{figures/model_general}{model_general_base.pdf_tex}
+    \end{figure}}
+  \only<2>{
+    \begin{figure}[ht]
+      \def\svgwidth{0.7\textwidth}
+      \import{figures/model_general}{model_general_minimizer.pdf_tex}
+    \end{figure}}
+  \only<3>{
+    \begin{figure}[ht]
+      \def\svgwidth{0.7\textwidth}
+      \import{figures/model_general}{model_general_ball01.pdf_tex}
+    \end{figure}}
+  \only<4>{
+    \begin{figure}[ht]
+      \def\svgwidth{0.7\textwidth}
+      \import{figures/model_general}{model_general_balls.pdf_tex}
+    \end{figure}}
+  \only<5>{
+    \begin{figure}[ht]
+      \def\svgwidth{0.7\textwidth}
+      \import{figures/model_general}{model_general_split.pdf_tex}
+    \end{figure}}
+  \only<6->{
+    \begin{figure}[ht]
+      \def\svgwidth{0.7\textwidth}
+      \import{figures/model_general}{model_general_mball.pdf_tex}
+    \end{figure}}
+    \uncover<5->{
+      \begin{gather*}
+        \textcolor{tumorange}{A} \coloneqq \{ \lvert x^\prime - q^\prime \rvert < 2, \lvert x_n - q_n \rvert < 2M \},
+        \quad
+        \textcolor{tumblue}{B} \coloneqq \{ \lvert x^\prime - q^\prime \rvert < 2, \lvert x_n - q_n \rvert < R \}
+      \end{gather*}
+    }
+\end{frame}
+
+\begin{frame}{Proof Idea of Main Results}
+  \framesubtitle{Disconnectedness of Nonlocal Minimal Surface}
+
+  \begin{align*}
+    \uncover<3->{0 \geq \int_{\mathbb{R}^n} \frac{\chi_{E_M^c} - \chi_{E_M}}{\lvert y - q \rvert^{n + s}} \dd{y}}
+      \uncover<4->{\geq \int_{\mathbb{R}^n} \frac{\chi_{F_M^c} - \chi_{F_M}}{\lvert y - q \rvert^{n + s}} \dd{y}}
+      \uncover<5->{ > 0 \textup{ \Lightning}}
+      &&
+  \end{align*}
+
+  \only<1>{
+    \begin{figure}[ht]
+      \def\svgwidth{0.7\textwidth}
+      \import{figures/model_general}{model_general_base.pdf_tex}
+    \end{figure}}
+  \only<2>{
+    \begin{figure}[ht]
+      \def\svgwidth{0.7\textwidth}
+      \import{figures/model_general_dis}{model_general_dis_minimizer.pdf_tex}
+    \end{figure}}
+  \only<3>{
+    \begin{figure}[ht]
+      \def\svgwidth{0.7\textwidth}
+      \import{figures/model_general_dis}{model_general_dis_ball.pdf_tex}
+    \end{figure}}
+  \only<4->{
+    \begin{figure}[ht]
+      \def\svgwidth{0.7\textwidth}
+      \import{figures/model_general_dis}{model_general_dis_old.pdf_tex}
+    \end{figure}}
+    
+  \uncover<4->{
+      \begin{gather*}
+        E_{0} \subset F_{0}, \qquad E_{0}^{c} \supset F_{0}^{c}
+      \end{gather*}}
+
+\end{frame}
+
+\begin{frame}{Related Results}
+  \begin{theorem}[Existence of Disconnected Minimizer for unbounded Data]
+  \label{thm:005}
+    Let \( n \geq 2 \) and \( 0 < r < R \). Let \( E_0 = B_R^c \) and \( \Omega = B_r \), then there
+	  exists an \( s_0 \in (0, 1) \) such that for all \( s \in (0, s_0) \) the minimizer is not the
+  	external data \( E_0 \) itself.
+  \end{theorem}
+  \begin{theorem}[Existence of Disconnected Minimizer for bounded Data]
+  \label{thm:006}
+    Let \( n \geq 2 \) and \( 0 < r < R \) and \( T > 0 \). Let \( E_0 = B_{R + T} \setminus B_R \)
+	  and \( \Omega = B_r \), then for any \( T \) large enough there exists \( s_0, s_1 \in (0, 1) \)
+	  such that for all \( s \in (s_0, s_1) \) the minimizer is not the external data \( E_0 \) itself.
+  \end{theorem}
+\end{frame}
+
+\begin{frame}{Example}
+  \begin{gather*}
+    \Omega = B_{1}, \quad \only<1-3>{E_{0} = B_{2}^{c}} \only<4>{E_{0} = B_{5000} \setminus B_{2}}
+  \end{gather*}
+  \only<1-3>{
+      \begin{align*}
+        \Per{s}{B_{2}^{c} \cup B_{1}}{B_{1}} - \Per{s}{B_{2}^{c} }{B_{1}}
+      \end{align*}}
+  \only<4>{
+    \begin{align*}
+      \Per{s}{B_{1}^{c} \cup (B_{5000} \setminus B_{2})}{B_{1}} - \Per{s}{B_{5000} \setminus B_{2}}{B_{1}}
+    \end{align*}}
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \only<1>{
+      \begin{figure}[ht]
+        \def\svgwidth{\textwidth}
+        \import{figures/split_domain}{base.pdf_tex}
+      \end{figure}}
+    \only<2->{
+      \begin{figure}[ht]
+      \def\svgwidth{\textwidth}
+      \import{figures/split_domain}{split_domain_beamer.pdf_tex}
+    \end{figure}}
+    \column{0.5\textwidth}
+    \only<3>{
+      \begin{figure}[ht]
+        \def\svgwidth{\textwidth}
+        \import{figures/2D_bounds}{2D_unbounded.pdf_tex}
+        \caption{Difference multiplied with \( s(1-s) \) and plotted for \( s \in (0,1) \) }
+      \end{figure}}
+    \only<4>{
+      \begin{figure}[ht]
+        \def\svgwidth{\textwidth}
+        \import{figures/2D_bounds}{2D_bounded.pdf_tex}
+        \caption{Difference multiplied with \( s(1-s) \) and plotted for \( s \in (0,1) \) }
+      \end{figure}}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Proof Idea of Related Results}
+  \begin{align*}
+    & \Per{s}{E_{0} \cup \Omega}{\Omega} - \Per{s}{E_{0}}{\Omega}
+    = \Per{s}{\only<1-3>{B_{R}^{c}}\only<4>{\textcolor{tumblue}{B_{R + T} \setminus B_R}} \cup B_{r}}{B_{r}} - \Per{s}{\only<1-3>{B_{R}^{c}}\only<4>{\textcolor{tumblue}{B_{R + T} \setminus B_R}}}{B_{r}} \\
+    \uncover<2->{& \quad = \Per{s}{B_{r}}{} - 2 \int_{B_{r}}^{} \int_{B_{R}^{c}}^{} \frac{1}{\lvert x-y \rvert ^{n+s} }  \dd{y}  \dd{x}} 
+    \uncover<4>{\textcolor{tumblue}{\ +\ 2 \int_{B_r} \int_{B_{R + T}^c} \frac{1}{\lvert x - y \rvert^{n - s}} \dd{y} \dd{x}}}
+  \end{align*}
+
+  \uncover<3->{
+  \begin{align*}
+    \only<1-3>{
+      \lim_{s \to 0^{+} } s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}) 
+    & = - \frac{4 \pi^n}{n} \frac{1}{{(\Gamma(\frac{n}{2}))}^2} r^n < 0 \\
+    \lim_{s \to 1^{-} } s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}) 
+    & = \frac{4 \pi^{n - \frac{1}{2}}}{n - 1} \frac{1}{\Gamma(\frac{n - 1}{2})\Gamma(\frac{n}{2})} r^{n - 1} > 0}
+    \only<4>{
+    \lim_{s \to 0^{+} } s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}) 
+    & = \frac{4 \pi^n}{n} \frac{1}{{(\Gamma(\frac{n}{2}))}^2} r^n \ \textcolor{tumblue}{>} \ 0 \\
+    \lim_{s \to 1^{-} } s(1 - s)(\Per{s}{E_0 \cup \Omega}{\Omega} - \Per{s}{E_0}{\Omega}) 
+    & = \frac{4 \pi^{n - \frac{1}{2}}}{n - 1} \frac{1}{\Gamma(\frac{n - 1}{2})\Gamma(\frac{n}{2})} r^{n - 1} > 0}
+  \end{align*}}
+\end{frame}
+
+\begin{frame}{Bibliography}
+  \renewcommand{\UrlFont}{\small\ttfamily}
+\printbibliography{} % print bibliography
+\end{frame}
+
+\end{document}
